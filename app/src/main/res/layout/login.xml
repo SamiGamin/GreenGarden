@@ -22,7 +22,8 @@
         android:layout_height="350dp"
         android:layout_marginBottom="20dp"
         app:cardCornerRadius="35dp"
-        app:cardElevation="16dp"
+        app:cardBackgroundColor="#4651C174"
+        app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -39,7 +40,7 @@
                 android:layout_marginTop="20dp"
                 android:text="@string/iniciar_c"
                 android:textStyle="bold"
-                android:textColor="@color/green"
+                android:textColor="@color/black"
                 android:textSize="30sp" />
 
 
@@ -77,6 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
+                android:textColorHint="@color/black"
                 android:layout_marginBottom="10dp"
                 android:text="Registrate aqui" />
 
@@ -85,8 +87,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="10dp"
-                android:textColor="#AE9393"
                 android:background="@drawable/google"
+                android:backgroundTint="@color/white"
                 android:text="Google" />
 
         </LinearLayout>
