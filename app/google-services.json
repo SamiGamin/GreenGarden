@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "526528636035",
+    "project_id": "greengarden-app-reto1",
+    "storage_bucket": "greengarden-app-reto1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526528636035:android:b70f249c19082c63b267b6",
+        "android_client_info": {
+          "package_name": "com.greengarden"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFONNgDGaGDlG5Zz2B3bW_yVzhN5WNdtk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
