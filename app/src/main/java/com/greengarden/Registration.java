@@ -3,9 +3,11 @@ package com.greengarden;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.greengarden.datos.DatePickerHelper;
+import com.greengarden.datos.SelectorOpcion;
 
 public class Registration extends AppCompatActivity {
 
