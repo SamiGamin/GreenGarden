@@ -2,26 +2,43 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/long_text_recontrasena"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
     tools:context=".Login">
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/icono"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
+
+    <TextView
+        android:id="@+id/long_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:background="@drawable/titulo"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="@string/app_name"
+        android:textSize="28dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+
+        android:id="@+id/long_img_icon"
+        android:layout_width="210dp"
+        android:layout_height="180dp"
+        android:background="@drawable/icono"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/long_titulo" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:layout_height="450dp"
+        android:layout_marginBottom="20dp"
         app:cardBackgroundColor="#4651C174"
-        android:layout_marginBottom="10dp"
         app:cardCornerRadius="35dp"
         app:cardElevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,66 +47,101 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
             android:orientation="vertical">
 
             <TextView
+
+                android:id="@+id/long_tex_ingresar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/iniciar_c"
-                android:textColor="@color/black"
+                android:textColor="@color/green"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
 
+            <TextView
+                android:id="@+id/long_text_usuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Usuario"
+                android:textColor="@color/black"
+                android:textSize="28sp" />
+
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/long_editText_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="25dp"
                 android:ems="10"
-                android:textColor="@color/black"
                 android:inputType="textEmailAddress"
-                android:text="Email: " />
+                android:text="Email: "
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/long_text_contrase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Contraseña"
+                android:textColor="@color/black"
+                android:textSize="28sp" />
 
             <EditText
-                android:id="@+id/editTextText2"
+                android:id="@+id/long_editText_contrasena"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="25dp"
                 android:ems="10"
-                android:textColor="@color/black"
                 android:inputType="textPassword"
-                android:text="Contraseña: " />
+                android:text="Contraseña: "
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="28sp" />
 
-            <Button
+            <TextView
+                android:id="@+id/long_btn_ingresar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:text="@string/iniciar_c" />
+                android:background="@drawable/titulo"
+                android:padding="10dp"
+                android:text="@string/btningreso"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
 
             <TextView
+                android:id="@+id/long_tex_reduistrate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="Registrate aqui"
-                android:textColor="#FFFF00" />
+
+                android:layout_marginTop="20dp"
+                android:text="¿Eres nuevo? Regístrate"
+                android:textColor="#536DFE" />
 
             <TextView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:id="@+id/long_text_recuntrasena"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/google" />
+                android:layout_marginTop="8dp"
+                android:text="Recupera tu contraseña"
+                android:textColor="#7C4DFF" />
 
         </LinearLayout>
 

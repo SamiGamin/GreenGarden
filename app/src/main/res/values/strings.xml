@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">GreenGarden</string>
-    <string name="iniciar_c">Iniciar ceción</string>
+    <string name="iniciar_c">Iniciar Sesión</string>
+    <string name="btningreso">Ingresar</string>
     <string name="registro">Registro</string>
 </resources>
