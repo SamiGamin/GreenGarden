@@ -60,7 +60,7 @@ public class Registration extends AppCompatActivity {
         });***/
                DbConntactos dbConntactos = new DbConntactos(Registration.this);
                 long id = dbConntactos.insertarContactos(nombre.getText().toString(),fecha_de_nacimiento.getText().toString(),
-                        corre_eletronico.getText().toString(),usuario.getText().toString(),genero.getPrompt().toString(),
+                        corre_eletronico.getText().toString(),usuario.getText().toString(),
                         contrasena.getText().toString());
                 if (id > 0){
                     Toast.makeText(Registration.this, "REGISTRO GUARDADO", Toast.LENGTH_SHORT).show();
@@ -71,6 +71,8 @@ public class Registration extends AppCompatActivity {
             }
         });
     }
+
+
 
     private void limpiar() {
         nombre.setText("");
