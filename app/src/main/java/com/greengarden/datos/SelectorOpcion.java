@@ -1,8 +1,10 @@
-package com.greengarden;
+package com.greengarden.datos;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+
+import com.greengarden.R;
 
 public class SelectorOpcion {
     private Spinner spinner;
