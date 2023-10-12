@@ -188,7 +188,17 @@
         android:layout_height="40dp"
         android:layout_marginStart="150dp"
         android:background="@drawable/google"/>
-</LinearLayout>
+</LinearLayout> <TextView
+            android:id="@+id/crear_base_dt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/titulo"
+            android:padding="10dp"
+            android:text="Crear bs Datos"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
 
         </LinearLayout>
 
