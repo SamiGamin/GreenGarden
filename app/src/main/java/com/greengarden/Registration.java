@@ -72,6 +72,8 @@ public class Registration extends AppCompatActivity {
         });
     }
 
+
+
     private void limpiar() {
         nombre.setText("");
         fecha_de_nacimiento.setText("");
