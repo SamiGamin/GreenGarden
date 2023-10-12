@@ -18,7 +18,7 @@ import com.greengarden.datos.SelectorOpcion;
 
 public class Registration extends AppCompatActivity {
 
-    TextView registro, nombre,fecha_de_nacimiento,corre_eletronico,usuario,contrasena,google;
+    TextView registro,crearbase, nombre,fecha_de_nacimiento,corre_eletronico,usuario,contrasena,google;
     Spinner genero;
     CheckBox checkBox;
     private TextView editTextFechaNacimiento;
@@ -33,6 +33,7 @@ public class Registration extends AppCompatActivity {
         SelectorOpcion selectorOpcion = new SelectorOpcion(spinner);
 
         registro = findViewById(R.id.reg_btn_Registrarse);
+        crearbase = findViewById(R.id.crear_base_dt);
 
         nombre = findViewById(R.id.rg_name);
         fecha_de_nacimiento = findViewById(R.id.rg_fecha);
@@ -43,21 +44,26 @@ public class Registration extends AppCompatActivity {
         genero = findViewById(R.id.spinner);
         checkBox = findViewById(R.id.checkBox);
 
+        crearbase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 DbHelper dbHelper = new DbHelper(Registration.this);
+                 SQLiteDatabase db = dbHelper.getWritableDatabase();
+                 if (db != null){
+                 Toast.makeText(Registration.this, "BASE DE DATOS CREADA", Toast.LENGTH_SHORT).show();
+                 }else {
+                 Toast.makeText(Registration.this, "ERROR AL CREAR BASE DE DATOS", Toast.LENGTH_SHORT).show();
+                 }
+            }
+        });
+
+
 
         //guardatos
         registro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /***  DbHelper dbHelper = new DbHelper(Registration.this);
-                SQLiteDatabase db = dbHelper.getWritableDatabase();
-                if (db != null){
-                    Toast.makeText(Registration.this, "BASE DE DATOS CREADA", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(Registration.this, "ERROR AL CREAR BASE DE DATOS", Toast.LENGTH_SHORT).show();
-                }
 
-            }
-        });***/
                DbConntactos dbConntactos = new DbConntactos(Registration.this);
                 long id = dbConntactos.insertarContactos(nombre.getText().toString(),fecha_de_nacimiento.getText().toString(),
                         corre_eletronico.getText().toString(),usuario.getText().toString(),
