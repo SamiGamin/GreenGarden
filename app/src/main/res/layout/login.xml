@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/long_text_recontrasena"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/bgp"
     app:cardBackgroundColor="#C5FFFFFF"
-    android:layout_height="match_parent"
     tools:context=".Login">
 
     <androidx.cardview.widget.CardView
@@ -19,150 +19,168 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/long_titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
-        android:background="@drawable/titulo"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:text="@string/app_name"
-        android:textSize="28dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-
-        android:id="@+id/long_img_icon"
-        android:layout_width="210dp"
-        android:layout_height="180dp"
-        android:background="@drawable/icono"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/long_titulo" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="350dp"
-        android:layout_height="450dp"
-        android:layout_marginBottom="20dp"
-        app:cardBackgroundColor="#BE51C174"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="15dp"
-            android:orientation="vertical">
 
             <TextView
-
-                android:id="@+id/long_tex_ingresar"
+                android:id="@+id/long_titulo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="@string/iniciar_c"
-                android:textColor="@color/green"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-
-
-            <TextView
-                android:id="@+id/long_text_usuario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="Usuario"
-                android:textColor="@color/black"
-                android:textSize="28sp" />
-
-            <EditText
-                android:id="@+id/long_editText_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
-                android:ems="10"
-                android:textColorHint="@color/hingt"
-                android:inputType="textEmailAddress"
-                android:hint="Email: "
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="28sp" />
-
-            <TextView
-                android:id="@+id/long_text_contrase"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="Contraseña"
-                android:textColor="@color/black"
-                android:textSize="28sp" />
-
-            <EditText
-                android:id="@+id/long_editText_contrasena"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
-                android:ems="10"
-                android:textColorHint="@color/hingt"
-                android:inputType="textPassword"
-                android:hint="Contraseña: "
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="28sp" />
-
-            <TextView
-                android:id="@+id/long_btn_ingresar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/x_lg"
                 android:background="@drawable/titulo"
-                android:padding="10dp"
-                android:text="@string/btningreso"
-                android:textAlignment="center"
-                android:textColor="@color/white" />
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/app_name"
+                android:textSize="28dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/long_tex_reduistrate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+            <ImageView
 
-                android:layout_marginTop="20dp"
-                android:text="¿Eres nuevo? Regístrate"
-                android:textColor="#536DFE" />
+                android:id="@+id/long_img_icon"
+                android:layout_width="210dp"
+                android:layout_height="180dp"
+                android:background="@drawable/icono"
+                android:layout_marginTop="@dimen/lg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/long_titulo" />
 
-            <TextView
-                android:id="@+id/long_text_recuntrasena"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="8dp"
-                android:text="Recupera tu contraseña"
-                android:textColor="#7C4DFF" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/lg"
+                android:layout_marginStart="@dimen/sm"
+                android:layout_marginEnd="@dimen/sm"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="2dp"
 
-        </LinearLayout>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/long_img_icon">
 
-    </androidx.cardview.widget.CardView>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0.4"
+                    android:src="@drawable/icono" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+
+                        android:id="@+id/long_tex_ingresar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/iniciar_c"
+                        android:textColor="@color/green"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/long_text_usuario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="20dp"
+
+                        android:layout_marginEnd="25dp"
+                        android:textColor="@color/black"
+                        android:textSize="28sp"
+                        android:text="Usuario"/>
+
+                    <EditText
+                        android:id="@+id/long_editText_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="25dp"
+                        android:ems="10"
+                        android:hint="Email: "
+                        android:inputType="textEmailAddress"
+
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hingt"
+                        android:textSize="28sp" />
+
+                    <TextView
+                        android:id="@+id/long_text_contrase"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="20dp"
+
+                        android:layout_marginEnd="25dp"
+                        android:text="Contraseña"
+                        android:textColor="@color/black"
+                        android:textSize="28sp" />
+
+                    <EditText
+                        android:id="@+id/long_editText_contrasena"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="25dp"
+                        android:ems="10"
+                        android:hint="Contraseña: "
+                        android:inputType="textPassword"
+
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hingt"
+                        android:textSize="28sp" />
+
+                    <TextView
+                        android:id="@+id/long_btn_ingresar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/titulo"
+                        android:padding="10dp"
+                        android:text="@string/btningreso"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/long_tex_reduistrate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+
+                        android:layout_marginTop="20dp"
+                        android:text="¿Eres nuevo? Regístrate"
+                        android:textColor="#536DFE" />
+
+                    <TextView
+                        android:id="@+id/long_text_recuntrasena"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:text="Recupera tu contraseña"
+                        android:textColor="#7C4DFF" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
