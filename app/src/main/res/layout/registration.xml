@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardBackgroundColor="#6CFFFFFF"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -46,10 +45,12 @@
                         android:id="@+id/rg_name"
                         style="@style/text"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="25dp"
+                        android:background="@drawable/editex_bg"
+                        android:drawableLeft="@drawable/person"
                         android:ems="10"
                         android:hint="Nombre: "
                         android:inputType="text"
@@ -57,21 +58,14 @@
                         android:textColorHint="@color/hingt" />
 
 
-                    <!--<TextView
-                        android:id="@+id/textView2"
-                        style="@style/text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Fecha de nacimiento" />-->
-
-
-                    <TextView
+                    <EditText
                         android:id="@+id/rg_fecha"
                         style="@style/text"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
+                        android:background="@drawable/editex_bg"
                         android:clickable="true"
-                        android:drawableEnd="@drawable/calendario"
+                        android:drawableEnd="@drawable/calendar"
                         android:drawablePadding="16dp"
                         android:focusable="true"
                         android:gravity="center_vertical"
@@ -79,17 +73,9 @@
                         android:textColor="@color/black"
                         android:textColorHint="@color/hingt" />
 
-                    <!--<TextView
-                        android:id="@+id/textView3"
-                        style="@style/text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Género" />-->
-
                     <Spinner
                         android:id="@+id/spinner"
                         style="@style/text"
-
                         android:layout_width="match_parent"
                         android:layout_height="48dp" />
 
@@ -104,10 +90,12 @@
                         android:id="@+id/reg_editText_email"
                         style="@style/text"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="25dp"
+                        android:drawableLeft="@drawable/email"
+                        android:background="@drawable/editex_bg"
                         android:ems="10"
                         android:hint="Email: "
                         android:inputType="textEmailAddress"
@@ -125,10 +113,12 @@
                         android:id="@+id/reg_editText_usuario"
                         style="@style/text"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="25dp"
+                        android:background="@drawable/editex_bg"
+                        android:drawableLeft="@drawable/person"
                         android:ems="10"
                         android:hint="Usuario: "
                         android:inputType="textPersonName"
@@ -146,15 +136,32 @@
                         android:id="@+id/editTextcontrasena"
                         style="@style/text"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="25dp"
+                        android:background="@drawable/editex_bg"
                         android:ems="10"
+                        android:drawableLeft="@drawable/lock"
                         android:hint="Contraseña: "
                         android:inputType="textPassword"
                         android:textColor="@color/black"
-                        android:textColorHint="@color/hingt" />
+                        android:textColorHint="#322F2F" />
+                    <EditText
+                        android:id="@+id/editcofircontrasena"
+                        style="@style/text"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="25dp"
+                        android:background="@drawable/editex_bg"
+                        android:ems="10"
+                        android:drawableLeft="@drawable/lock"
+                        android:hint="Confirmar Contraseña: "
+                        android:inputType="textPassword"
+                        android:textColor="@color/black"
+                        android:textColorHint="#322F2F" />
 
                     <CheckBox
                         android:id="@+id/checkBox"
@@ -163,7 +170,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:text="Acepto términos  condiciones  tratamiento de datos"
-                        android:textColor="#736666"
+                        android:textColor="@color/hingt"
                         android:textSize="15sp" />
 
 
@@ -176,63 +183,22 @@
                         android:layout_marginBottom="20dp"
                         android:background="@drawable/titulo"
                         android:padding="10dp"
+                        android:onClick="registrarUsuario"
                         android:text="Registrarse"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textColorLink="#4654DD" />
-
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10sp"
-                    android:layout_marginEnd="25dp"
-                    android:orientation="horizontal">
-
                     <TextView
                         android:id="@+id/iniciar_Google"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="30sp"
-                        android:text="Registrate con:"
-                        android:textColor="#4F5050" />
-
-                    <TextView
-                        android:id="@+id/google"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="150dp"
-                        android:background="@drawable/google" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10sp"
-                    android:layout_marginEnd="25dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/crear_base_dt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="@dimen/sm"
-                        android:background="@drawable/titulo"
-                        android:padding="10dp"
-                        android:text="Crear bs Datos"
-                        android:textAlignment="center"
-                        android:textColor="@color/white" />
+                        android:text="Ya tienes una cuenta?:"
+                        android:textColor="#4E4EE5" />
+
+
                 </LinearLayout>
+
 
             </LinearLayout>
         </ScrollView>
