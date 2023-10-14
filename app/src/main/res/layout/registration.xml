@@ -37,9 +37,11 @@
                         android:id="@+id/textView"
                         style="@style/text"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:layout_marginTop="20sp"
+                        android:background="@drawable/editex_bg"
                         android:text="Nombres y apellidos" />
+
 
                     <EditText
                         android:id="@+id/rg_name"
@@ -57,8 +59,7 @@
                         android:textColor="@color/black"
                         android:textColorHint="@color/hingt" />
 
-
-                    <EditText
+                    <TextView
                         android:id="@+id/rg_fecha"
                         style="@style/text"
                         android:layout_width="match_parent"
@@ -74,8 +75,10 @@
                         android:textColorHint="@color/hingt" />
 
                     <Spinner
+                        android:background="@drawable/editex_bg"
                         android:id="@+id/spinner"
                         style="@style/text"
+                        android:drawableEnd="@drawable/expand"
                         android:layout_width="match_parent"
                         android:layout_height="48dp" />
 
@@ -83,7 +86,8 @@
                         android:id="@+id/textView4"
                         style="@style/text"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
+                        android:background="@drawable/editex_bg"
                         android:text="Correo electrónico" />
 
                     <EditText
@@ -106,7 +110,8 @@
                         android:id="@+id/textView5"
                         style="@style/text"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
+                        android:background="@drawable/editex_bg"
                         android:text="Usuario" />
 
                     <EditText
@@ -129,7 +134,8 @@
                         android:id="@+id/textView6"
                         style="@style/text"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
+                        android:background="@drawable/editex_bg"
                         android:text="Contraseña" />
 
                     <EditText
@@ -164,6 +170,7 @@
                         android:textColorHint="#322F2F" />
 
                     <CheckBox
+                        android:background="@drawable/editex_bg"
                         android:id="@+id/checkBox"
                         style="@style/text"
                         android:layout_width="match_parent"
@@ -188,8 +195,9 @@
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textColorLink="#4654DD" />
+
                     <TextView
-                        android:id="@+id/iniciar_Google"
+                        android:id="@+id/rg_login"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

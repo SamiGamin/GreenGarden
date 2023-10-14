@@ -2,6 +2,7 @@ package com.greengarden;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -24,9 +25,9 @@ import java.util.regex.Pattern;
 
 public class Registration extends AppCompatActivity {
 
-    TextView registro;
+    TextView registro,
+            fecha_de_nacimiento, login ;
     EditText nombre_usu,
-            fecha_de_nacimiento,
             corre_eletronico, usuario,
             contrasena, corfirmarContraseña;
     Spinner genero;
@@ -43,7 +44,7 @@ public class Registration extends AppCompatActivity {
         datePickerHelper = new DatePickerHelper(this, editTextFechaNacimiento);
         Spinner spinner = findViewById(R.id.spinner);
         SelectorOpcion selectorOpcion = new SelectorOpcion(spinner);
-
+        login = findViewById(R.id.rg_login);
         registro = findViewById(R.id.reg_btn_Registrarse);
         corfirmarContraseña = findViewById(R.id.editcofircontrasena);
         nombre_usu = findViewById(R.id.rg_name);
@@ -54,6 +55,14 @@ public class Registration extends AppCompatActivity {
         genero = findViewById(R.id.spinner);
         checkBox = findViewById(R.id.checkBox);
         miBdd = new BseDatos(getApplicationContext());
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent login = new Intent(Registration.this, Login.class);
+                startActivity(login);
+                finish();
+            }
+        });
     }
 
     public void registrarUsuario(View vista) {
@@ -67,12 +76,10 @@ public class Registration extends AppCompatActivity {
         // String Genero =genero.get().toString();
         DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
         String fecha_registro = df.format(Calendar.getInstance().getTime());
-        if (!checkBox.isChecked()){
-            Toast.makeText(this, "Por favor aceptar terminos y condiciones  ", Toast.LENGTH_SHORT).show();
-            return;
-        }
+
         if (nombre.isEmpty() || fechaN.isEmpty() || email.isEmpty() || Usuario.isEmpty() || password.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Para continuar con el registro llene todos los campos solicitados", Toast.LENGTH_SHORT).show();
+
 
         } else {
             if (contienSololetras(nombre) == false) {
@@ -91,6 +98,7 @@ public class Registration extends AppCompatActivity {
                         if (validarpassword(password) == false) {
                             Toast.makeText(this, "La contraseña debe tener numeros y letras", Toast.LENGTH_SHORT).show();
                         } else {
+
                             if (password.equals(passwordConfirmada)) {
                                 password = getMD5(password);
                                 miBdd.agregarUsuario(nombre, fechaN, email, password, fecha_registro);
@@ -99,6 +107,7 @@ public class Registration extends AppCompatActivity {
                             } else {
                                 Toast.makeText(this, "Las contraseñas ingresadas no considen ", Toast.LENGTH_SHORT).show();
                             }
+
                         }
                     }
                 }
