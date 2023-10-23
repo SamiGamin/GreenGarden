@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:text="Recordar contraseña" />
+        android:text="Recuperar contraseña" />
         <TextView
             android:id="@+id/textView5"
             style="@style/text"
@@ -55,9 +55,11 @@
             android:id="@+id/reg_editText_usuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/text"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="25dp"
+            android:background="@drawable/editex_bg"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Usuario: "
@@ -79,6 +81,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="25dp"
             android:ems="10"
+            style="@style/text"
+            android:background="@drawable/editex_bg"
             android:inputType="textPassword"
             android:text="Contraseña: "
             android:textColor="@color/black" />

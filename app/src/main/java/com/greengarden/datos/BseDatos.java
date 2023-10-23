@@ -12,7 +12,7 @@ public class BseDatos extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NOMBRE = "Usuarios";
     public static final String TABLE_USUARIOS = "create table usuario(id_usu integer primary key autoincrement, nombre_completo_usu text," +
-            "fecha_nacimiento_sus text, genero_usu text, email_usu text,  passward_usu text, fecha_regis_usu text)";
+            "  email_usu text,  passward_usu text, fecha_regis_usu text)";
 
     public BseDatos(Context context) {
         super(context, DATABASE_NOMBRE, null, DATABASE_VERSION);
@@ -38,11 +38,11 @@ public class BseDatos extends SQLiteOpenHelper {
         db.execSQL(TABLE_USUARIOS);
     }
 
-    public boolean agregarUsuario(String nombre_completo_usu, String fecha_nacimiento_sus,  String email_usu, String passward_us, String fecha_regis_us) {
+    public boolean agregarUsuario(String nombre_completo_usu,   String email_usu, String passward_us, String fecha_regis_us) {
         SQLiteDatabase miBdd = getWritableDatabase();
         if (miBdd != null) {
-            miBdd.execSQL("insert into usuario(nombre_completo_usu, fecha_nacimiento_sus, genero_usu,email_usu,passward_us,fecha_regis_us) " +
-                    "values('" + nombre_completo_usu + "','" + fecha_nacimiento_sus + "','" + email_usu +
+            miBdd.execSQL("insert into usuario(nombre_completo_usu,email_usu,passward_us,fecha_regis_us) " +
+                    "values('" + nombre_completo_usu + "','"  + "','" + email_usu +
                     "','" + passward_us + "','" + fecha_regis_us + "')");
             miBdd.close();
             return true;

@@ -5,7 +5,7 @@
     android:id="@+id/long_text_recontrasena"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/aca"
+
     tools:context=".Login">
 
     <androidx.cardview.widget.CardView
@@ -16,6 +16,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintTop_toTopOf="parent">
         <ScrollView
             android:layout_width="match_parent"
@@ -26,7 +27,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/x_sm">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView1"
@@ -34,6 +36,7 @@
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="#3FFFFFFF"
                 app:cardCornerRadius="10dp"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -142,7 +145,7 @@
 
                         android:layout_marginTop="20dp"
                         android:text="¿Eres nuevo? Regístrate"
-                        android:textColor="#7C4DFF" />
+                        android:textColor="#111111" />
 
                     <TextView
                         android:id="@+id/long_text_recuntrasena"
@@ -151,7 +154,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="8dp"
                         android:text="Recupera tu contraseña"
-                        android:textColor="#7C4DFF" />
+                        android:textColor="#19181A" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -160,12 +163,12 @@
                 android:id="@+id/long_titulo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/x_lg"
-                android:background="@drawable/titulo"
+                android:layout_marginTop="36dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:text="@string/app_name"
-                android:textSize="28dp"
+                android:textColor="@color/green"
+                android:textSize="@dimen/x_lg"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -176,9 +179,10 @@
                 android:id="@+id/long_img_icon"
                 android:layout_width="210dp"
                 android:layout_height="180dp"
-                android:layout_marginTop="@dimen/lg"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/icono"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/long_titulo" />
         </androidx.constraintlayout.widget.ConstraintLayout>

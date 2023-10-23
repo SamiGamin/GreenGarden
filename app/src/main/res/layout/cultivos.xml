@@ -4,6 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Statistics">
+    tools:context=".Cultivos">
+    <Button
+        android:layout_margin="@dimen/xx_sm"
+        android:id="@+id/btn_menu"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:background="@drawable/more_vert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

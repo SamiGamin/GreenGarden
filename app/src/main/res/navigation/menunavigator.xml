@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menunavigator"
+    app:startDestination="@id/inicio2">
+
+    <activity
+        android:id="@+id/inicio2"
+        android:name="com.greengarden.Inicio"
+        android:label="inicio"
+        tools:layout="@layout/inicio" />
+    <activity
+        android:id="@+id/statistics"
+        android:name="com.greengarden.Estadisticas"
+        android:label="statistics"
+        tools:layout="@layout/estadisticas" />
+    <activity
+        android:id="@+id/categories"
+        android:name="com.greengarden.Categories"
+        android:label="categories"
+        tools:layout="@layout/categories" />
+</navigation>
