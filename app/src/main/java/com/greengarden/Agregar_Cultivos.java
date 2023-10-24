@@ -12,13 +12,22 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 
 public class Agregar_Cultivos extends AppCompatActivity {
-    Button menu;
+    Button menu, ircuidados;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.agregar_cultivos);
         menu = findViewById(R.id.btn_menu);
+        ircuidados = findViewById(R.id.long_btn_ingresar);
+
+        ircuidados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ircuidados = new Intent(Agregar_Cultivos.this , Cuidados.class);
+                startActivity(ircuidados);
+            }
+        });
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
