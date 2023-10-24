@@ -6,4 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".Perfil">
 
+    <Button
+        android:layout_margin="@dimen/xx_sm"
+        android:id="@+id/btn_menu"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:background="@drawable/more_vert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_margin="@dimen/xx_sm"
+        style="@style/text"
+        android:textColor="@color/green"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:text="GreenGarden"
+        android:textSize="@dimen/title"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

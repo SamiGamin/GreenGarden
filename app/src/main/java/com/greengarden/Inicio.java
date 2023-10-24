@@ -1,10 +1,6 @@
 package com.greengarden;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,14 +42,10 @@ public class Inicio extends AppCompatActivity {
                             return true;}
                         if (id == R.id.consumo) {
 
-                            Intent consumo = new Intent(Inicio.this, Consumo.class);
+                            Intent consumo = new Intent(Inicio.this, Cuidados.class);
                             startActivity(consumo);
                             return true;
                         }
-                        if (id == R.id.categorias) {
-                            Intent categorias = new Intent(Inicio.this, Categories.class);
-                            startActivity(categorias);
-                            return true;}
                         if (id == R.id.estadisticas) {
                             Intent estadisticas = new Intent(Inicio.this, Estadisticas.class);
                             startActivity(estadisticas);
@@ -63,7 +55,7 @@ public class Inicio extends AppCompatActivity {
                             startActivity(consejos);
                             return true;}
                         if (id == R.id.cultivos) {
-                            Intent cultivos = new Intent(Inicio.this, Cultivos.class);
+                            Intent cultivos = new Intent(Inicio.this, Agregar_Cultivos.class);
                             startActivity(cultivos);
                             return true;}
                         if (id == R.id.comu_even) {

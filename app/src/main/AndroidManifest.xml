@@ -13,16 +13,19 @@
         android:theme="@style/Theme.GreenGarden"
         tools:targetApi="31">
         <activity
+            android:name=".RecuperarContrasena"
+            android:exported="false" />
+        <activity
             android:name=".ComunidadEventos"
             android:exported="false" />
         <activity
             android:name=".Perfil"
             android:exported="false" />
         <activity
-            android:name=".Cultivos"
+            android:name=".Agregar_Cultivos"
             android:exported="false" />
         <activity
-            android:name=".Consumo"
+            android:name=".Cuidados"
             android:exported="false" />
         <activity
             android:name=".Consejos"

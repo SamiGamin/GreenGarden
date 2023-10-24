@@ -5,7 +5,6 @@
     android:id="@+id/long_text_recontrasena"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".Login">
 
     <androidx.cardview.widget.CardView
@@ -16,37 +15,48 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toTopOf="parent">
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/x_sm">
+            <LinearLayout
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="#3FFFFFFF"
-                app:cardCornerRadius="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
 
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/long_img_icon">
+                <TextView
+                    android:id="@+id/long_titulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="36dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="@string/app_name"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/title"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
+
+                    android:id="@+id/long_img_icon"
+                    style="@style/icon"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/icono"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/long_titulo" />
+
+
+                <Space
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:alpha=".6"
-                    android:src="@drawable/targeta_login" />
+                    android:layout_height="@dimen/x_lg" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -55,100 +65,94 @@
                     android:orientation="vertical">
 
                     <TextView
-
                         android:id="@+id/long_tex_ingresar"
+                        style="@style/text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
                         android:text="@string/iniciar_c"
-                        android:textColor="@color/black"
+                        android:textColor="#009E0F"
                         android:textSize="30sp"
                         android:textStyle="bold" />
 
 
                     <TextView
                         android:id="@+id/long_text_usuario"
+                        style="@style/text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginStart="21dp"
                         android:layout_marginTop="10dp"
-
                         android:layout_marginEnd="25dp"
-                        android:text="Usuario"
-                        android:textColor="@color/black"
-                        android:textSize="28sp" />
+                        android:text="Email"
+                        android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/long_editText_email"
+                        style="@style/text"
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="25dp"
+                        android:drawableLeft="@drawable/email"
                         android:ems="10"
-                        android:background="@drawable/editex_bg"
                         android:hint="Email: "
                         android:inputType="textEmailAddress"
-                        android:drawableLeft="@drawable/email"
                         android:textColor="@color/black"
-                        android:textColorHint="@color/hingt"
-                        android:textSize="28sp" />
+                        android:textColorHint="@color/hingt" />
 
                     <TextView
                         android:id="@+id/long_text_contrase"
+                        style="@style/text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginStart="21dp"
                         android:layout_marginTop="10dp"
-
                         android:layout_marginEnd="25dp"
                         android:text="Contraseña"
-                        android:textColor="@color/black"
-                        android:textSize="28sp" />
+                        android:textColor="@color/black" />
 
                     <EditText
                         android:id="@+id/long_editText_contrasena"
+                        style="@style/text"
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="25dp"
-                        android:ems="10"
                         android:drawableLeft="@drawable/lock"
+                        android:ems="10"
                         android:hint="Contraseña: "
                         android:inputType="textPassword"
-                        android:background="@drawable/editex_bg"
                         android:textColor="@color/black"
-                        android:textColorHint="@color/hingt"
-                        android:textSize="28sp" />
+                        android:textColorHint="@color/hingt" />
 
-                    <TextView
+                    <Button
                         android:id="@+id/long_btn_ingresar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/btn"
                         android:layout_gravity="center"
                         android:layout_marginTop="20dp"
-                        android:background="@drawable/titulo"
-                        android:padding="10dp"
+                        android:background="@drawable/btn_prin"
                         android:text="@string/btningreso"
-                        android:textAlignment="center"
                         android:textColor="@color/white" />
 
                     <TextView
                         android:id="@+id/long_tex_reduistrate"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-
                         android:layout_marginTop="20dp"
                         android:text="¿Eres nuevo? Regístrate"
                         android:textColor="#111111" />
 
                     <TextView
-                        android:id="@+id/long_text_recuntrasena"
+                        android:id="@+id/btn_recuperarcontrasena"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -157,36 +161,9 @@
                         android:textColor="#19181A" />
 
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/long_titulo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:text="@string/app_name"
-                android:textColor="@color/green"
-                android:textSize="@dimen/x_lg"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-
-                android:id="@+id/long_img_icon"
-                android:layout_width="210dp"
-                android:layout_height="180dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/icono"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/long_titulo" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
+            </LinearLayout>
         </ScrollView>
 
     </androidx.cardview.widget.CardView>

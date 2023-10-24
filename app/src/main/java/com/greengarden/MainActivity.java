@@ -6,13 +6,12 @@ package com.greengarden;
   @Descripcion: pantalla de inicio 4 seg
   */
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.benvenida);
         login = findViewById(R.id.btn_bienbenida);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
