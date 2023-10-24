@@ -3,6 +3,7 @@
     <string name="iniciar_c">Iniciar Sesión</string>
     <string name="btningreso">Ingresar</string>
     <string name="registro">Registro</string>
+    <string name="bienvenido">Bienvenido</string>
     <string-array name="opciones">
         <item>Género</item>
         <item>Masculino</item>
