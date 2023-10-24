@@ -58,6 +58,9 @@ public class ComunidadEventos extends AppCompatActivity {
                             Intent eventos = new Intent(ComunidadEventos.this, ComunidadEventos.class);
                             startActivity(eventos);
                             return true;}
+                        if (id == R.id.salir) {
+                            finish();
+                            return true;}
                         return false;
                     }
                 });

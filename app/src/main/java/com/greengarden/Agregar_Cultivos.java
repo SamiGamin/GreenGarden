@@ -12,13 +12,22 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 
 public class Agregar_Cultivos extends AppCompatActivity {
-    Button menu;
+    Button menu, ircuidados;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.agregar_cultivos);
         menu = findViewById(R.id.btn_menu);
+        ircuidados = findViewById(R.id.btn_agregar_cultivo);
+
+        ircuidados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ircuidados = new Intent(Agregar_Cultivos.this , Cuidados.class);
+                startActivity(ircuidados);
+            }
+        });
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +68,10 @@ public class Agregar_Cultivos extends AppCompatActivity {
                             Intent eventos = new Intent(Agregar_Cultivos.this, ComunidadEventos.class);
                             startActivity(eventos);
                             return true;}
+                        if (id == R.id.salir) {
+                            finish();
+                            return true;}
+
                         return false;
                     }
                 });
