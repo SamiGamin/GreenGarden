@@ -27,8 +27,8 @@
     <group android:id="@+id/personale"
         >
     <item
-        android:id="@+id/perfil"
-        android:title="PERFIL" />
+        android:id="@+id/salir"
+        android:title="Salir" />
     </group>
 
 </menu>

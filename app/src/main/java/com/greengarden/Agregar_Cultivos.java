@@ -19,7 +19,7 @@ public class Agregar_Cultivos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.agregar_cultivos);
         menu = findViewById(R.id.btn_menu);
-        ircuidados = findViewById(R.id.long_btn_ingresar);
+        ircuidados = findViewById(R.id.btn_agregar_cultivo);
 
         ircuidados.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +68,10 @@ public class Agregar_Cultivos extends AppCompatActivity {
                             Intent eventos = new Intent(Agregar_Cultivos.this, ComunidadEventos.class);
                             startActivity(eventos);
                             return true;}
+                        if (id == R.id.salir) {
+                            finish();
+                            return true;}
+
                         return false;
                     }
                 });
