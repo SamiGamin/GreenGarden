@@ -44,8 +44,8 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
+            android:id="@+id/layout_cultivo"
             android:background="@drawable/targeta_cultivos"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -88,9 +88,14 @@
         app:layout_constraintBottom_toTopOf="@+id/cardView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+        <ImageView
+            android:id="@+id/btn_cuidados"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/tarega_cuidados" />
 
         <LinearLayout
-            android:background="@drawable/tarega_cuidados"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -104,7 +109,10 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
+
+
             <LinearLayout
+                android:id="@+id/btncuidados"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/sm"
@@ -129,6 +137,7 @@
                     app:srcCompat="@drawable/abono" />
 
             </LinearLayout>
+
         </LinearLayout>
 
 
@@ -148,8 +157,8 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:background="@drawable/tarega_noticias"
+            android:id="@+id/btn_noticias"
+android:background="@drawable/tarega_noticias"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -194,7 +203,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
-            android:id="@+id/linearLayout4"
+            android:id="@+id/btn_consejos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
            android:background="@drawable/tarega_cosejos"
@@ -260,7 +269,7 @@
         >
 
         <LinearLayout
-            android:id="@+id/linearLayout3"
+            android:id="@+id/btn_estadisticas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/tarega_estadisticas"

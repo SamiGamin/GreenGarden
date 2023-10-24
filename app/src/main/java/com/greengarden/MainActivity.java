@@ -1,9 +1,13 @@
 package com.greengarden;
 /*
-  @Autor: @Sami
-  @Creacion: 13/10/2023
+  @Autor: @Salomon Martinez Barrera
+  @Autor: @Tobias Martinez Barrera
+  @Autor: @Leydi Peña
+  @Autor: @Jonatha David Moreno Molina
+  @Autor: @Maria Fernanda Alemam Ovalle
+  @Creacion: 24/10/2023
   @Modificacion:
-  @Descripcion: pantalla de inicio 4 seg
+  @Descripcion: Proyecto todos ala U Intermedio
   */
 
 import android.content.Intent;

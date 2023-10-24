@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
@@ -19,6 +20,46 @@ public class Inicio extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inicio);
+        LinearLayout ircuidados = findViewById(R.id.btncuidados);
+        LinearLayout ircultivos = findViewById(R.id.layout_cultivo);
+        LinearLayout ircosejos = findViewById(R.id.btn_consejos);
+        LinearLayout irestadistica = findViewById(R.id.btn_estadisticas);
+        LinearLayout ireventos = findViewById(R.id.btn_noticias);
+        ircuidados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Cuidados.class);
+                startActivity(intent);
+            }
+        });
+        ircultivos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Agregar_Cultivos.class);
+                startActivity(intent);
+            }
+        });
+        ircosejos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Consejos.class);
+                startActivity(intent);
+            }
+        });
+        irestadistica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Estadisticas.class);
+                startActivity(intent);
+            }
+        });
+        ireventos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ComunidadEventos.class);
+                startActivity(intent);
+            }
+        });
 
 
         menu = findViewById(R.id.btn_menu);
