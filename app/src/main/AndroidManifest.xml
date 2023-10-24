@@ -22,10 +22,10 @@
             android:name=".Perfil"
             android:exported="false" />
         <activity
-            android:name=".Cultivos"
+            android:name=".Agregar_Cultivos"
             android:exported="false" />
         <activity
-            android:name=".Consumo"
+            android:name=".Cuidados"
             android:exported="false" />
         <activity
             android:name=".Consejos"
