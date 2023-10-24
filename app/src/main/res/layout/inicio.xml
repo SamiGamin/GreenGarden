@@ -37,12 +37,15 @@
         android:layout_margin="20sp"
         app:cardCornerRadius="@dimen/md"
         android:elevation="@dimen/sm"
+
+
         app:layout_constraintBottom_toTopOf="@+id/cardView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
-            android:layout_margin="5dp"
+            android:background="@drawable/targeta_cultivos"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -87,9 +90,9 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
+            android:background="@drawable/tarega_cuidados"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:orientation="vertical">
 
             <TextView
@@ -118,13 +121,13 @@
                     android:src="@drawable/agua" />
 
                 <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="55dp"
+                    android:id="@+id/imageView2"
+                    android:layout_width="50dp"
                     android:layout_height="60dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginEnd="20dp"
                     android:layout_weight="1"
-                    tools:srcCompat="@drawable/abono" />
+                    android:layout_marginEnd="20dp"
+                    app:srcCompat="@drawable/abono" />
+
             </LinearLayout>
         </LinearLayout>
 
@@ -139,13 +142,14 @@
         android:layout_margin="20sp"
         app:cardCornerRadius="@dimen/md"
         android:elevation="@dimen/sm"
+
         app:layout_constraintBottom_toTopOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:id="@+id/linearLayout2"
-            android:layout_margin="5dp"
+            android:background="@drawable/tarega_noticias"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -184,6 +188,7 @@
         android:layout_margin="20sp"
         app:cardCornerRadius="@dimen/md"
         android:elevation="@dimen/sm"
+
         app:layout_constraintBottom_toTopOf="@+id/cardView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -192,7 +197,7 @@
             android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+           android:background="@drawable/tarega_cosejos"
             android:orientation="vertical">
 
             <TextView
@@ -216,25 +221,24 @@
                     android:layout_height="60dp"
                     android:layout_weight="1"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/limon"
+                    android:src="@drawable/zanahoria"
                     android:layout_marginEnd="5dp" />
 
                 <ImageView
-                    android:id="@+id/icon_estadistcasab"
+                    android:id="@+id/imageView3"
                     android:layout_width="55dp"
                     android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:layout_gravity="center_horizontal"
-                    tools:srcCompat="@drawable/tomate"
-                    android:layout_marginEnd="5dp" />
+                    android:layout_marginEnd="5dp"
+                    app:srcCompat="@drawable/mano" />
 
                 <ImageView
-                    android:id="@+id/icon_estadistcasat"
+                    android:id="@+id/imageView5"
                     android:layout_width="55dp"
                     android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:layout_gravity="center_horizontal"
-                    tools:srcCompat="@drawable/tuberculos" />
+                    app:srcCompat="@drawable/laurel" />
+
             </LinearLayout>
         </LinearLayout>
 
@@ -249,15 +253,17 @@
         android:layout_margin="20sp"
         android:elevation="@dimen/sm"
         app:cardCornerRadius="@dimen/md"
+
         app:layout_constraintBottom_toTopOf="@+id/cardView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        >
 
         <LinearLayout
             android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:background="@drawable/tarega_estadisticas"
             android:orientation="vertical">
 
             <TextView
