@@ -1,20 +1,22 @@
 package com.greengarden;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.greengarden.datos.DatePickerHelper;
-import com.greengarden.datos.BseDatos;
-import com.greengarden.datos.SelectorOpcion;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -25,29 +27,37 @@ import java.util.regex.Pattern;
 
 public class Registration extends AppCompatActivity {
 
-    TextView registro, login;
+    Button registro;
+    TextView login;
     EditText nombre_usu,
             corre_eletronico,
             contrasena, corfirmarContrasena;
 
     CheckBox checkBox;
-    BseDatos miBdd;
+    //BseDatos miBdd;
 
+    FirebaseAuth mAuth;
+
+    private String Usu, Email, Pass, Confpass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registration);
 
+        mAuth = FirebaseAuth.getInstance();
 
         login = findViewById(R.id.rg_login);
         registro = findViewById(R.id.reg_btn_Registrarse);
+
         corfirmarContrasena = findViewById(R.id.editcofircontrasena);
         nombre_usu = findViewById(R.id.rg_name);
         corre_eletronico = findViewById(R.id.reg_editText_email);
         contrasena = findViewById(R.id.editTextcontrasena);
+
         checkBox = findViewById(R.id.checkBox);
-        miBdd = new BseDatos(getApplicationContext());
+
+        //miBdd = new BseDatos(getApplicationContext());
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,9 +66,94 @@ public class Registration extends AppCompatActivity {
 
             }
         });
+        registro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Usu = nombre_usu.getText().toString().trim();
+                Email = corre_eletronico.getText().toString().trim();
+                Pass = contrasena.getText().toString().trim();
+                Confpass = corfirmarContrasena.getText().toString().trim();
+
+                if (Usu.isEmpty() || Email.isEmpty() || Pass.isEmpty() || Confpass.isEmpty()) {
+                    Toast.makeText(Registration.this, "Ingrese todos los datos", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (!contienSololetras(Usu)) {
+                        Toast.makeText(Registration.this, "El nombre no debe contener numeros", Toast.LENGTH_SHORT).show();
+                    } else if (!EmailValido(Email)) {
+                        Toast.makeText(Registration.this, "Ingrese un correo válido", Toast.LENGTH_SHORT).show();
+                    }else if (!validarPassword(Pass)) {
+                        Toast.makeText(Registration.this, "La contraseña debe contener al menos una letra y un número", Toast.LENGTH_SHORT).show();
+                    } else if (!Pass.equals(Confpass)) {
+                        Toast.makeText(Registration.this, "Las contraseñas ingresadas no coinciden", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // Registra al usuario
+                        Pass = getMD5(Pass);
+                        mAuth.createUserWithEmailAndPassword(Email, Confpass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(Registration.this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
+                                    irInicio();
+                                    finish();
+                                } else {
+                                    Toast.makeText(Registration.this, "Error al registrar el usuario: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        });
+
     }
 
-    public void registrarUsuario(View vista) {
+    private boolean validarPassword(String pass) {
+        return pass.matches(".*[a-zA-Z].*") && pass.matches(".*\\d.*");
+    }
+
+    private void irInicio() {
+        Intent login = new Intent(Registration.this, Login.class);
+        startActivity(login);
+        finish();
+    }
+
+    private boolean EmailValido(String email) {
+        Pattern pattern = Patterns.EMAIL_ADDRESS;
+        return pattern.matcher(email).matches();
+    }
+
+    private void irinicio() {
+        Intent login = new Intent(Registration.this, Login.class);
+        startActivity(login);
+        finish();
+    }
+
+
+
+
+
+    private String getMD5(String password) {
+        try {
+            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
+            digest.update(password.getBytes());
+            byte messageDigest[] = digest.digest();
+
+            StringBuilder hexString = new StringBuilder();
+            for (byte aMessageDigest : messageDigest)
+                hexString.append(Integer.toHexString(0xFF & aMessageDigest));
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return password;
+    }
+
+
+
+    private boolean contienSololetras(String nombre) {
+        return nombre.matches("[a-zA-ZñÑÁáéÉíÍóÓúÚ ]*");
+    }
+     /*public void registrarUsuario(View vista) {
 
         String nombre = nombre_usu.getText().toString();
         String email = corre_eletronico.getText().toString();
@@ -83,7 +178,7 @@ public class Registration extends AppCompatActivity {
                     } else {
                         if (password.equals(passwordConfirmada)) {
                             password = getMD5(password);
-                            miBdd.agregarUsuario(nombre, email, password, fecha_registro);
+                         //   miBdd.agregarUsuario(nombre, email, password, fecha_registro);
                             Toast.makeText(this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
                             finish();
                         } else {
@@ -94,60 +189,6 @@ public class Registration extends AppCompatActivity {
                 }
             }
         }
-    }
-
-
-
-
-    private String getMD5(String password) {
-        try {
-            MessageDigest digest = java.security.MessageDigest.getInstance("MD5");
-            digest.update(password.getBytes());
-            byte messageDigest[] = digest.digest();
-
-            StringBuilder hexString = new StringBuilder();
-            for (byte aMessageDigest : messageDigest)
-                hexString.append(Integer.toHexString(0xFF & aMessageDigest));
-            return hexString.toString();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
-
-    private boolean validarpassword(String password) {
-        boolean numeros = false;
-        boolean letras = false;
-        for (int x = 0; x < password.length(); x++) {
-            char c = password.charAt(x);
-            if (((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c == ' ')
-                    || (c == 'ñ') || (c == 'Ñ') || (c == 'Á') || (c == 'á') ||
-                    (c == 'é') || (c == 'É') || (c == 'í') ||
-                    (c == 'Í') || (c == 'ó') || (c == 'Ó') ||
-                    (c == 'ú') || (c == 'Ú'))) {
-                letras = true;
-            }
-            if ((c >= '0' && c <= '9')) {
-                numeros = true;
-            }
-        }
-        if (numeros == true && letras == true) {
-            return true;
-        }
-        return false;
-    }
-
-    private boolean contienSololetras(String nombre) {
-        for (int x = 0; x < nombre.length(); x++) {
-            char c = nombre.charAt(x);
-            if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c == ' ')
-                    || (c == 'ñ') || (c == 'Ñ') || (c == 'Á') || (c == 'á') ||
-                    (c == 'é') || (c == 'É') || (c == 'í') || (c == 'Í') || (c == 'ó')
-                    || (c == 'Ó') || (c == 'ú') || (c == 'Ú'))) {
-                return false;
-            }
-        }
-        return true;
-    }
+    }*/
 }
 
