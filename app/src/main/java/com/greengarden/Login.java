@@ -31,7 +31,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent Registro = new Intent(Login.this, RecuperarContrasena.class);
                 startActivity(Registro);
-                finish();
+
             }
         });
         ingreso.setOnClickListener(new View.OnClickListener() {
@@ -39,7 +39,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent ingreso = new Intent(Login.this, Inicio.class);
                 startActivity(ingreso);
-                finish();
+
             }
         });
         Registro.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +47,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent Registro = new Intent(Login.this, Registration.class);
                 startActivity(Registro);
-                finish();
+
             }
         });
     }
