@@ -33,6 +33,7 @@ android {
 }
 
 dependencies {
+    implementation ("androidx.core:core-splashscreen:1.0.1")
     //navegacion
     implementation ("androidx.navigation:navigation-fragment:2.3.5")
     implementation ("androidx.navigation:navigation-ui:2.3.5")
