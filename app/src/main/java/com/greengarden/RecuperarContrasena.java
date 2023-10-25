@@ -20,7 +20,7 @@ public class RecuperarContrasena extends AppCompatActivity {
             public void onClick(View v) {
                 Intent enviar = new Intent(RecuperarContrasena.this, Login.class);
                 startActivity(enviar);
-                finish();
+
             }
         });
     }

@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent login = new Intent(MainActivity.this, Login.class);
                 startActivity(login);
-                finish();
+
             }
         });
        /* new Handler().postDelayed(new Runnable() {

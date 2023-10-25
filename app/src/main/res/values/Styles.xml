@@ -14,7 +14,7 @@
     <style name="btn">
         <item name="android:layout_width">220dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/lg</item>
+        <item name="android:textSize">32sp</item>
         <item name="android:textStyle">bold</item>
 
     </style>
