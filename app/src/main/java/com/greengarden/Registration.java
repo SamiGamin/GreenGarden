@@ -28,7 +28,7 @@ import java.util.regex.Pattern;
 public class Registration extends AppCompatActivity {
 
     Button registro;
-    TextView login;
+   // TextView login;
     EditText nombre_usu,
             corre_eletronico,
             contrasena, corfirmarContrasena;
@@ -43,29 +43,29 @@ public class Registration extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.registration);
+        setContentView(R.layout.registro);
 
         mAuth = FirebaseAuth.getInstance();
 
-        login = findViewById(R.id.rg_login);
-        registro = findViewById(R.id.reg_btn_Registrarse);
+        //login = findViewById(R.id.rg_login);
+        registro = findViewById(R.id.btn_registro);
 
-        corfirmarContrasena = findViewById(R.id.editcofircontrasena);
-        nombre_usu = findViewById(R.id.rg_name);
-        corre_eletronico = findViewById(R.id.reg_editText_email);
-        contrasena = findViewById(R.id.editTextcontrasena);
+        corfirmarContrasena = findViewById(R.id.registro_confpass);
+        nombre_usu = findViewById(R.id.registro_nombre);
+        corre_eletronico = findViewById(R.id.registro_email2);
+        contrasena = findViewById(R.id.registro_pass);
 
         checkBox = findViewById(R.id.checkBox);
 
         //miBdd = new BseDatos(getApplicationContext());
-        login.setOnClickListener(new View.OnClickListener() {
+      /*  login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent login = new Intent(Registration.this, Login.class);
                 startActivity(login);
 
             }
-        });
+        });*/
         registro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
