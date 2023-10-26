@@ -12,20 +12,27 @@ package com.greengarden;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
 
-    Button login;
+public class MainActivity extends AppCompatActivity {
+    FirebaseAuth mAuth;
+
+    TextView login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.benvenida);
+        setTheme(R.style.Theme_SplashTheme);
         login = findViewById(R.id.btn_bienbenida);
+        mAuth = FirebaseAuth.getInstance();
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,13 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-       /* new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent pantallaLogin = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(pantallaLogin);
-                finish();
-            }
-        }, 0);*/
+
     }
 }

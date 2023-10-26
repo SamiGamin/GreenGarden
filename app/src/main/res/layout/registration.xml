@@ -133,7 +133,6 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="20dp"
                         android:background="@drawable/btn_prin"
-                        android:onClick="registrarUsuario"
                         android:text="Registrarse"
                         android:textSize="@dimen/md"
                         android:textAlignment="center"

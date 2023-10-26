@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
 
     <application
@@ -41,9 +42,7 @@
         <activity
             android:name=".Registration"
             android:exported="false" />
-        <activity
-            android:name=".Categories"
-            android:exported="false" />
+
         <activity
             android:name=".Login"
             android:exported="false" />

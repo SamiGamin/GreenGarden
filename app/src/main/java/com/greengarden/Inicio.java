@@ -12,9 +12,12 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Inicio extends AppCompatActivity {
 
     Button menu;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,8 @@ public class Inicio extends AppCompatActivity {
         LinearLayout ircosejos = findViewById(R.id.btn_consejos);
         LinearLayout irestadistica = findViewById(R.id.btn_estadisticas);
         LinearLayout ireventos = findViewById(R.id.btn_noticias);
+
+        mAuth = FirebaseAuth.getInstance();
         ircuidados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,6 +110,7 @@ public class Inicio extends AppCompatActivity {
                             startActivity(eventos);
                             return true;}
                         if (id == R.id.salir) {
+                            mAuth.signOut();
                             finish();
                             return true;}
                         return false;
