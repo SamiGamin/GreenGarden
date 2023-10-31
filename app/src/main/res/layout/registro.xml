@@ -129,6 +129,14 @@
             android:textColor="#707070"
             android:textSize="18sp" />
 
+        <CheckBox
+            android:id="@+id/checkterminos"
+            android:layout_marginTop="@dimen/sm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#707070"
+            android:text="Acepto términos y condiciones" />
+
         <Button
             android:id="@+id/btn_registro"
             android:layout_width="match_parent"

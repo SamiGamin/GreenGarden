@@ -1,0 +1,40 @@
+{
+  "plantas": {
+    "planta1": {
+      "nombre": "Planta A",
+      "fechaSiembra": "2023-10-01",
+      "informacionAdicional": "Esta es la planta A, información adicional aquí.",
+      "urlImagen": "https://ejemplo.com/imagen1.jpg",
+      "cuidados": {
+        "riego": "Riega dos veces a la semana.",
+        "luzSolar": "Necesita al menos 6 horas de luz solar directa al día.",
+        "temperatura": "Temperatura ideal entre 20-25°C.",
+        "humedad": "Mantén la humedad del suelo al 50%."
+      }
+    },
+    "planta2": {
+      "nombre": "Planta B",
+      "Calendariodesiembra y cosecha": "2023-10-05",
+      "informacionAdicional": "Esta es la planta B, información adicional aquí.",
+      "urlImagen": "https://ejemplo.com/imagen2.jpg",
+      "cuidados": {
+        "riego": "Riega dos veces a la semana.",
+        "luzSolar": "Necesita al menos 6 horas de luz solar directa al día.",
+        "temperatura": "Temperatura ideal entre 20-25°C.",
+        "humedad": "Mantén la humedad del suelo al 50%."
+      }
+    },
+    "planta3": {
+      "nombre": "Planta C",
+      "fechaSiembra": "2023-10-10",
+      "informacionAdicional": "Esta es la planta C, información adicional aquí.",
+      "urlImagen": "https://ejemplo.com/imagen3.jpg",
+      "cuidados": {
+        "riego": "Riega dos veces a la semana.",
+        "luzSolar": "Necesita al menos 6 horas de luz solar directa al día.",
+        "temperatura": "Temperatura ideal entre 20-25°C.",
+        "humedad": "Mantén la humedad del suelo al 50%."
+      }
+    }
+  }
+}
