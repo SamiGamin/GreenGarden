@@ -1,4 +1,4 @@
-package com.greengarden;
+package com.greengarden.Inicio;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.greengarden.R;
 
 import java.util.HashMap;
 import java.util.Map;

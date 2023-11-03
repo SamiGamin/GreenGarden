@@ -1,4 +1,4 @@
-package com.greengarden;
+package com.greengarden.Inicio;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +17,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.greengarden.R;
+import com.greengarden.Noticias.Registration;
 
 import java.util.regex.Pattern;
 

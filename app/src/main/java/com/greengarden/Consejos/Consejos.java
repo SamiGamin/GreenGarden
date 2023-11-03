@@ -20,13 +20,12 @@ import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.greengarden.Agregar_Cultivos;
-import com.greengarden.ComunidadEventos;
-import com.greengarden.Cuidados;
-import com.greengarden.Estadisticas;
-import com.greengarden.Inicio;
+import com.greengarden.Plantas.Agregar_Cultivos;
+import com.greengarden.Noticias.ComunidadEventos;
+import com.greengarden.Cuidados.Cuidados;
+import com.greengarden.Estadisticas.Estadisticas;
+import com.greengarden.Inicio.Inicio;
 import com.greengarden.R;
 
 import java.util.ArrayList;

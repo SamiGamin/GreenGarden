@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ViewFlipper;
 import com.greengarden.R;
-import com.greengarden.datos.MenuClickListener;
+import com.greengarden.Menu.MenuClickListener;
 //menu
 import android.view.View;
 import android.widget.Button;

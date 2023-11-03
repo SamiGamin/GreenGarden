@@ -1,4 +1,4 @@
-package com.greengarden;
+package com.greengarden.Noticias;
 /*
   @Autor: @Salomon Martinez Barrera
   @Autor: @Tobias Martinez Barrera
@@ -12,14 +12,14 @@ package com.greengarden;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.greengarden.Inicio.Login;
+import com.greengarden.R;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth;

@@ -1,4 +1,4 @@
-package com.greengarden.Cultivo;
+package com.greengarden.Plantas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,8 +14,6 @@ import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.greengarden.Plantas.ajo;
-import com.greengarden.Plantas.zanahoria;
 import com.greengarden.R;
 
 import java.util.ArrayList;

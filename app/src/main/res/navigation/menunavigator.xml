@@ -7,12 +7,12 @@
 
     <activity
         android:id="@+id/inicio2"
-        android:name="com.greengarden.Inicio"
+        android:name="com.greengarden.Inicio.Inicio"
         android:label="inicio"
         tools:layout="@layout/inicio" />
     <activity
         android:id="@+id/statistics"
-        android:name="com.greengarden.Estadisticas"
+        android:name="com.greengarden.Estadisticas.Estadisticas"
         android:label="statistics"
         tools:layout="@layout/estadisticas" />
     <activity

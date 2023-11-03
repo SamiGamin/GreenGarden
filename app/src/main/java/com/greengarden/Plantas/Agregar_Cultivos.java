@@ -1,12 +1,10 @@
-package com.greengarden;
+package com.greengarden.Plantas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -17,8 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.greengarden.Consejos.Consejos;
-import com.greengarden.Cultivo.huerto;
+import com.greengarden.R;
+import com.greengarden.Menu.MenuClickListener;
 
 import java.util.ArrayList;
 
@@ -112,64 +110,21 @@ public class Agregar_Cultivos extends AppCompatActivity {
         });
 
 
-        //comienso de menu
+        //inicio menu
+
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PopupMenu popupMenu = new PopupMenu(Agregar_Cultivos.this, v);
-                MenuInflater inflater = popupMenu.getMenuInflater();
-                inflater.inflate(R.menu.navigation_menu, popupMenu.getMenu());
+                popupMenu.getMenuInflater().inflate(R.menu.navigation_menu, popupMenu.getMenu());
 
+                MenuClickListener menuClickListener = new MenuClickListener(Agregar_Cultivos.this);
+                popupMenu.setOnMenuItemClickListener(menuClickListener);
 
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        int id = item.getItemId();
-                        Toast.makeText(Agregar_Cultivos.this, " " + item.getTitle(), Toast.LENGTH_SHORT).show();
-
-                        if (id == R.id.inicio) {
-                            Intent inicio = new Intent(Agregar_Cultivos.this, Inicio.class);
-                            startActivity(inicio);
-                            return true;
-                        }
-                        if (id == R.id.consumo) {
-
-                            Intent consumo = new Intent(Agregar_Cultivos.this, Cuidados.class);
-                            startActivity(consumo);
-                            return true;
-                        }
-                        if (id == R.id.estadisticas) {
-                            Intent estadisticas = new Intent(Agregar_Cultivos.this, Estadisticas.class);
-                            startActivity(estadisticas);
-                            return true;
-                        }
-                        if (id == R.id.consejos) {
-                            Intent consejos = new Intent(Agregar_Cultivos.this, Consejos.class);
-                            startActivity(consejos);
-                            return true;
-                        }
-                        if (id == R.id.cultivos) {
-                            Intent cultivos = new Intent(Agregar_Cultivos.this, Agregar_Cultivos.class);
-                            startActivity(cultivos);
-                            return true;
-                        }
-                        if (id == R.id.comu_even) {
-                            Intent eventos = new Intent(Agregar_Cultivos.this, ComunidadEventos.class);
-                            startActivity(eventos);
-                            return true;
-                        }
-                        if (id == R.id.salir) {
-                            finish();
-                            return true;
-                        }
-
-                        return false;
-                    }
-                });
                 popupMenu.show();
             }
         });
-        // fin de menu
+//fin menu
 
     }
 }
