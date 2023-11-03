@@ -16,6 +16,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.greengarden.Consejos.Consejos;
 import com.greengarden.Cultivo.huerto;
 
 import java.util.ArrayList;

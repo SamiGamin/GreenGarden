@@ -10,7 +10,8 @@ import android.widget.Toast;
 
 import com.greengarden.Agregar_Cultivos;
 import com.greengarden.ComunidadEventos;
-import com.greengarden.Consejos;
+
+import com.greengarden.Consejos.Consejos;
 import com.greengarden.Cuidados;
 import com.greengarden.Estadisticas;
 import com.greengarden.Inicio;
