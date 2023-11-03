@@ -48,7 +48,7 @@ public class Agregar_Cultivos extends AppCompatActivity {
 
         // Configurar el título y los productos del catálogo
         textViewTitle.setText("Agregar nuevas plantas al Huerto");
-        String[] products = {"Plantas en el Huerto", "Zanahoria", "Ajo", "Remolacha", "Lechuga", "Acelga", "Albahaca", "Hierbabuena", "Hinojo", "Fastron", "Laurel"};
+        String[] products = {"Variedad de plantas", "Zanahoria", "Ajo", "Remolacha", "Lechuga", "Acelga", "Albahaca", "Hierbabuena", "Hinojo", "Fastron", "Laurel"};
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, products);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
