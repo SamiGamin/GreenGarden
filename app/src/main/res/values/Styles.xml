@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Theme.SplashTheme" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/green</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/spla_icono</item>
+        <item name="postSplashScreenTheme">@style/Theme.GreenGarden</item>
+
+
+    </style>
     <style name="text">
+
         <item name="android:layout_marginTop">10dp</item>
         <item name="android:layout_marginStart">20dp</item>
         <item name="android:layout_marginEnd">25dp</item>
