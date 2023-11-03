@@ -9,11 +9,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
+import com.greengarden.Cuidados.Cuidados;
+import com.greengarden.Menu.MenuClickListener;
 import com.greengarden.R;
 
 import java.util.ArrayList;
@@ -27,11 +31,27 @@ public class huerto extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private Map<String, Class<?>> actividadMap;
 
+    Button menu;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.huerto);
+        //inicio menu
+        menu = findViewById(R.id.btn_menu);
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(huerto.this, v);
+                popupMenu.getMenuInflater().inflate(R.menu.navigation_menu, popupMenu.getMenu());
+
+                MenuClickListener menuClickListener = new MenuClickListener(huerto.this);
+                popupMenu.setOnMenuItemClickListener(menuClickListener);
+
+                popupMenu.show();
+            }
+        });
+//fin menu
 
         // Obtener referencia de la ListView
         listViewSeleccionados = findViewById(R.id.listViewSeleccionados);

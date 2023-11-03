@@ -31,7 +31,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/btn_menu_consejos"
+            android:id="@+id/btn_menu"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
