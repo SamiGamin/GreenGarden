@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
+import com.greengarden.Consejos.Consejos;
+
 public class Agregar_Cultivos extends AppCompatActivity {
     Button menu, ircuidados;
 
@@ -19,15 +21,7 @@ public class Agregar_Cultivos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.agregar_cultivos);
         menu = findViewById(R.id.btn_menu);
-        ircuidados = findViewById(R.id.btn_agregar_cultivo);
 
-        ircuidados.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent ircuidados = new Intent(Agregar_Cultivos.this , Cuidados.class);
-                startActivity(ircuidados);
-            }
-        });
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

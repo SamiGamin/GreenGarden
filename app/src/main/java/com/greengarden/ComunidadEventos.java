@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
+import com.greengarden.Consejos.Consejos;
+
 public class ComunidadEventos extends AppCompatActivity {
     Button menu;
     @Override
