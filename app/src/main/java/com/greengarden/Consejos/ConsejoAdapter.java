@@ -34,21 +34,23 @@ public class ConsejoAdapter extends RecyclerView.Adapter<ConsejoAdapter.MiViewHo
         ListaConsejos consejo = listaConsejos.get(position);
 
         holder.NombrePlanta.setText(consejo.getNombreplanta());
-        holder.ConsejoPlanta.setText(consejo.getConsejoplanta());
+        holder.ConsejoAbono.setText(consejo.getConsejoabono());
+        holder.ConsejoAgua.setText(consejo.getConsejoagua());
     }
 
 
     @Override
     public int getItemCount() {
-        return 0;
+        return listaConsejos.size();
     }
     public class MiViewHolder extends RecyclerView.ViewHolder {
-        TextView NombrePlanta, ConsejoPlanta;
+        TextView NombrePlanta, ConsejoAbono, ConsejoAgua;
 
         public MiViewHolder(@NonNull View itemView) {
             super(itemView);
             NombrePlanta = itemView.findViewById(R.id.listtitulo);
-            ConsejoPlanta = itemView.findViewById(R.id.listinformacion);
+            ConsejoAbono = itemView.findViewById(R.id.consejoabono);
+            ConsejoAgua = itemView.findViewById(R.id.consejoagua);
         }
     }
 

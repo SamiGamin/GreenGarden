@@ -25,7 +25,7 @@ public class NtAdapter extends RecyclerView.Adapter<NtAdapter.MiViewholder> {
     @NonNull
     @Override
     public NtAdapter.MiViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.listaconsejo, parent, false);
+        View v = LayoutInflater.from(context).inflate(R.layout.listanoticias, parent, false);
 
         return new MiViewholder(v);
     }
@@ -41,7 +41,7 @@ public class NtAdapter extends RecyclerView.Adapter<NtAdapter.MiViewholder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return listanoticias.size();
     }
 
     public class MiViewholder extends RecyclerView.ViewHolder {
@@ -50,7 +50,7 @@ public class NtAdapter extends RecyclerView.Adapter<NtAdapter.MiViewholder> {
             super(itemView);
             Titulo = itemView.findViewById(R.id.listtitulo);
             Fecha = itemView.findViewById(R.id.listfecha);
-            Noticia = itemView.findViewById(R.id.listinformacion);
+            Noticia = itemView.findViewById(R.id.consejoabono);
         }
     }
 }

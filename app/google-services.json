@@ -1,13 +1,14 @@
 {
   "project_info": {
     "project_number": "526528636035",
+    "firebase_url": "https://greengarden-app-reto1-default-rtdb.firebaseio.com",
     "project_id": "greengarden-app-reto1",
     "storage_bucket": "greengarden-app-reto1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:526528636035:android:b70f249c19082c63b267b6",
+        "mobilesdk_app_id": "1:526528636035:android:c04b8e6687ac1be0b267b6",
         "android_client_info": {
           "package_name": "com.greengarden"
         }
