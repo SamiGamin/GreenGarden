@@ -47,8 +47,8 @@ public class ConsejoAdapter extends RecyclerView.Adapter<ConsejoAdapter.MiViewHo
 
         public MiViewHolder(@NonNull View itemView) {
             super(itemView);
-            NombrePlanta = itemView.findViewById(R.id.nombreplanta);
-            ConsejoPlanta = itemView.findViewById(R.id.consejoplanta);
+            NombrePlanta = itemView.findViewById(R.id.listtitulo);
+            ConsejoPlanta = itemView.findViewById(R.id.listinformacion);
         }
     }
 

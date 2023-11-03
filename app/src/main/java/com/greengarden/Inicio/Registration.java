@@ -1,4 +1,4 @@
-package com.greengarden.Noticias;
+package com.greengarden.Inicio;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,7 +20,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.greengarden.Inicio.Login;
 import com.greengarden.R;
 
 import java.security.MessageDigest;

@@ -49,13 +49,13 @@
             android:name=".Estadisticas.Estadisticas"
             android:exported="false" />
         <activity
-            android:name=".Noticias.Registration"
+            android:name=".Inicio.Registration"
             android:exported="false" />
         <activity
             android:name=".Inicio.Login"
             android:exported="false" />
         <activity
-            android:name=".Noticias.MainActivity"
+            android:name=".Inicio.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
