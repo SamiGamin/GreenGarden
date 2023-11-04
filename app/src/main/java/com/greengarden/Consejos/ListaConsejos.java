@@ -9,6 +9,7 @@ public class ListaConsejos implements Parcelable {
     private String nombreplanta;
     private String consejoabono;
     private String consejoagua;
+    private String imagenUrl;
 
     public ListaConsejos() {
     }
@@ -17,12 +18,21 @@ public class ListaConsejos implements Parcelable {
         this.nombreplanta = nombreplanta;
         this.consejoabono = consejoplanta;
         this.consejoagua = consejoplanta;
+        this.imagenUrl = imagenUrl;
     }
 
     protected ListaConsejos(Parcel in) {
         nombreplanta = in.readString();
         consejoabono = in.readString();
         consejoagua = in.readString();
+    }
+
+    public String getImagenUrl() {
+        return imagenUrl;
+    }
+
+    public void setImagenUrl(String imagenUrl) {
+        this.imagenUrl = imagenUrl;
     }
 
     public String getConsejoabono() {
