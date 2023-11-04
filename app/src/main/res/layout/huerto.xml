@@ -53,6 +53,7 @@
             app:cardCornerRadius="@dimen/x_sm"
             app:cardElevation="@dimen/x_sm">
 
+
             <ListView
                 android:id="@+id/listViewSeleccionados"
                 android:layout_width="match_parent"

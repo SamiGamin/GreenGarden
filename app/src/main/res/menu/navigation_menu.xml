@@ -7,7 +7,7 @@
         android:title="INICIO" />
     <item
         android:id="@+id/cultivos"
-        android:title="CULTIVOS" />
+        android:title="CULTIVO" />
 
 
     <item
