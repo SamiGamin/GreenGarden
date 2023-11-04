@@ -15,6 +15,7 @@ import com.greengarden.Cuidados.Cuidados;
 import com.greengarden.Estadisticas.Estadisticas;
 import com.greengarden.Noticias.ComunidadEventos;
 import com.greengarden.Plantas.Agregar_Cultivos;
+import com.greengarden.Plantas.huerto;
 import com.greengarden.R;
 import com.greengarden.Menu.MenuClickListener;
 
@@ -37,7 +38,7 @@ public class Inicio extends AppCompatActivity {
         ircuidados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Cuidados.class);
+                Intent intent = new Intent(getApplicationContext(), huerto.class);
                 startActivity(intent);
             }
         });
