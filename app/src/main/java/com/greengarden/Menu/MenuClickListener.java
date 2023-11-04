@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.greengarden.Inicio.Login;
 import com.greengarden.Plantas.Agregar_Cultivos;
 import com.greengarden.Noticias.ComunidadEventos;
 
@@ -25,6 +26,7 @@ public class MenuClickListener implements PopupMenu.OnMenuItemClickListener {
 
     public MenuClickListener(Context context) {
         this.context = context;
+        mAuth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -62,8 +64,11 @@ public class MenuClickListener implements PopupMenu.OnMenuItemClickListener {
             return true;
         }
         if (id == R.id.salir) {
-            ((Activity) context).finish();
             mAuth.signOut();
+            Intent login = new Intent(context, Login.class);
+            context.startActivity(login);
+
+
             return true;
         }
         return false;
