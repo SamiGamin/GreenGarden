@@ -5,6 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Inicio.RecuperarContrasena">
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/top_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="Recuperar\nContraseña"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -25,85 +47,50 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:padding="@dimen/md_lg"
                 android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/long_titulo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="36dp"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:text="@string/app_name"
-                    android:textColor="@color/green"
-                    android:textSize="@dimen/title"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-
-                    android:id="@+id/long_img_icon"
-                    style="@style/icon"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/icono"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/long_titulo" />
 
 
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="240dp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="15dp"
-                    android:orientation="vertical">
 
 
                     <TextView
-                        android:id="@+id/long_text_usuario"
-                        style="@style/text"
+                        android:id="@+id/text_email2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="21dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="25dp"
+                        android:layout_marginTop="16dp"
                         android:text="Email"
-                        android:textColor="@color/black" />
-
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
                     <EditText
-                        android:id="@+id/long_editText_email"
-                        style="@style/text"
+                        android:id="@+id/registro_email2"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="25dp"
-                        android:drawableLeft="@drawable/email"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/edittext_backgraund"
                         android:ems="10"
-                        android:hint="Email: "
-                        android:inputType="textEmailAddress"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/hingt" />
+                        android:hint="Ingrese su Email"
+                        android:inputType="text"
+                        android:padding="12dp"
+                        android:textColor="#707070"
+                        android:textSize="18sp" />
 
 
                     <Button
                         android:id="@+id/btn_enviar"
-                        style="@style/btn"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/btn_prin"
-                        android:text="Continuar"
-                        android:textAlignment="center"
-                        android:textColor="@color/white" />
-
-
-                </LinearLayout>
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:background="@drawable/btn_bagraund"
+                        style="@style/Widget.AppCompat.Button"
+                        android:textSize="25sp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:text="Ingresar" />
 
             </LinearLayout>
         </ScrollView>
