@@ -116,6 +116,7 @@ public class huerto extends AppCompatActivity {
         actividadMap = new HashMap<>();
         actividadMap.put("Zanahoria", zanahoria.class);
         actividadMap.put("Ajo", ajo.class);
+        actividadMap.put("Acelga", Acelga.class);
         // Agrega más elementos y actividades según sea necesario
 
         // Agregar un listener para cuando se seleccione un elemento en la lista
