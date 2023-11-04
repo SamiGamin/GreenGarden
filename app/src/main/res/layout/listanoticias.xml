@@ -32,20 +32,20 @@
                 android:textSize="22sp"
                 android:textStyle="bold"/>
 
+            <TextView
+                android:id="@+id/listfecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="fecha"
+                android:layout_marginBottom="@dimen/sm"
+                android:textSize="18sp"
+                android:textStyle="italic"/>
 
             <TextView
                 android:id="@+id/consejoabono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/sm"
-                android:text="   "
-                android:textSize="18sp" />
-            <TextView
-                android:id="@+id/consejoagua"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/sm"
-                android:text="   "
+                android:text="La zanahoria silvestre o carrota es una especie de planta herbácea de la familia Apiaceae. Es la forma silvestre de la zanahoria."
                 android:textSize="18sp" />
         </LinearLayout>
 

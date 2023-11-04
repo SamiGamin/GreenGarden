@@ -7,19 +7,38 @@ import androidx.annotation.NonNull;
 
 public class ListaConsejos implements Parcelable {
     private String nombreplanta;
-    private String consejoplanta;
+    private String consejoabono;
+    private String consejoagua;
 
     public ListaConsejos() {
     }
 
-    public ListaConsejos(String nombreplanta, String consejoplanta) {
+    public ListaConsejos(String nombreplanta, String consejoplanta , String consejoagua) {
         this.nombreplanta = nombreplanta;
-        this.consejoplanta = consejoplanta;
+        this.consejoabono = consejoplanta;
+        this.consejoagua = consejoplanta;
     }
 
     protected ListaConsejos(Parcel in) {
         nombreplanta = in.readString();
-        consejoplanta = in.readString();
+        consejoabono = in.readString();
+        consejoagua = in.readString();
+    }
+
+    public String getConsejoabono() {
+        return consejoabono;
+    }
+
+    public void setConsejoabono(String consejoabono) {
+        this.consejoabono = consejoabono;
+    }
+
+    public String getConsejoagua() {
+        return consejoagua;
+    }
+
+    public void setConsejoagua(String consejoagua) {
+        this.consejoagua = consejoagua;
     }
 
     public static final Creator<ListaConsejos> CREATOR = new Creator<ListaConsejos>() {
@@ -43,11 +62,11 @@ public class ListaConsejos implements Parcelable {
     }
 
     public String getConsejoplanta() {
-        return consejoplanta;
+        return consejoabono;
     }
 
     public void setConsejoplanta(String consejoplanta) {
-        this.consejoplanta = consejoplanta;
+        this.consejoabono = consejoplanta;
     }
 
     @Override
@@ -59,7 +78,8 @@ public class ListaConsejos implements Parcelable {
     public void writeToParcel(@NonNull Parcel dest, int flags) {
 
         dest.writeString(nombreplanta);
-        dest.writeString(consejoplanta);
+        dest.writeString(consejoabono);
+        dest.writeString(consejoagua);
     }
 
 

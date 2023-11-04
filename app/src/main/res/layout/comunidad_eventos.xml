@@ -44,15 +44,12 @@
         android:layout_marginBottom="0dp"
         android:orientation="horizontal">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
                 <TextView
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
@@ -62,147 +59,27 @@
                     android:textSize="32sp"
                     android:textStyle="bold" />
 
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    app:cardElevation="@dimen/md"
                     app:cardCornerRadius="@dimen/sm">
 
 
-                    <LinearLayout
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclernt"
+                        android:layout_margin="@dimen/sm"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="2dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="15dp"
-                            android:text="Evento 1:  "
-                            android:textSize="22sp" />
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="5dp"
-                            android:orientation="vertical">
-
-                            <TextView
-
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Bogotá, julio de 2023.  Corferias será el escenario para que después de dos años de espera se vuelvan a reunir los actores del campo colombiano. Del 13 al 23 de julio cerca de 600 expositores y más de 3.000 ejemplares en pie estarán presentes. Agroexpo es la feria que ha reunido al sector agropecuario a lo largo de más de 45 años, logrando consolidarse como la más representativa en Centroamérica y el Caribe, todo gracias a la alianza entre Corferias y la Unión Nacional de Asociaciones Ganaderas Colombianas - UNAGA."
-                                android:textSize="18sp" />
-
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
+                        android:layout_height="match_parent" />
                 </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="@dimen/sm">
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="2dp"
-                        android:orientation="vertical">
-
-                        <TextView
-
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="15dp"
-                            android:text="Evento 2:"
-                            android:textSize="22sp" />
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="5dp"
-                            android:orientation="vertical">
-
-                            <TextView
-
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="ARTBO | Feria Internacional de Arte de Bogotá fue creada en el 2004 por la Cámara de Comercio de Bogotá en respuesta al creciente interés empresarial por las industrias"
-                                android:textSize="18sp" />
-
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="@dimen/sm">
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="2dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textView7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="15dp"
-                            android:text="Evento 3:"
-                            android:textSize="22sp" />
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="5dp"
-                            android:orientation="vertical">
-
-                            <TextView
-
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Bogotá, 24 de julio de 2023. Agroexpo 2023 se posiciona como la mejor edición de la historia desde su primera versión. Fueron cerca de 600 expositores, más de 3.000 animales en pie, convocó alrededor de 200 mil visitantes, contó con más de 250 espacios entre conferencias, conversatorios y encuentros yuna rueda de negocios que dejó expectativas de negocio por 2 millones de dólares, con 637 citas logradas. Estas cifras evidencian que la feria es el mejor escenario de oportunidades para todos los actores que hacen parte del proceso productivo del campo."
-                                android:textSize="18sp" />
-
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="@dimen/sm" />
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="@dimen/sm" />
-
 
             </LinearLayout>
-        </ScrollView>
+
+
+
     </LinearLayout>
 
 

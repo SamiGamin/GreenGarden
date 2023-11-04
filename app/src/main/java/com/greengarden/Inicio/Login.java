@@ -18,7 +18,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.greengarden.R;
-import com.greengarden.Noticias.Registration;
 
 import java.util.regex.Pattern;
 

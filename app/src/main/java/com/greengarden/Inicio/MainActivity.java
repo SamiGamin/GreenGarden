@@ -1,4 +1,4 @@
-package com.greengarden.Noticias;
+package com.greengarden.Inicio;
 /*
   @Autor: @Salomon Martinez Barrera
   @Autor: @Tobias Martinez Barrera
@@ -18,7 +18,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.greengarden.Inicio.Login;
 import com.greengarden.R;
 
 public class MainActivity extends AppCompatActivity {
