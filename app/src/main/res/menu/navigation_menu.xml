@@ -28,7 +28,7 @@
         >
     <item
         android:id="@+id/salir"
-        android:title="Salir" />
+        android:title="Cerrar sesion" />
     </group>
 
 </menu>
