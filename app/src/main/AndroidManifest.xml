@@ -16,9 +16,6 @@
         android:theme="@style/Theme.GreenGarden"
         tools:targetApi="31">
         <activity
-            android:name=".Plantas.Acelga"
-            android:exported="false" />
-        <activity
             android:name=".ejemplo.MiHuerto"
             android:exported="false" />
         <activity
