@@ -38,6 +38,8 @@ dependencies {
     implementation ("androidx.navigation:navigation-fragment:2.7.4")
     implementation ("androidx.navigation:navigation-ui:2.7.4")
     implementation ("com.firebaseui:firebase-ui-database:8.0.2")
+    //glide imagenes
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
 
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")

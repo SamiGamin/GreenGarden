@@ -20,6 +20,7 @@ import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.greengarden.Menu.MenuClickListener;
 import com.greengarden.Plantas.Agregar_Cultivos;
@@ -77,7 +78,7 @@ public class Consejos extends AppCompatActivity {
     }
 
     private void mostarlistadoconsejos() {
-    db.collection("Consejos")/*.orderBy("titulo" , Query.Direction.ASCENDING)*/
+    db.collection("Consejos").orderBy("nombreplanta" , Query.Direction.ASCENDING)
             .addSnapshotListener(new EventListener<QuerySnapshot>() {
                 @Override
                 public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
