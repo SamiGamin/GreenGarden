@@ -43,10 +43,10 @@
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/sm"
         android:layout_marginBottom="@dimen/sm"
+        android:layout_marginTop="@dimen/sm"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barraprincipal">
@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="@dimen/sm"
-                android:text="PLANTAS"
+                android:text="MI HUERTO"
                 android:textSize="32sp"
                 android:textStyle="bold" />
 
@@ -86,32 +86,23 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout7"
+        android:id="@+id/linearLayout10"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/sm"
         android:orientation="horizontal"
-        android:layout_marginBottom="@dimen/md"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
         <Button
-            android:id="@+id/agregar_planta"
+            android:id="@+id/btn_elminar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:background="@drawable/btn"
-            android:text="Agregar planta" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@drawable/btn_bagraund"
+            android:text="Eliminar"
+            android:textSize="@dimen/md" />
     </LinearLayout>
 
     <LinearLayout

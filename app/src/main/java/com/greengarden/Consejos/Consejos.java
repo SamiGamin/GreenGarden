@@ -78,7 +78,7 @@ public class Consejos extends AppCompatActivity {
     }
 
     private void mostarlistadoconsejos() {
-    db.collection("Consejos").orderBy("nombreplanta" , Query.Direction.ASCENDING)
+    db.collection("Consejos").orderBy("titulo" , Query.Direction.ASCENDING)
             .addSnapshotListener(new EventListener<QuerySnapshot>() {
                 @Override
                 public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {

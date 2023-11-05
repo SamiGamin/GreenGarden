@@ -34,7 +34,7 @@ public class ConsejoAdapter extends RecyclerView.Adapter<ConsejoAdapter.MiViewHo
     public void onBindViewHolder(@NonNull ConsejoAdapter.MiViewHolder holder, int position) {
         ListaConsejos consejo = listaConsejos.get(position);
 
-        holder.NombrePlanta.setText(consejo.getNombreplanta());
+        holder.titulo.setText(consejo.getNombreplanta());
         holder.ConsejoAbono.setText(consejo.getConsejoabono());
         holder.ConsejoAgua.setText(consejo.getConsejoagua());
 
@@ -47,11 +47,11 @@ public class ConsejoAdapter extends RecyclerView.Adapter<ConsejoAdapter.MiViewHo
         return listaConsejos.size();
     }
     public class MiViewHolder extends RecyclerView.ViewHolder {
-        TextView NombrePlanta, ConsejoAbono, ConsejoAgua ;
+        TextView titulo, ConsejoAbono, ConsejoAgua ;
 
         public MiViewHolder(@NonNull View itemView) {
             super(itemView);
-            NombrePlanta = itemView.findViewById(R.id.listtitulo);
+            titulo = itemView.findViewById(R.id.listtitulo);
             ConsejoAbono = itemView.findViewById(R.id.consejoabono);
             ConsejoAgua = itemView.findViewById(R.id.consejoagua);
 

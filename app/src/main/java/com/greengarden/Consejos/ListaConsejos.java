@@ -6,34 +6,34 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 
 public class ListaConsejos implements Parcelable {
-    private String nombreplanta;
+    private String titulo;
     private String consejoabono;
     private String consejoagua;
-    private String imagenUrl;
+    private int imagenUrl;
 
     public ListaConsejos() {
     }
 
     public ListaConsejos(String nombreplanta, String consejoplanta , String consejoagua) {
-        this.nombreplanta = nombreplanta;
+        this.titulo = nombreplanta;
         this.consejoabono = consejoplanta;
         this.consejoagua = consejoplanta;
-        this.imagenUrl = imagenUrl;
+        /*this.imagenUrl = imagenUrl;*/
     }
 
     protected ListaConsejos(Parcel in) {
-        nombreplanta = in.readString();
+        titulo = in.readString();
         consejoabono = in.readString();
         consejoagua = in.readString();
     }
 
-    public String getImagenUrl() {
+   /* public int getImagenUrl() {
         return imagenUrl;
-    }
+    }*/
 
-    public void setImagenUrl(String imagenUrl) {
-        this.imagenUrl = imagenUrl;
-    }
+   /* public void setImagenUrl(String imagenUrl) {
+        this.imagenUrl = Integer.parseInt(imagenUrl);
+    }*/
 
     public String getConsejoabono() {
         return consejoabono;
@@ -64,11 +64,11 @@ public class ListaConsejos implements Parcelable {
     };
 
     public String getNombreplanta() {
-        return nombreplanta;
+        return titulo;
     }
 
     public void setNombreplanta(String nombreplanta) {
-        this.nombreplanta = nombreplanta;
+        this.titulo = nombreplanta;
     }
 
     public String getConsejoplanta() {
@@ -87,7 +87,7 @@ public class ListaConsejos implements Parcelable {
     @Override
     public void writeToParcel(@NonNull Parcel dest, int flags) {
 
-        dest.writeString(nombreplanta);
+        dest.writeString(titulo);
         dest.writeString(consejoabono);
         dest.writeString(consejoagua);
     }

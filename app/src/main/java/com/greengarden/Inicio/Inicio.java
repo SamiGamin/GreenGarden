@@ -18,6 +18,8 @@ import com.greengarden.Plantas.Agregar_Cultivos;
 import com.greengarden.Plantas.huerto;
 import com.greengarden.R;
 import com.greengarden.Menu.MenuClickListener;
+import com.greengarden.ejemplo.MiHuerto;
+import com.greengarden.ejemplo.prueba;
 
 public class Inicio extends AppCompatActivity {
 
@@ -38,7 +40,7 @@ public class Inicio extends AppCompatActivity {
         ircuidados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), huerto.class);
+                Intent intent = new Intent(getApplicationContext(), prueba.class);
                 startActivity(intent);
             }
         });
@@ -59,7 +61,7 @@ public class Inicio extends AppCompatActivity {
         irestadistica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Estadisticas.class);
+                Intent intent = new Intent(getApplicationContext(), MiHuerto.class);
                 startActivity(intent);
             }
         });
