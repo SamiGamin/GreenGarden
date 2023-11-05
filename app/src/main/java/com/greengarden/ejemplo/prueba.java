@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -21,6 +23,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.gson.Gson;
 import com.greengarden.Consejos.ConsejoAdapter;
 import com.greengarden.Consejos.Consejos;
 import com.greengarden.Consejos.ListaConsejos;
@@ -77,12 +80,34 @@ public class prueba extends AppCompatActivity {
         agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Abre la pantalla "Mi Huerto" y pasa la lista de plantas seleccionadas
+                // Obtiene las plantas seleccionadas de la lista selectedTitles
+                ArrayList<Tituloplanta> selectedPlants = selectedTitles;
+
+                // Abre la pantalla "MiHuerto" y pasa la lista de plantas seleccionadas
                 Intent intent = new Intent(prueba.this, MiHuerto.class);
-                intent.putParcelableArrayListExtra("selected_plants", selectedTitles);
+                intent.putParcelableArrayListExtra("selected_plants", selectedPlants);
                 startActivity(intent);
             }
         });
+    }
+
+    private ArrayList<Tituloplanta> savePlants(ArrayList<Tituloplanta> selected) {
+        // Obtener instancia de SharedPreferences
+        SharedPreferences prefs = getSharedPreferences("mis_plantas", Context.MODE_PRIVATE);
+
+        // Obtener editor para modificar prefs
+        SharedPreferences.Editor editor = prefs.edit();
+
+        // Convertir lista a JSON
+        Gson gson = new Gson();
+        String jsonPlants = gson.toJson(selected);
+
+        // Guardar json en prefs
+        editor.putString("plantas_seleccionadas", jsonPlants);
+
+        // Aplicar cambios
+        editor.apply();
+        return selected;
     }
 
     private void tituloplanta() {
@@ -112,44 +137,5 @@ public class prueba extends AppCompatActivity {
 
                 });
     }
-    /*public class MyItemClickListener implements RecyclerView.OnItemTouchListener{
 
-        @Override
-        public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
-            View childView = rv.findChildViewUnder(e.getX(), e.getY());
-
-            if (childView != null) {
-                int itemPosition = rv.getChildLayoutPosition(childView);
-                if (itemPosition != RecyclerView.NO_POSITION){
-                    Tituloplanta selectedPlant = plantarrayList.get(itemPosition);
-                    // Si la planta ya está en la lista de selección, elimínala; de lo contrario, agrégala
-                    if (selectedTitles.contains(selectedPlant)) {
-                        selectedTitles.remove(selectedPlant);
-                    } else {
-                        selectedTitles.add(selectedPlant);
-                    }
-                    // Ejemplo 1: Cambiar el fondo del elemento si está seleccionado
-                    if (!selectedTitles.contains(selectedPlant)) {
-                        selectedTitles.add(selectedPlant);
-                    } else {
-                        selectedTitles.remove(selectedPlant);
-                    }
-                    plantaAdapter.notifyDataSetChanged();
-                }
-            }
-
-            return false;
-        }
-
-
-        @Override
-        public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
-
-        }
-
-        @Override
-        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
-        }
-    }*/
 }

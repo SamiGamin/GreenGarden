@@ -16,13 +16,17 @@ public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHo
     private ArrayList<Tituloplanta> selectedPlants;
 
     public MiHuertoAdapter(ArrayList<Tituloplanta> selectedPlants) {
-        this.selectedPlants = selectedPlants;
+        if (selectedPlants == null) {
+            this.selectedPlants = new ArrayList<>();
+        } else {
+            this.selectedPlants = selectedPlants;
+        }
     }
 
     @NonNull
     @Override
     public MiHuertoAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_plantas, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.mihuerto, parent, false);
         return new ViewHolder(view);
 
 
@@ -42,14 +46,26 @@ public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView plantNameTextView;
+        private TextView vriego;
+        private TextView vabono;
+        private TextView vagua;
+        private TextView vtemperatura;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            plantNameTextView = itemView.findViewById(R.id.titulo);
+            plantNameTextView = itemView.findViewById(R.id.titulomihuerto);
+            vriego = itemView.findViewById(R.id.riegomihuerto);
+            vabono = itemView.findViewById(R.id.abonomihuerto);
+            vtemperatura = itemView.findViewById(R.id.temperaturamihuerto);
+            vagua = itemView.findViewById(R.id.holasoy);
 
         }
 
         public void bind(Tituloplanta plant) {
             plantNameTextView.setText(plant.getTitulo());
+            vtemperatura.setText(plant.getTemperatura());
+            vriego.setText(plant.getRiego());
+            vabono.setText(plant.getAbono());
+            vagua.setText(plant.getAgua());
         }
     }
 }
