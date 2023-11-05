@@ -24,7 +24,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class MiHuerto extends AppCompatActivity {
-    Button menu;
+    private Button menu, eliminar;
     private RecyclerView recyclerView;
     private MiHuertoAdapter adapter; // Debes crear esta clase de adaptador
     private ArrayList<Tituloplanta> selectedPlants; // Lista para mantener las plantas seleccionadas
@@ -66,6 +66,13 @@ public class MiHuerto extends AppCompatActivity {
             adapter = new MiHuertoAdapter(selectedPlants);
             recyclerView.setAdapter(adapter);
         }
+        eliminar = findViewById(R.id.btn_elminar);
+        eliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         //inicio menu
         menu = findViewById(R.id.btn_menu);
         menu.setOnClickListener(new View.OnClickListener() {

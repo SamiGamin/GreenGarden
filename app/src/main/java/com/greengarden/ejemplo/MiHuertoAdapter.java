@@ -37,6 +37,7 @@ public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHo
 
         Tituloplanta plant = selectedPlants.get(position);
         holder.bind(plant);
+
     }
 
     @Override
@@ -63,9 +64,9 @@ public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHo
         public void bind(Tituloplanta plant) {
             plantNameTextView.setText(plant.getTitulo());
             vtemperatura.setText(plant.getTemperatura());
-            vriego.setText(plant.getRiego());
-            vabono.setText(plant.getAbono());
-            vagua.setText(plant.getAgua());
+            vriego.setText("Riego cada  " + plant.getRiego()+ "  dias");
+            vabono.setText("Abono  "+plant.getAbono()+ "  Gramos");
+           // vagua.setText(plant.getAgua());
         }
     }
 }
