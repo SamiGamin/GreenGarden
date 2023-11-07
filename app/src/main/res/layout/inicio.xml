@@ -37,283 +37,348 @@
             android:foreground="@drawable/icon_menu" />
     </androidx.appcompat.widget.Toolbar>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cultivos"
+    <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20sp"
-        android:elevation="@dimen/sm"
-        app:cardCornerRadius="@dimen/md"
-        app:layout_constraintBottom_toTopOf="@+id/cuidaos"
+        android:layout_height="684dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barraprincipal">
 
         <LinearLayout
-            android:id="@+id/layout_cultivo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/targeta_cultivos"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/title_cultivos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Agregar cultivos"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-            <LinearLayout
+            <androidx.cardview.widget.CardView
+                android:id="@+id/uno"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/sm"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
+                android:layout_height="100dp"
+                android:layout_margin="@dimen/md"
+                android:background="@color/black"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="30dp">
 
-                <ImageView
-                    android:id="@+id/icon_cultivos"
-                    android:layout_width="55dp"
-                    android:layout_height="60dp"
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <ViewFlipper
+                        android:id="@+id/home_slider1"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:background="@drawable/view_radio"
+                        android:backgroundTint="@color/borderColor">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/agregarcultivo" />
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/agregarcultivo2" />
+
+
+                    </ViewFlipper>
+
+                    <TextView
+                        android:id="@+id/cultivos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:background="@color/fondotexto"
+                        android:text="Agregar Cultivo"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/uno2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="@dimen/md"
+                android:background="@color/black"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="30dp">
+
+                <ViewFlipper
+                    android:id="@+id/home_slider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:background="@drawable/view_radio"
+                    android:backgroundTint="@color/borderColor">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/cultivo" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/cultivo1" />
+                </ViewFlipper>
+
+                <TextView
+                    android:id="@+id/cuidaos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
-                    android:src="@drawable/hoja" />
-            </LinearLayout>
-        </LinearLayout>
+                    android:background="@color/fondotexto"
+                    android:text="Cultivo"
+                    android:textColor="@color/white"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cuidaos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20sp"
-        android:elevation="@dimen/sm"
-        app:cardCornerRadius="@dimen/md"
-        app:layout_constraintBottom_toTopOf="@+id/consejos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cultivos">
-
-        <ImageView
-            android:id="@+id/btn_cuidados"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/tarega_cuidados" />
-
-        <LinearLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/title_consejos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Cultivo"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-
-            <LinearLayout
-                android:id="@+id/btncuidados"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/uno3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/sm"
-                android:orientation="horizontal">
+                android:layout_height="100dp"
+                android:layout_margin="@dimen/md"
+                android:background="@color/black"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="30dp">
 
-                <ImageView
-                    android:id="@+id/icon_consejos"
-                    android:layout_width="55dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/agua" />
+                <ViewFlipper
+                    android:id="@+id/home_slider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:background="@drawable/view_radio"
+                    android:backgroundTint="@color/borderColor">
 
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="50dp"
-                    android:layout_height="60dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/abono" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/consejos" />
 
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/consejos1" />
 
-        </LinearLayout>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/estadisticas" />
+                </ViewFlipper>
 
+                <TextView
+                    android:id="@+id/consejos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:background="@color/fondotexto"
+                    android:text="Consejos"
+                    android:textColor="@color/white"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/consejos"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20sp"
-        android:elevation="@dimen/sm"
-        app:cardCornerRadius="@dimen/md"
-        app:layout_constraintBottom_toTopOf="@+id/estadisticas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cuidaos">
-
-        <LinearLayout
-            android:id="@+id/btn_consejos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/tarega_cosejos"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/title_estadisticas"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Consejos"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-            <LinearLayout
+            <androidx.cardview.widget.CardView
+                android:id="@+id/uno4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/sm"
-                android:orientation="horizontal">
+                android:layout_height="100dp"
+                android:layout_margin="@dimen/md"
+                android:background="@color/black"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="30dp">
 
-                <ImageView
-                    android:id="@+id/icon_estadistcasa"
-                    android:layout_width="55dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginEnd="5dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/zanahoria" />
+                <ViewFlipper
+                    android:id="@+id/home_slider4"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:background="@drawable/view_radio"
+                    android:backgroundTint="@color/borderColor">
 
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="55dp"
-                    android:layout_height="60dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/mano" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/estadisticas" />
 
-                <ImageView
-                    android:id="@+id/imageView5"
-                    android:layout_width="55dp"
-                    android:layout_height="60dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/laurel" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/estadisticas1" />
 
-            </LinearLayout>
-        </LinearLayout>
+                </ViewFlipper>
 
+                <TextView
+                    android:id="@+id/estadisticas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:background="@color/fondotexto"
+                    android:text="Estadisticas"
+                    android:textColor="@color/white"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/estadisticas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20sp"
-        android:elevation="@dimen/sm"
-        app:cardCornerRadius="@dimen/md"
-        app:layout_constraintBottom_toTopOf="@+id/noticias"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/consejos">
-
-        <LinearLayout
-            android:id="@+id/btn_estadisticas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/tarega_estadisticas"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/title_noticias"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Estadisticas"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-            <LinearLayout
+            <androidx.cardview.widget.CardView
+                android:id="@+id/uno5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/sm"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
+                android:layout_height="100dp"
+                android:layout_margin="@dimen/md"
+                android:background="@color/black"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="30dp">
 
-                <ImageView
-                    android:id="@+id/icon_noticias"
-                    android:layout_width="55dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ico_estadisticas" />
-            </LinearLayout>
-        </LinearLayout>
+                <ViewFlipper
+                    android:id="@+id/home_slider5"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:background="@drawable/view_radio"
+                    android:backgroundTint="@color/borderColor">
 
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/noticias" />
 
-    </androidx.cardview.widget.CardView>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/noticias1" />
+                </ViewFlipper>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/noticias"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="20sp"
-        android:elevation="@dimen/sm"
-        app:cardCornerRadius="@dimen/md"
-        app:layout_constraintBottom_toTopOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/estadisticas">
+                <TextView
+                    android:id="@+id/noticias"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:background="@color/fondotexto"
+                    android:text="Noticias"
+                    android:textColor="@color/white"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
 
-        <LinearLayout
-            android:id="@+id/btn_noticias"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/tarega_noticias"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/title_cuidados"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Noticias"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-            <LinearLayout
+            <androidx.cardview.widget.CardView
+                android:id="@+id/uno6"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/sm"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
+                android:layout_height="100dp"
+                android:layout_margin="@dimen/md"
+                android:background="@color/black"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="30dp">
 
-                <ImageView
-                    android:id="@+id/icon_cuidados"
-                    android:layout_width="55dp"
-                    android:layout_height="60dp"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ico_noticias" />
-            </LinearLayout>
+                <ViewFlipper
+                    android:id="@+id/home_slider6"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:background="@drawable/view_radio"
+                    android:backgroundTint="@color/borderColor">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/noticias" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/noticias1" />
+                </ViewFlipper>
+
+                <TextView
+                    android:id="@+id/noticias1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:background="@color/fondotexto"
+                    android:text="uno mas"
+                    android:textColor="@color/white"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/uno7"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="@dimen/md"
+                android:background="@color/black"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="30dp">
+
+                <ViewFlipper
+                    android:id="@+id/home_slider7"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:background="@drawable/view_radio"
+                    android:backgroundTint="@color/borderColor">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/noticias" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/noticias1" />
+                </ViewFlipper>
+
+                <TextView
+                    android:id="@+id/noticias3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:background="@color/fondotexto"
+                    android:text="dos mas"
+                    android:textColor="@color/white"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
+
         </LinearLayout>
-
-
-    </androidx.cardview.widget.CardView>
+    </ScrollView>
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/pieimagen"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:scaleType="centerCrop"
         android:src="@drawable/banerpublicidad"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

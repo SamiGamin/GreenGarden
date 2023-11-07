@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
+import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.greengarden.Consejos.Consejos;
@@ -15,6 +17,7 @@ import com.greengarden.Cuidados.Cuidados;
 import com.greengarden.Estadisticas.Estadisticas;
 import com.greengarden.Noticias.ComunidadEventos;
 import com.greengarden.Plantas.Agregar_Cultivos;
+import com.greengarden.Plantas.MyViewFlipper;
 import com.greengarden.Plantas.huerto;
 import com.greengarden.R;
 import com.greengarden.Menu.MenuClickListener;
@@ -30,24 +33,44 @@ public class Inicio extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inicio);
-        LinearLayout ircuidados = findViewById(R.id.btncuidados);
-        LinearLayout ircultivos = findViewById(R.id.layout_cultivo);
-        LinearLayout ircosejos = findViewById(R.id.btn_consejos);
-        LinearLayout irestadistica = findViewById(R.id.btn_estadisticas);
-        LinearLayout ireventos = findViewById(R.id.btn_noticias);
+        TextView ircuidados = findViewById(R.id.cultivos);
+        TextView ircultivos = findViewById(R.id.cuidaos);
+        TextView ircosejos = findViewById(R.id.consejos);
+        TextView irestadistica = findViewById(R.id.estadisticas);
+        TextView ireventos = findViewById(R.id.noticias);
+
+        // inicio animaciones
+        ViewFlipper viewFlipper1 = findViewById(R.id.home_slider1);
+        MyViewFlipper myViewFlipper1 = new MyViewFlipper(this, viewFlipper1);
+        ViewFlipper viewFlipper2 = findViewById(R.id.home_slider2);
+        MyViewFlipper myViewFlipper2 = new MyViewFlipper(this, viewFlipper2);
+        ViewFlipper viewFlipper3 = findViewById(R.id.home_slider3);
+        MyViewFlipper myViewFlipper3 = new MyViewFlipper(this, viewFlipper3);
+        ViewFlipper viewFlipper4 = findViewById(R.id.home_slider4);
+        MyViewFlipper myViewFlipper4 = new MyViewFlipper(this, viewFlipper4);
+        ViewFlipper viewFlipper5 = findViewById(R.id.home_slider5);
+        MyViewFlipper myViewFlipper5 = new MyViewFlipper(this, viewFlipper5);
+
+        ViewFlipper viewFlipper6 = findViewById(R.id.home_slider6);
+        MyViewFlipper myViewFlipper6 = new MyViewFlipper(this, viewFlipper6);
+        ViewFlipper viewFlipper7 = findViewById(R.id.home_slider7);
+        MyViewFlipper myViewFlipper7 = new MyViewFlipper(this, viewFlipper7);
+
+//fin animaciones
+
 
         mAuth = FirebaseAuth.getInstance();
         ircuidados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), prueba.class);
+                Intent intent = new Intent(getApplicationContext(), Agregar_Cultivos.class);
                 startActivity(intent);
             }
         });
         ircultivos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Agregar_Cultivos.class);
+                Intent intent = new Intent(getApplicationContext(), huerto.class);
                 startActivity(intent);
             }
         });
@@ -72,7 +95,6 @@ public class Inicio extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
 
         //inicio menu
