@@ -29,6 +29,7 @@ import com.greengarden.Cuidados.Cuidados;
 import com.greengarden.Estadisticas.Estadisticas;
 import com.greengarden.Inicio.Inicio;
 import com.greengarden.R;
+import com.greengarden.ejemplo.Tituloplanta;
 
 import java.util.ArrayList;
 
@@ -39,7 +40,7 @@ public class Consejos extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private RecyclerView recyclerView;
     private FirebaseFirestore db;
-    private ArrayList<ListaConsejos> consejoArrayList;
+    private ArrayList<Tituloplanta> consejoArrayList;
     private ConsejoAdapter consejoAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +70,7 @@ public class Consejos extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         db = FirebaseFirestore.getInstance();
-        consejoArrayList = new ArrayList<ListaConsejos>();
+        consejoArrayList = new ArrayList<Tituloplanta>();
         consejoAdapter = new ConsejoAdapter(this, consejoArrayList);
 
         recyclerView.setAdapter(consejoAdapter);
@@ -78,7 +79,7 @@ public class Consejos extends AppCompatActivity {
     }
 
     private void mostarlistadoconsejos() {
-    db.collection("Consejos").orderBy("titulo" , Query.Direction.ASCENDING)
+    db.collection("Plantas").orderBy("tipoplanta" , Query.Direction.ASCENDING)
             .addSnapshotListener(new EventListener<QuerySnapshot>() {
                 @Override
                 public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -89,7 +90,7 @@ public class Consejos extends AppCompatActivity {
                         return;
                     }for (DocumentChange dc : value.getDocumentChanges()){
                         if (dc.getType() == DocumentChange.Type.ADDED){
-                            consejoArrayList.add(dc.getDocument().toObject(ListaConsejos.class));
+                            consejoArrayList.add(dc.getDocument().toObject(Tituloplanta.class));
                         }
                         consejoAdapter.notifyDataSetChanged();
                         if (progressDialog.isShowing())
@@ -97,7 +98,7 @@ public class Consejos extends AppCompatActivity {
                     }
                     // Accede al primer elemento de consejoArrayList
                     if (consejoArrayList.size() > 0) {
-                        ListaConsejos primerConsejo = consejoArrayList.get(0);
+                        Tituloplanta primerConsejo = consejoArrayList.get(0);
                         // Haz lo que necesites con el primer elemento
                     }
                 }

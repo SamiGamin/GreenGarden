@@ -11,14 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.greengarden.R;
+import com.greengarden.ejemplo.Tituloplanta;
 
 import java.util.ArrayList;
 
 public class ConsejoAdapter extends RecyclerView.Adapter<ConsejoAdapter.MiViewHolder> {
     Context context;
-    ArrayList<ListaConsejos> listaConsejos;
+    ArrayList<Tituloplanta> listaConsejos;
 
-    public ConsejoAdapter(Context context, ArrayList<ListaConsejos> listaConsejos) {
+    public ConsejoAdapter(Context context, ArrayList<Tituloplanta> listaConsejos) {
         this.context = context;
         this.listaConsejos = listaConsejos;
     }
@@ -32,11 +33,11 @@ public class ConsejoAdapter extends RecyclerView.Adapter<ConsejoAdapter.MiViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ConsejoAdapter.MiViewHolder holder, int position) {
-        ListaConsejos consejo = listaConsejos.get(position);
+        Tituloplanta consejo = listaConsejos.get(position);
 
-        holder.titulo.setText(consejo.getNombreplanta());
+        holder.titulo.setText(consejo.getTitulo());
         holder.ConsejoAbono.setText(consejo.getConsejoabono());
-        holder.ConsejoAgua.setText(consejo.getConsejoagua());
+        holder.ConsejoAgua.setText(consejo.getConsejoriego());
 
 
     }

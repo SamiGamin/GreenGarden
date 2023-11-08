@@ -10,6 +10,8 @@ public class Tituloplanta implements Parcelable {
     private String riego;
     private String agua;
     private String abono;
+    private String consejoabono;
+    private String consejoriego;
     private String temperatura;
     private String  tipoplanta;
     private String imagenResId;
@@ -22,8 +24,11 @@ public class Tituloplanta implements Parcelable {
 
 
 
-    public Tituloplanta(String titulo, String riego, String abono, String temperatura,String agua, String tipoplanta, String imagenResId, String ulr) {
+    public Tituloplanta(String titulo, String riego, String abono, String temperatura,
+                        String agua, String tipoplanta, String imagenResId, String ulr, String consejoabono, String consejoriego) {
         this.titulo = titulo;
+        this.consejoabono = consejoabono;
+        this.consejoriego = consejoriego;
         this.riego = riego;
         this.abono = abono;
         this.agua = agua;
@@ -31,6 +36,22 @@ public class Tituloplanta implements Parcelable {
         this.ulr = ulr;
         this.temperatura = temperatura;
         this.imagenResId = imagenResId;
+    }
+
+    public String getConsejoabono() {
+        return consejoabono;
+    }
+
+    public void setConsejoabono(String consejoabono) {
+        this.consejoabono = consejoabono;
+    }
+
+    public String getConsejoriego() {
+        return consejoriego;
+    }
+
+    public void setConsejoriego(String consejoriego) {
+        this.consejoriego = consejoriego;
     }
 
     public String getTipoplanta() {
@@ -64,6 +85,8 @@ public class Tituloplanta implements Parcelable {
         agua = in.readString();
         tipoplanta = in.readString();
         temperatura = in.readString();
+        consejoriego = in.readString();
+        consejoabono = in.readString();
 
     }
 
@@ -137,6 +160,8 @@ public class Tituloplanta implements Parcelable {
         dest.writeString(abono);
         dest.writeString(agua);
         dest.writeString(temperatura);
+        dest.writeString(consejoriego);
+        dest.writeString(consejoabono);
         dest.writeString(tipoplanta);
 
     }
