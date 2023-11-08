@@ -39,7 +39,7 @@ public class ListadoPlantas extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.prueba);
+        setContentView(R.layout.listadoplantas);
         //inicio menu
         menu = findViewById(R.id.btn_menu);
         agregar = findViewById(R.id.agregar_planta);

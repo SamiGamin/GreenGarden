@@ -18,10 +18,9 @@ import com.greengarden.R;
 import java.util.ArrayList;
 
 public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.MiViewHolder> {
-    private Context context;
-    private ArrayList<Tituloplanta> tituloplanta;
-    private ArrayList<Tituloplanta> selectedTitles;
-    private OnItemClickListener listener;
+    private final Context context;
+    private final ArrayList<Tituloplanta> tituloplanta;
+    private final ArrayList<Tituloplanta> selectedTitles;
 
 
     public PlantaAdapter(Context context, ArrayList<Tituloplanta> tituloplanta, ArrayList<Tituloplanta> selectedTitles) {
@@ -33,7 +32,6 @@ public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.MiViewHold
         void onItemClick(Tituloplanta planta);
     }
     public void setOnItemClickListener(OnItemClickListener listener) {
-        this.listener = listener;
     }
 
     @NonNull
@@ -48,6 +46,7 @@ public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.MiViewHold
         Tituloplanta planta = tituloplanta.get(position);
 
         holder.Titulo.setText(planta.getTitulo());
+        holder.tipoplanta.setText(planta.getTipoplanta());
 
         String imageUrl = planta.getUlr();
         Log.d("TAG", "URL de la imagen: " + imageUrl);
@@ -92,11 +91,12 @@ public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.MiViewHold
     }
 
     public class MiViewHolder extends RecyclerView.ViewHolder {
-        TextView Titulo;
+        TextView Titulo, tipoplanta;
         ImageView plantaimagen;
         public MiViewHolder(@NonNull View itemView) {
             super(itemView);
             Titulo = itemView.findViewById(R.id.titulo);
+            tipoplanta = itemView.findViewById(R.id.tipoplanta);
             plantaimagen = itemView.findViewById(R.id.imaulr);
 
 
