@@ -27,7 +27,7 @@ import com.greengarden.R;
 
 import java.util.ArrayList;
 
-public class prueba extends AppCompatActivity {
+public class ListadoPlantas extends AppCompatActivity {
     Button menu, agregar ;
     //decaramos las variabler para ver la informacion de firebase estore
     private ProgressDialog progressDialog;
@@ -46,10 +46,10 @@ public class prueba extends AppCompatActivity {
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(prueba.this, v);
+                PopupMenu popupMenu = new PopupMenu(ListadoPlantas.this, v);
                 popupMenu.getMenuInflater().inflate(R.menu.navigation_menu, popupMenu.getMenu());
 
-                MenuClickListener menuClickListener = new MenuClickListener(prueba.this);
+                MenuClickListener menuClickListener = new MenuClickListener(ListadoPlantas.this);
                 popupMenu.setOnMenuItemClickListener(menuClickListener);
 
                 popupMenu.show();
@@ -79,7 +79,7 @@ public class prueba extends AppCompatActivity {
                 ArrayList<Tituloplanta> selectedPlants = selectedTitles;
 
                 // Abre la pantalla "MiHuerto" y pasa la lista de plantas seleccionadas
-                Intent intent = new Intent(prueba.this, MiHuerto.class);
+                Intent intent = new Intent(ListadoPlantas.this, MiHuerto.class);
                 intent.putParcelableArrayListExtra("selected_plants", selectedPlants);
                 startActivity(intent);
             }

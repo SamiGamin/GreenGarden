@@ -22,7 +22,7 @@
             android:name=".ejemplo.MiHuerto"
             android:exported="false" />
         <activity
-            android:name=".ejemplo.prueba"
+            android:name=".ejemplo.ListadoPlantas"
             android:exported="false" />
         <activity
             android:name=".Plantas.ajo"

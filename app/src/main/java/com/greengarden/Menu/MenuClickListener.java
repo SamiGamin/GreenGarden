@@ -19,6 +19,7 @@ import com.greengarden.Estadisticas.Estadisticas;
 import com.greengarden.Inicio.Inicio;
 import com.greengarden.Plantas.huerto;
 import com.greengarden.R;
+import com.greengarden.ejemplo.MiHuerto;
 
 public class MenuClickListener implements PopupMenu.OnMenuItemClickListener {
     private Context context;
@@ -54,7 +55,7 @@ public class MenuClickListener implements PopupMenu.OnMenuItemClickListener {
             return true;
         }
         if (id == R.id.cultivos) {
-            Intent cultivos = new Intent(context, huerto.class);
+            Intent cultivos = new Intent(context, MiHuerto.class);
             context.startActivity(cultivos);
             return true;
         }

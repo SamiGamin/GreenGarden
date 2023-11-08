@@ -6,14 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.greengarden.Consejos.Consejos;
-import com.greengarden.Cuidados.Cuidados;
 import com.greengarden.Estadisticas.Estadisticas;
 import com.greengarden.Noticias.ComunidadEventos;
 import com.greengarden.Plantas.Agregar_Cultivos;
@@ -21,8 +19,8 @@ import com.greengarden.Plantas.MyViewFlipper;
 import com.greengarden.Plantas.huerto;
 import com.greengarden.R;
 import com.greengarden.Menu.MenuClickListener;
+import com.greengarden.ejemplo.ListadoPlantas;
 import com.greengarden.ejemplo.MiHuerto;
-import com.greengarden.ejemplo.prueba;
 
 public class Inicio extends AppCompatActivity {
 
@@ -63,14 +61,14 @@ public class Inicio extends AppCompatActivity {
         ircuidados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Agregar_Cultivos.class);
+                Intent intent = new Intent(getApplicationContext(), ListadoPlantas.class);
                 startActivity(intent);
             }
         });
         ircultivos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), huerto.class);
+                Intent intent = new Intent(getApplicationContext(), MiHuerto.class);
                 startActivity(intent);
             }
         });
@@ -84,7 +82,7 @@ public class Inicio extends AppCompatActivity {
         irestadistica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MiHuerto.class);
+                Intent intent = new Intent(getApplicationContext(), Estadisticas.class);
                 startActivity(intent);
             }
         });

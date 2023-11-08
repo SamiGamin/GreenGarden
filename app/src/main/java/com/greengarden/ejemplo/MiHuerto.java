@@ -78,7 +78,7 @@ public class MiHuerto extends AppCompatActivity {
         masplantas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent masplant = new Intent(MiHuerto.this, prueba.class);
+                Intent masplant = new Intent(MiHuerto.this, ListadoPlantas.class);
                 startActivity(masplant);
             }
         });

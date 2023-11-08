@@ -56,8 +56,8 @@ public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.MiViewHold
             Glide.with(context)
                     .load(imageUrl)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .placeholder(R.drawable.albahaca)
-                    .error(R.drawable.abono)
+                    .placeholder(R.drawable.icono)
+                    .error(R.drawable.dangerous)
                     .into(holder.plantaimagen);
         }else {
            // holder.plantaimagen.setUlr(R.drawable.bgp);
@@ -65,7 +65,7 @@ public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.MiViewHold
 
         // Cambia el fondo del elemento si está seleccionado
         if (selectedTitles.contains(planta)) {
-            holder.itemView.setBackgroundColor(context.getResources().getColor(R.color.color_del_borde));
+            holder.itemView.setBackgroundColor(context.getResources().getColor(R.color.fondotexto));
         } else {
             holder.itemView.setBackgroundColor(context.getResources().getColor(android.R.color.transparent));
         }
@@ -78,7 +78,7 @@ public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.MiViewHold
                     holder.itemView.setBackgroundColor(context.getResources().getColor(android.R.color.transparent));
                 } else {
                     selectedTitles.add(planta);
-                    holder.itemView.setBackgroundColor(context.getResources().getColor(R.color.color_del_borde));
+                    holder.itemView.setBackgroundColor(context.getResources().getColor(R.color.fondotexto));
 
                 }
             }
