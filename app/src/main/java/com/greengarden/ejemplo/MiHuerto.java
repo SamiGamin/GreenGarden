@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -24,7 +25,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class MiHuerto extends AppCompatActivity {
-    private Button menu, eliminar;
+    private Button menu, eliminar, masplantas;
     private RecyclerView recyclerView;
     private MiHuertoAdapter adapter; // Debes crear esta clase de adaptador
     private ArrayList<Tituloplanta> selectedPlants; // Lista para mantener las plantas seleccionadas
@@ -71,6 +72,14 @@ public class MiHuerto extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+            }
+        });
+        masplantas = findViewById(R.id.masplantas);
+        masplantas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent masplant = new Intent(MiHuerto.this, prueba.class);
+                startActivity(masplant);
             }
         });
         //inicio menu

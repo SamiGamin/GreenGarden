@@ -1,14 +1,18 @@
 package com.greengarden.ejemplo;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.greengarden.R;
 
 import java.util.ArrayList;
@@ -44,6 +48,21 @@ public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.MiViewHold
         Tituloplanta planta = tituloplanta.get(position);
 
         holder.Titulo.setText(planta.getTitulo());
+
+        String imageUrl = planta.getUlr();
+        Log.d("TAG", "URL de la imagen: " + imageUrl);
+
+        if (imageUrl != null && !imageUrl.isEmpty()){
+            Glide.with(context)
+                    .load(imageUrl)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .placeholder(R.drawable.albahaca)
+                    .error(R.drawable.abono)
+                    .into(holder.plantaimagen);
+        }else {
+           // holder.plantaimagen.setUlr(R.drawable.bgp);
+        }
+
         // Cambia el fondo del elemento si está seleccionado
         if (selectedTitles.contains(planta)) {
             holder.itemView.setBackgroundColor(context.getResources().getColor(R.color.color_del_borde));
@@ -74,9 +93,11 @@ public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.MiViewHold
 
     public class MiViewHolder extends RecyclerView.ViewHolder {
         TextView Titulo;
+        ImageView plantaimagen;
         public MiViewHolder(@NonNull View itemView) {
             super(itemView);
             Titulo = itemView.findViewById(R.id.titulo);
+            plantaimagen = itemView.findViewById(R.id.imaulr);
 
 
         }

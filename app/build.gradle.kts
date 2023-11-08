@@ -35,11 +35,12 @@ android {
 dependencies {
     implementation ("androidx.core:core-splashscreen:1.0.1")
     //navegacion
-    implementation ("androidx.navigation:navigation-fragment:2.7.4")
-    implementation ("androidx.navigation:navigation-ui:2.7.4")
+    implementation ("androidx.navigation:navigation-fragment:2.7.5")
+    implementation ("androidx.navigation:navigation-ui:2.7.5")
     implementation ("com.firebaseui:firebase-ui-database:8.0.2")
     //glide imagenes
     implementation ("com.github.bumptech.glide:glide:4.13.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.13.0")
     //gson json
     implementation ("com.google.code.gson:gson:2.9.1")
 

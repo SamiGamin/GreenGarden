@@ -11,7 +11,9 @@ public class Tituloplanta implements Parcelable {
     private String agua;
     private String abono;
     private String temperatura;
-    private int imagenResId;
+    private String imagenResId;
+    private String ulr;
+
 
 
  public Tituloplanta() {
@@ -19,13 +21,22 @@ public class Tituloplanta implements Parcelable {
 
 
 
-    public Tituloplanta(String titulo, String riego, String abono, String temperatura, String agua, int imagenResId) {
+    public Tituloplanta(String titulo, String riego, String abono, String temperatura, String agua, String imagenResId, String ulr) {
         this.titulo = titulo;
         this.riego = riego;
         this.abono = abono;
         this.agua = agua;
+        this.ulr = ulr;
         this.temperatura = temperatura;
         this.imagenResId = imagenResId;
+    }
+
+    public String getUlr() {
+        return ulr;
+    }
+
+    public void setUlr(String ulr) {
+        this.ulr = ulr;
     }
 
     public String getAgua() {
@@ -81,13 +92,13 @@ public class Tituloplanta implements Parcelable {
         this.temperatura = temperatura;
     }
 
-   /* public int getImagenResId() {
+    public String getImagenResId() {
         return imagenResId;
     }
 
-    public void setImagenResId(int imagenResId) {
+    public void setImagenResId(String imagenResId) {
         this.imagenResId = imagenResId;
-    }*/
+    }
 
     public String getTitulo() {
         return titulo;
