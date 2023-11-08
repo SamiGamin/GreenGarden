@@ -111,7 +111,7 @@ public class prueba extends AppCompatActivity {
     }
 
     private void tituloplanta() {
-        db.collection("Plantas").orderBy("titulo", Query.Direction.ASCENDING)
+        db.collection("Plantas").orderBy("tipoplanta", Query.Direction.ASCENDING)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {

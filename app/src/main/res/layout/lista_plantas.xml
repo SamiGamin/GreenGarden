@@ -22,7 +22,7 @@
             android:text="Titulo"
             android:textStyle="bold"
             android:textColor="@color/green"
-            android:textSize="42sp"/>
+            android:textSize="32sp"/>
 
         <Space
             android:layout_width="wrap_content"

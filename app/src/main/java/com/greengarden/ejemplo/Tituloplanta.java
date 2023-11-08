@@ -11,6 +11,7 @@ public class Tituloplanta implements Parcelable {
     private String agua;
     private String abono;
     private String temperatura;
+    private String  tipoplanta;
     private String imagenResId;
     private String ulr;
 
@@ -21,14 +22,23 @@ public class Tituloplanta implements Parcelable {
 
 
 
-    public Tituloplanta(String titulo, String riego, String abono, String temperatura, String agua, String imagenResId, String ulr) {
+    public Tituloplanta(String titulo, String riego, String abono, String temperatura,String agua, String tipoplanta, String imagenResId, String ulr) {
         this.titulo = titulo;
         this.riego = riego;
         this.abono = abono;
         this.agua = agua;
+        this.tipoplanta = tipoplanta;
         this.ulr = ulr;
         this.temperatura = temperatura;
         this.imagenResId = imagenResId;
+    }
+
+    public String getTipoplanta() {
+        return tipoplanta;
+    }
+
+    public void setTipoplanta(String tipoplanta) {
+        this.tipoplanta = tipoplanta;
     }
 
     public String getUlr() {
@@ -52,6 +62,7 @@ public class Tituloplanta implements Parcelable {
         riego = in.readString();
         abono = in.readString();
         agua = in.readString();
+        tipoplanta = in.readString();
         temperatura = in.readString();
 
     }
@@ -126,6 +137,7 @@ public class Tituloplanta implements Parcelable {
         dest.writeString(abono);
         dest.writeString(agua);
         dest.writeString(temperatura);
+        dest.writeString(tipoplanta);
 
     }
 }
