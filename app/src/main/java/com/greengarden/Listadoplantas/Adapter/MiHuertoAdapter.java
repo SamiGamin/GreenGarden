@@ -1,4 +1,4 @@
-package com.greengarden.ejemplo;
+package com.greengarden.Listadoplantas.Adapter;
 
 
 import android.content.Context;
@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.greengarden.Listadoplantas.Tituloplanta;
 import com.greengarden.R;
 
 import java.util.ArrayList;
@@ -47,6 +48,7 @@ public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHo
         holder.vtemperatura.setText(plant.getTemperatura());
         holder.vriego.setText("Riego cada  " + plant.getRiego()+ "  dias");
         holder.vabono.setText("Abono  "+plant.getAbono()+ "  Gramos");
+        holder.cantidad.setText(String.valueOf(plant.getCantidad()));
 
         String imageUrl = plant.getUlr();
 
@@ -80,6 +82,7 @@ public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHo
         private TextView Titulo;
         private TextView vriego;
         private TextView vabono;
+        private TextView cantidad;
 
         private TextView vtemperatura;
         private ImageView plantaimagen;
@@ -89,7 +92,7 @@ public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHo
             vriego = itemView.findViewById(R.id.riegomihuerto);
             vabono = itemView.findViewById(R.id.abonomihuerto);
             vtemperatura = itemView.findViewById(R.id.temperaturamihuerto);
-
+            cantidad = itemView.findViewById(R.id.numeroplantas);
             plantaimagen = itemView.findViewById(R.id.imaulr);
 
         }

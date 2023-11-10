@@ -14,13 +14,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.greengarden.Consejos.Consejos;
 import com.greengarden.Estadisticas.Estadisticas;
 import com.greengarden.Noticias.ComunidadEventos;
-import com.greengarden.Plantas.Agregar_Cultivos;
 import com.greengarden.Plantas.MyViewFlipper;
-import com.greengarden.Plantas.huerto;
 import com.greengarden.R;
 import com.greengarden.Menu.MenuClickListener;
-import com.greengarden.ejemplo.ListadoPlantas;
-import com.greengarden.ejemplo.MiHuerto;
+import com.greengarden.Listadoplantas.ListadoPlantas;
+import com.greengarden.Listadoplantas.MiHuerto;
 
 public class Inicio extends AppCompatActivity {
 

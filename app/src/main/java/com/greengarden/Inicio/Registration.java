@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -31,14 +32,14 @@ import java.util.regex.Pattern;
 public class Registration extends AppCompatActivity {
 
     Button registro;
-        // TextView login;
+
     EditText nombre_usu,
             corre_eletronico,
             contrasena, corfirmarContrasena;
 
-    CheckBox checkBox;
+
     FirebaseFirestore mFirestores;
-    //BseDatos miBdd;
+
 
     FirebaseAuth mAuth;
 
@@ -53,7 +54,7 @@ public class Registration extends AppCompatActivity {
         mFirestores = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
-        //login = findViewById(R.id.rg_login);
+
         registro = findViewById(R.id.btn_registro);
 
         corfirmarContrasena = findViewById(R.id.registro_confpass);
@@ -61,17 +62,6 @@ public class Registration extends AppCompatActivity {
         corre_eletronico = findViewById(R.id.registro_email2);
         contrasena = findViewById(R.id.registro_pass);
 
-      //  checkBox = findViewById(R.id.checkBox);
-
-        //miBdd = new BseDatos(getApplicationContext());
-      /*  login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent login = new Intent(Registration.this, Login.class);
-                startActivity(login);
-
-            }
-        });*/
         registro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,7 +101,8 @@ public class Registration extends AppCompatActivity {
                                     databaseReference.child("User").child(id).setValue(map, new DatabaseReference.CompletionListener(){
                                         public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference){
                                             if (databaseError == null){
-                                                irinicio();
+                                                //irinicio();
+                                                irPerfil();
                                                 finish();
                                                 Toast.makeText(Registration.this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
                                             }else {
@@ -119,6 +110,7 @@ public class Registration extends AppCompatActivity {
                                             }
                                         }
                                     });
+
 
                                 } else {
                                     Toast.makeText(Registration.this, "Error al registrar el usuario: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -132,15 +124,17 @@ public class Registration extends AppCompatActivity {
 
     }
 
+    private void irPerfil() {
+        irinicio();
+
+        finish();
+    }
+
     private boolean validarPassword(String pass) {
         return pass.matches(".*[a-zA-Z].*") && pass.matches(".*\\d.*");
     }
 
-    private void irInicio() {
-        Intent login = new Intent(Registration.this, Login.class);
-        startActivity(login);
-        finish();
-    }
+
 
     private boolean EmailValido(String email) {
         Pattern pattern = Patterns.EMAIL_ADDRESS;

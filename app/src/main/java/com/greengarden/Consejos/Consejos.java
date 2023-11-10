@@ -6,15 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.PopupMenu;
-import android.widget.Toast;
 
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
@@ -23,13 +19,8 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.greengarden.Menu.MenuClickListener;
-import com.greengarden.Plantas.Agregar_Cultivos;
-import com.greengarden.Noticias.ComunidadEventos;
-import com.greengarden.Cuidados.Cuidados;
-import com.greengarden.Estadisticas.Estadisticas;
-import com.greengarden.Inicio.Inicio;
 import com.greengarden.R;
-import com.greengarden.ejemplo.Tituloplanta;
+import com.greengarden.Listadoplantas.Tituloplanta;
 
 import java.util.ArrayList;
 

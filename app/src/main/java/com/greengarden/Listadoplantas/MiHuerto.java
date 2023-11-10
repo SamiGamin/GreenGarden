@@ -1,16 +1,14 @@
-package com.greengarden.ejemplo;
+package com.greengarden.Listadoplantas;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,6 +24,7 @@ import android.widget.Toast;
 
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.greengarden.Listadoplantas.Adapter.MiHuertoAdapter;
 import com.greengarden.Menu.MenuClickListener;
 import com.greengarden.R;
 
@@ -143,32 +142,3 @@ public class MiHuerto extends AppCompatActivity {
 
 }
 
- /* private void MiHuertoli() {
-        MiHuertolist = new ArrayList<Tituloplanta>();
-        db.collection("MiHuerto")
-                .orderBy("tipoplanta", Query.Direction.ASCENDING)
-                .addSnapshotListener(new EventListener<QuerySnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                        if (error != null) {
-                            if (progressDialog.isShowing())
-                                progressDialog.dismiss();
-                            Log.e("Error de Datos", error.getMessage());
-                            return;
-                        }
-                        for (DocumentChange dc : value.getDocumentChanges()) {
-                            if (dc.getType() == DocumentChange.Type.ADDED) {
-                                MiHuertolist.add(dc.getDocument().toObject(Tituloplanta.class));
-                            }
-                            adapter.notifyDataSetChanged();
-                            if (progressDialog.isShowing())
-                                progressDialog.dismiss();
-                        }
-                        // Accede al primer elemento de consejoArrayList
-                        if (MiHuertolist.size() > 0) {
-                            Tituloplanta primerPlanta = MiHuertolist.get(0);
-                            // Haz lo que necesites con el primer elemento
-                        }
-                    }
-                });
-    }*/

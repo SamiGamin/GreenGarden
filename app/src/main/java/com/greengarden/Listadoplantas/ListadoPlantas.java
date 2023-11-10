@@ -1,4 +1,4 @@
-package com.greengarden.ejemplo;
+package com.greengarden.Listadoplantas;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.greengarden.Listadoplantas.Adapter.PlantaAdapter;
 import com.greengarden.Menu.MenuClickListener;
 import com.greengarden.R;
 
@@ -123,6 +124,8 @@ public class ListadoPlantas extends AppCompatActivity {
                 plantaData.put("agua", planta.getAgua());
                 plantaData.put("temperatura", planta.getTemperatura());
                 plantaData.put("ulr", planta.getUlr());
+                plantaData.put("cantidad", planta.getCantidad());
+
 
                 // Agrega el documento a Firestore con un identificador único (por ejemplo, el título de la planta)
                 plantasSeleccionadasRef.document(planta.getTitulo())

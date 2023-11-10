@@ -44,6 +44,16 @@
                 android:text="TextView"
                 android:paddingStart="@dimen/sm"
                 android:textStyle="italic"/>
+
+            <TextView
+                android:id="@+id/textcantidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:layout_marginStart="@dimen/md"
+                android:layout_marginTop="@dimen/md"
+                android:paddingStart="@dimen/sm" />
         </LinearLayout>
 
         <Space

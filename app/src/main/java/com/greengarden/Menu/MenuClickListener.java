@@ -1,6 +1,5 @@
 package com.greengarden.Menu;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.MenuItem;
@@ -8,18 +7,15 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.greengarden.Inicio.Login;
-import com.greengarden.Plantas.Agregar_Cultivos;
 import com.greengarden.Noticias.ComunidadEventos;
 
 import com.greengarden.Consejos.Consejos;
 import com.greengarden.Cuidados.Cuidados;
 import com.greengarden.Estadisticas.Estadisticas;
 import com.greengarden.Inicio.Inicio;
-import com.greengarden.Plantas.huerto;
 import com.greengarden.R;
-import com.greengarden.ejemplo.MiHuerto;
+import com.greengarden.Listadoplantas.MiHuerto;
 
 public class MenuClickListener implements PopupMenu.OnMenuItemClickListener {
     private Context context;
