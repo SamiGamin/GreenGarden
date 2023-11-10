@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
@@ -103,42 +105,49 @@ public class ListadoPlantas extends AppCompatActivity {
     }
 
     private void guardarPlantasSeleccionadasEnFirestore() {
+        // Asegúrate de que el usuario esté autenticado
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            String userUid = user.getUid();
 
-        // Obtén una instancia de Firebase Firestore
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        // Crea una colección "PlantasSeleccionadas" en Firestore para almacenar las plantas seleccionadas
-        CollectionReference plantasSeleccionadasRef = db.collection("PlantasSeleccionadas");
+            // Obtén una instancia de Firebase Firestore
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            // Crea una colección "PlantasSeleccionadas" en Firestore para almacenar las plantas seleccionadas
+            CollectionReference plantasSeleccionadasRef = db.collection("Usuarios").document(userUid).collection("MiHuerto");
 
-        // Itera a través de las plantas seleccionadas y agrégalas a Firestore
-        for (Tituloplanta planta : selectedTitles) {
-            // Convierte el objeto Tituloplanta a un mapa (HashMap) o un objeto JavaBean
-            // y luego agrégalo a Firestore
-            Map<String, Object> plantaData = new HashMap<>();
-            plantaData.put("titulo", planta.getTitulo());
-            plantaData.put("tipoplanta", planta.getTipoplanta());
-            plantaData.put("abono", planta.getAbono());
-            plantaData.put("riego", planta.getRiego());
-            plantaData.put("agua", planta.getAgua());
-            plantaData.put("temperatura", planta.getTemperatura());
-            plantaData.put("ulr", planta.getUlr());
+            // Itera a través de las plantas seleccionadas y agrégalas a Firestore
+            for (Tituloplanta planta : selectedTitles) {
+                // Convierte el objeto Tituloplanta a un mapa (HashMap) o un objeto JavaBean
+                // y luego agrégalo a Firestore
+                Map<String, Object> plantaData = new HashMap<>();
+                plantaData.put("titulo", planta.getTitulo());
+                plantaData.put("tipoplanta", planta.getTipoplanta());
+                plantaData.put("abono", planta.getAbono());
+                plantaData.put("riego", planta.getRiego());
+                plantaData.put("agua", planta.getAgua());
+                plantaData.put("temperatura", planta.getTemperatura());
+                plantaData.put("ulr", planta.getUlr());
 
-            // Agrega el documento a Firestore con un identificador único (por ejemplo, el título de la planta)
-            plantasSeleccionadasRef.document(planta.getTitulo())
-                    .set(plantaData)
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            // Plantas seleccionadas guardadas exitosamente en Firestore
-                            Toast.makeText(ListadoPlantas.this, "Plantas seleccionadas guardadas en Firestore", Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            // Error al guardar las plantas seleccionadas
-                            Toast.makeText(ListadoPlantas.this, "Error al guardar las plantas seleccionadas", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                // Agrega el documento a Firestore con un identificador único (por ejemplo, el título de la planta)
+                plantasSeleccionadasRef.document(planta.getTitulo())
+                        .set(plantaData)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                // Plantas seleccionadas guardadas exitosamente en Firestore
+                                //Toast.makeText(ListadoPlantas.this, "Plantas seleccionadas guardadas en Firestore", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                // Error al guardar las plantas seleccionadas
+                                Toast.makeText(ListadoPlantas.this, "Error al guardar las plantas seleccionadas", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+            }
+        }else {
+            Toast.makeText(this, "Debes iniciar sesión para guardar las plantas seleccionadas", Toast.LENGTH_SHORT).show();
         }
     }
 
