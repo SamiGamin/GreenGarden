@@ -36,13 +36,43 @@ public class ListadoPlantas extends AppCompatActivity {
     private ArrayList<Tituloplanta> plantarrayList;
     private ArrayList<Tituloplanta> selectedTitles = new ArrayList<>();
     private PlantaAdapter plantaAdapter;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    @Override    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listadoplantas);
+        agregar = findViewById(R.id.agregar_planta);
+
+        // Inicializa Firebase Firestore
+        db = FirebaseFirestore.getInstance();
+
+        // Inicializa el adaptador y la lista de plantas seleccionadas
+        plantarrayList = new ArrayList<Tituloplanta>();
+        selectedTitles = new ArrayList<>();
+
+        // Inicializa y configura el RecyclerView
+        recyclerView = findViewById(R.id.recyclerplanta);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        plantaAdapter = new PlantaAdapter(this, plantarrayList, selectedTitles);
+        recyclerView.setAdapter(plantaAdapter);
+
+
+        // recyclerView.addOnItemTouchListener(new MyItemClickListener());
+        // Configurar el botón "Agregar"
+        agregar = findViewById(R.id.agregar_planta);
+        agregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Obtiene las plantas seleccionadas de la lista selectedTitles
+                ArrayList<Tituloplanta> selectedPlants = selectedTitles;
+
+                // Abre la pantalla "MiHuerto" y pasa la lista de plantas seleccionadas
+                Intent intent = new Intent(ListadoPlantas.this, MiHuerto.class);
+                intent.putParcelableArrayListExtra("selected_plants", selectedPlants);
+                startActivity(intent);
+            }
+        });
         //inicio menu
         menu = findViewById(R.id.btn_menu);
-        agregar = findViewById(R.id.agregar_planta);
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,53 +90,13 @@ public class ListadoPlantas extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Cargando datos porfavor espere");
         progressDialog.show();
-        recyclerView = findViewById(R.id.recyclerplanta);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        db = FirebaseFirestore.getInstance();
-        plantarrayList = new ArrayList<Tituloplanta>();
-        selectedTitles = new ArrayList<>();
-        plantaAdapter = new PlantaAdapter(this, plantarrayList, selectedTitles);
-
-        recyclerView.setAdapter(plantaAdapter);
         tituloplanta();
-
-       // recyclerView.addOnItemTouchListener(new MyItemClickListener());
-        agregar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Obtiene las plantas seleccionadas de la lista selectedTitles
-                ArrayList<Tituloplanta> selectedPlants = selectedTitles;
-
-                // Abre la pantalla "MiHuerto" y pasa la lista de plantas seleccionadas
-                Intent intent = new Intent(ListadoPlantas.this, MiHuerto.class);
-                intent.putParcelableArrayListExtra("selected_plants", selectedPlants);
-                startActivity(intent);
-            }
-        });
     }
 
-    private ArrayList<Tituloplanta> savePlants(ArrayList<Tituloplanta> selected) {
-        // Obtener instancia de SharedPreferences
-        SharedPreferences prefs = getSharedPreferences("mis_plantas", Context.MODE_PRIVATE);
-
-        // Obtener editor para modificar prefs
-        SharedPreferences.Editor editor = prefs.edit();
-
-        // Convertir lista a JSON
-        Gson gson = new Gson();
-        String jsonPlants = gson.toJson(selected);
-
-        // Guardar json en prefs
-        editor.putString("plantas_seleccionadas", jsonPlants);
-
-        // Aplicar cambios
-        editor.apply();
-        return selected;
-    }
 
     private void tituloplanta() {
-        db.collection("Plantas").orderBy("tipoplanta", Query.Direction.ASCENDING)
+        db.collection("Plantas")
+                .orderBy("tipoplanta", Query.Direction.ASCENDING)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -125,7 +115,7 @@ public class ListadoPlantas extends AppCompatActivity {
                         }
                         // Accede al primer elemento de consejoArrayList
                         if (plantarrayList.size() > 0) {
-                            Tituloplanta primerConsejo = plantarrayList.get(0);
+                            Tituloplanta primerPlanta = plantarrayList.get(0);
                             // Haz lo que necesites con el primer elemento
                         }
                     }
