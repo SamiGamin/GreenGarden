@@ -1,4 +1,4 @@
-package com.greengarden.ejemplo;
+package com.greengarden.Listadoplantas.Adapter;
 
 
 import android.content.Context;
@@ -14,22 +14,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.greengarden.Listadoplantas.Tituloplanta;
 import com.greengarden.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHolder> {
-    private ArrayList<Tituloplanta> selectedPlants;
+    private ArrayList<Tituloplanta> MiHuertoCreado;
 
     private Context context;
 
-    public MiHuertoAdapter( ArrayList<Tituloplanta> selectedPlants) {
-
-        if (selectedPlants == null) {
-            this.selectedPlants = new ArrayList<>();
-        } else {
-            this.selectedPlants = selectedPlants;
-        }
+    public MiHuertoAdapter(ArrayList<Tituloplanta> miHuertoCreado, Context context) {
+        MiHuertoCreado = miHuertoCreado;
+        this.context = context;
     }
 
     @NonNull
@@ -44,12 +42,13 @@ public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull MiHuertoAdapter.ViewHolder holder, int position) {
 
-        Tituloplanta plant = selectedPlants.get(position);
+        Tituloplanta plant = MiHuertoCreado.get(position);
        // holder.bind(plant);
         holder.Titulo.setText(plant.getTitulo());
         holder.vtemperatura.setText(plant.getTemperatura());
         holder.vriego.setText("Riego cada  " + plant.getRiego()+ "  dias");
         holder.vabono.setText("Abono  "+plant.getAbono()+ "  Gramos");
+        holder.cantidad.setText(String.valueOf(plant.getCantidad()));
 
         String imageUrl = plant.getUlr();
 
@@ -64,38 +63,26 @@ public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHo
         }else {
             // holder.plantaimagen.setUlr(R.drawable.bgp);
         }
-       /* // Cambia el fondo del elemento si está seleccionado
-        if (selectedPlants.contains(plant)) {
-            holder.itemView.setBackgroundColor(context.getResources().getColor(R.color.color_del_borde));
-        } else {
-            holder.itemView.setBackgroundColor(context.getResources().getColor(android.R.color.transparent));
-        }
-        // Agregar un OnClickListener para manejar la selección/deselección
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (selectedPlants.contains(plant)) {
-                    selectedPlants.remove(plant);
-                    holder.itemView.setBackgroundColor(context.getResources().getColor(android.R.color.transparent));
-                } else {
-                    selectedPlants.add(plant);
-                    holder.itemView.setBackgroundColor(context.getResources().getColor(R.color.color_del_borde));
-
-                }
-            }
-        });*/
 
     }
 
     @Override
     public int getItemCount() {
-        return selectedPlants.size();
+        return MiHuertoCreado.size();
     }
+
+    public void setPlantas(List<Tituloplanta> plantas) {
+        MiHuertoCreado.clear();  // Borra la lista actual
+        MiHuertoCreado.addAll(plantas);  // Agrega la nueva lista de plantas
+        notifyDataSetChanged();
+    }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView Titulo;
         private TextView vriego;
         private TextView vabono;
+        private TextView cantidad;
 
         private TextView vtemperatura;
         private ImageView plantaimagen;
@@ -105,17 +92,9 @@ public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHo
             vriego = itemView.findViewById(R.id.riegomihuerto);
             vabono = itemView.findViewById(R.id.abonomihuerto);
             vtemperatura = itemView.findViewById(R.id.temperaturamihuerto);
-
+            cantidad = itemView.findViewById(R.id.numeroplantas);
             plantaimagen = itemView.findViewById(R.id.imaulr);
 
         }
-
-        /*public void bind(Tituloplanta plant) {
-            Titulo.setText(plant.getTitulo());
-
-           // vagua.setText(plant.getAgua());
-            // Obtener la URL de la imagen de Firebase Firestore
-            String imageUrl =  plant.getUlr();
-            }*/
     }
 }

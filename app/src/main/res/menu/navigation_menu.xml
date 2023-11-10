@@ -24,11 +24,13 @@
         android:id="@+id/comu_even"
         android:title="NOTICIAS" />
 
-    <group android:id="@+id/personale"
-        >
+
+    <group android:id="@+id/personale">
     <item
         android:id="@+id/salir"
-        android:title="Cerrar sesion" />
+        android:title="Cerrar sesion"
+        android:icon="@drawable/logout"
+       />
     </group>
 
 </menu>

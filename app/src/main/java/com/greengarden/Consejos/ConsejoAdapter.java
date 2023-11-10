@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.greengarden.R;
-import com.greengarden.ejemplo.Tituloplanta;
+import com.greengarden.Listadoplantas.Tituloplanta;
 
 import java.util.ArrayList;
 

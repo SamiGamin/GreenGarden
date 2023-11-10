@@ -41,18 +41,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="32dp"
+        android:padding="2dp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6">
 
-        <Button
-            android:id="@+id/btnCrearBaseDatos"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textnombre"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="crearBaseDeDatos"
-            android:text="Crear Base de Datos" />
+            android:text="nombre" />
+
+        <TextView
+            android:id="@+id/textemail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="email" />
+
+        <TextView
+            android:id="@+id/textapellidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="apellidos" />
     </LinearLayout>
 
 

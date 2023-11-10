@@ -20,14 +20,34 @@
             android:paddingStart="@dimen/md"
             android:paddingEnd="@dimen/md">
 
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1" />
+
             <TextView
                 android:id="@+id/titulomihuerto"
                 android:textAlignment="center"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
+                android:layout_weight="1"
                 android:textSize="@dimen/md"
                 android:text="Titulo" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/numeroplantas"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:text="N" />
         </LinearLayout>
 
         <LinearLayout

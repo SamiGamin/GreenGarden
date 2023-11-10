@@ -1,4 +1,4 @@
-package com.greengarden.ejemplo;
+package com.greengarden.Listadoplantas;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -16,17 +16,19 @@ public class Tituloplanta implements Parcelable {
     private String  tipoplanta;
     private String imagenResId;
     private String ulr;
+    private  Integer  cantidad;
 
 
 
- public Tituloplanta() {
+    public Tituloplanta() {
     }
 
 
 
     public Tituloplanta(String titulo, String riego, String abono, String temperatura,
-                        String agua, String tipoplanta, String imagenResId, String ulr, String consejoabono, String consejoriego) {
+                        String agua, String tipoplanta, String imagenResId, String ulr, String consejoabono, String consejoriego,Integer  cantidad) {
         this.titulo = titulo;
+        this.cantidad = cantidad;
         this.consejoabono = consejoabono;
         this.consejoriego = consejoriego;
         this.riego = riego;
@@ -36,6 +38,14 @@ public class Tituloplanta implements Parcelable {
         this.ulr = ulr;
         this.temperatura = temperatura;
         this.imagenResId = imagenResId;
+    }
+
+    public Integer  getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Integer  cantidad) {
+        this.cantidad = cantidad;
     }
 
     public String getConsejoabono() {
