@@ -6,9 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,7 +25,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.gson.Gson;
 import com.greengarden.Menu.MenuClickListener;
 import com.greengarden.R;
 
@@ -46,6 +43,8 @@ public class ListadoPlantas extends AppCompatActivity {
     private ArrayList<Tituloplanta> plantarrayList;
     private ArrayList<Tituloplanta> selectedTitles = new ArrayList<>();
     private PlantaAdapter plantaAdapter;
+    private ArrayList<Tituloplanta> MiHuertoCreado; // Lista para mantener los datos guardados
+
     @Override    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listadoplantas);
@@ -59,27 +58,24 @@ public class ListadoPlantas extends AppCompatActivity {
         selectedTitles = new ArrayList<>();
 
         // Inicializa y configura el RecyclerView
-        recyclerView = findViewById(R.id.recyclerplanta);
+        recyclerView = findViewById(R.id.MiHuertoCreado);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         plantaAdapter = new PlantaAdapter(this, plantarrayList, selectedTitles);
         recyclerView.setAdapter(plantaAdapter);
 
 
-        // recyclerView.addOnItemTouchListener(new MyItemClickListener());
+
         // Configurar el botón "Agregar"
         agregar = findViewById(R.id.agregar_planta);
         agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 guardarPlantasSeleccionadasEnFirestore();
-               /* // Obtiene las plantas seleccionadas de la lista selectedTitles
-                ArrayList<Tituloplanta> selectedPlants = selectedTitles;
+                Intent mostrarDatosIntent = new Intent(ListadoPlantas.this, MiHuerto.class);
+                mostrarDatosIntent.putParcelableArrayListExtra("MiHuertoCreado", MiHuertoCreado);
+                startActivity(mostrarDatosIntent);
 
-                // Abre la pantalla "MiHuerto" y pasa la lista de plantas seleccionadas
-                Intent intent = new Intent(ListadoPlantas.this, MiHuerto.class);
-                intent.putParcelableArrayListExtra("selected_plants", selectedPlants);
-                startActivity(intent);*/
             }
         });
         //inicio menu

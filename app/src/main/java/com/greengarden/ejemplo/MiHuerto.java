@@ -1,72 +1,95 @@
 package com.greengarden.ejemplo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.greengarden.Menu.MenuClickListener;
 import com.greengarden.R;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 public class MiHuerto extends AppCompatActivity {
     private Button menu, eliminar, masplantas;
+
+    private FirebaseFirestore db;
     private RecyclerView recyclerView;
     private MiHuertoAdapter adapter; // Debes crear esta clase de adaptador
-    private ArrayList<Tituloplanta> selectedPlants; // Lista para mantener las plantas seleccionadas
+    private ArrayList<Tituloplanta> MiHuertolist; // Lista para mantener las plantas seleccionadas
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mi_huerto);
+        // Inicializa Firebase Firestore
+        db = FirebaseFirestore.getInstance();
+        // Obtiene el UID del usuario actual (de alguna manera)
+        String uid = obtenerUIDUsuarioActual();
 
-        // Inicializa la lista de plantas seleccionadas
-        selectedPlants = new ArrayList<>();
+        // Inicializa MiHuertolist
+        MiHuertolist = new ArrayList<>();
 
-        // Inicializa la RecyclerView
-        recyclerView = findViewById(R.id.recyclerplanta);
+        // Crea una referencia a la colección "Usuarios" y el documento específico del usuario
+        DocumentReference usuarioRef = db.collection("Usuarios").document(uid);
+        // Crea una referencia a la colección "MiHuerto" dentro del documento del usuario
+        CollectionReference miHuertoRef = usuarioRef.collection("MiHuerto");
 
-        // Cargar plantas seleccionadas desde SharedPreferences
-        selectedPlants.addAll(loadSelectedPlants());
+     //   Log.d("MiHuerto", "Cantidad de elementos en MiHuertoCreado: " + MiHuertoCreado.size());
 
-        // Recibe nuevas plantas de la actividad 'prueba'
-        ArrayList<Tituloplanta> newPlants = getIntent().getParcelableArrayListExtra("selected_plants");
-
-        if (newPlants != null && !newPlants.isEmpty()) {
-            // Agrega nuevas plantas a la lista de seleccionadas y elimina duplicados
-            Set<Tituloplanta> set = new HashSet<>(selectedPlants);
-            set.addAll(newPlants);
-            selectedPlants.clear();
-            selectedPlants.addAll(set);
-
-            // Guarda las plantas actualizadas en SharedPreferences
-            saveSelectedPlants(selectedPlants);
-        }
-
-        // Configura la RecyclerView y el adaptador
-        if (selectedPlants.isEmpty()) {
-            showEmptyHuertoMessage();
-        } else {
+        // Después de obtener los datos, crea el adaptador
+        adapter = new MiHuertoAdapter(MiHuertolist, this);
+            // Configura el RecyclerView y el adaptador para mostrar los datos guardados
+            recyclerView = findViewById(R.id.MiHuertoCreado);
+            recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            adapter = new MiHuertoAdapter(selectedPlants);
+
             recyclerView.setAdapter(adapter);
-        }
+
+        miHuertoRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+           if (task.isSuccessful()){
+               List<Tituloplanta> plantas = new ArrayList<>();
+               for (QueryDocumentSnapshot document : task.getResult()){
+                   Tituloplanta planta = document.toObject(Tituloplanta.class);
+                   plantas.add(planta);
+               }
+               adapter.setPlantas(plantas);
+           }else {
+               Toast.makeText(MiHuerto.this, "Error al obtener datos de Firebase Firestore:", Toast.LENGTH_SHORT).show();
+               Log.e("Error", "Error al obtener datos de Firebase Firestore: " + task.getException().getMessage());
+
+           }
+            }
+        });
+
+
+        
+
         eliminar = findViewById(R.id.btn_elminar);
         eliminar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,30 +121,54 @@ public class MiHuerto extends AppCompatActivity {
         });
         //fin menu
     }
+
+
+
+    private String obtenerUIDUsuarioActual() {
+        FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();
+        if (usuario != null) {
+            // El usuario está autenticado, se puede obtener su UID
+            return usuario.getUid();
+        } else {
+            // Si no hay usuario autenticado, puedes devolver un valor por defecto o manejar el caso según tus necesidades
+            return "UID_POR_DEFECTO";
+        }
+    }
+
+
     private void showEmptyHuertoMessage() {
         Toast.makeText(this, "Tu huerto está vacío. ¡Agrega plantas para comenzar!", Toast.LENGTH_SHORT).show();
     }
 
-    private ArrayList<Tituloplanta> loadSelectedPlants() {
-        SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        String serializedPlants = sharedPreferences.getString("selected_plants_key", null);
-        if (serializedPlants == null) {
-            return new ArrayList<>();
-        } else {
-            Gson gson = new Gson();
-            Type type = new TypeToken<ArrayList<Tituloplanta>>(){}.getType();
-            ArrayList<Tituloplanta> plants = gson.fromJson(serializedPlants, type);
-            return plants;
-        }
-    }
 
-    private void saveSelectedPlants(ArrayList<Tituloplanta> selectedPlants) {
-        SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(selectedPlants);
-
-        editor.putString("selected_plants_key", json); // Corregido el nombre de la clave
-        editor.apply();
-    }
 }
+
+ /* private void MiHuertoli() {
+        MiHuertolist = new ArrayList<Tituloplanta>();
+        db.collection("MiHuerto")
+                .orderBy("tipoplanta", Query.Direction.ASCENDING)
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        if (error != null) {
+                            if (progressDialog.isShowing())
+                                progressDialog.dismiss();
+                            Log.e("Error de Datos", error.getMessage());
+                            return;
+                        }
+                        for (DocumentChange dc : value.getDocumentChanges()) {
+                            if (dc.getType() == DocumentChange.Type.ADDED) {
+                                MiHuertolist.add(dc.getDocument().toObject(Tituloplanta.class));
+                            }
+                            adapter.notifyDataSetChanged();
+                            if (progressDialog.isShowing())
+                                progressDialog.dismiss();
+                        }
+                        // Accede al primer elemento de consejoArrayList
+                        if (MiHuertolist.size() > 0) {
+                            Tituloplanta primerPlanta = MiHuertolist.get(0);
+                            // Haz lo que necesites con el primer elemento
+                        }
+                    }
+                });
+    }*/

@@ -87,7 +87,8 @@ public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.MiViewHold
 
     @Override
     public int getItemCount() {
-        return tituloplanta.size();
+        return
+                tituloplanta.size();
     }
 
     public class MiViewHolder extends RecyclerView.ViewHolder {
