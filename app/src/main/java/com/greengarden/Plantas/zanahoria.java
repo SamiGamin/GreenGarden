@@ -17,7 +17,7 @@ public class zanahoria extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.zanahoria);
+//        setContentView(R.layout.zanahoria);
         //inicio menu
         menu = findViewById(R.id.btn_menu);
         menu.setOnClickListener(new View.OnClickListener() {

@@ -25,7 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.greengarden.Listadoplantas.Adapter.PlantaAdapter;
+import com.greengarden.Listadoplantas.Adapter.CrearcultivoAdapter;
 import com.greengarden.Menu.MenuClickListener;
 import com.greengarden.R;
 
@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ListadoPlantas extends AppCompatActivity {
+public class CrearCultivo extends AppCompatActivity {
     Button menu, agregar ;
     //decaramos las variabler para ver la informacion de firebase estore
     private ProgressDialog progressDialog;
@@ -43,12 +43,12 @@ public class ListadoPlantas extends AppCompatActivity {
     private FirebaseFirestore db;
     private ArrayList<ModelPlantas> plantarrayList;
     private ArrayList<ModelPlantas> selectedTitles = new ArrayList<>();
-    private PlantaAdapter plantaAdapter;
+    private CrearcultivoAdapter crearcultivoAdapter;
     private ArrayList<ModelPlantas> MiHuertoCreado; // Lista para mantener los datos guardados
 
     @Override    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.listadoplantas);
+        setContentView(R.layout.crear_cultivo);
         agregar = findViewById(R.id.agregar_planta);
 
         // Inicializa Firebase Firestore
@@ -62,8 +62,8 @@ public class ListadoPlantas extends AppCompatActivity {
         recyclerView = findViewById(R.id.MiHuertoCreado);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        plantaAdapter = new PlantaAdapter(this, plantarrayList, selectedTitles);
-        recyclerView.setAdapter(plantaAdapter);
+        crearcultivoAdapter = new CrearcultivoAdapter(this, plantarrayList, selectedTitles);
+        recyclerView.setAdapter(crearcultivoAdapter);
 
 
 
@@ -72,11 +72,14 @@ public class ListadoPlantas extends AppCompatActivity {
         agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                guardarPlantasSeleccionadasEnFirestore();
-                Intent mostrarDatosIntent = new Intent(ListadoPlantas.this, MiHuerto.class);
-                mostrarDatosIntent.putParcelableArrayListExtra("MiHuertoCreado", MiHuertoCreado);
-                startActivity(mostrarDatosIntent);
-
+                if (selectedTitles.isEmpty()){
+                    Toast.makeText(CrearCultivo.this, "Debes seleccionar al menos una planta para continuar", Toast.LENGTH_SHORT).show();
+                }else {
+                    guardarPlantasSeleccionadasEnFirestore();
+                    Intent mostrarDatosIntent = new Intent(CrearCultivo.this, MiHuerto.class);
+                    mostrarDatosIntent.putParcelableArrayListExtra("MiHuertoCreado", MiHuertoCreado);
+                    startActivity(mostrarDatosIntent);
+                }
             }
         });
         //inicio menu
@@ -84,10 +87,10 @@ public class ListadoPlantas extends AppCompatActivity {
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(ListadoPlantas.this, v);
+                PopupMenu popupMenu = new PopupMenu(CrearCultivo.this, v);
                 popupMenu.getMenuInflater().inflate(R.menu.navigation_menu, popupMenu.getMenu());
 
-                MenuClickListener menuClickListener = new MenuClickListener(ListadoPlantas.this);
+                MenuClickListener menuClickListener = new MenuClickListener(CrearCultivo.this);
                 popupMenu.setOnMenuItemClickListener(menuClickListener);
 
                 popupMenu.show();
@@ -141,7 +144,7 @@ public class ListadoPlantas extends AppCompatActivity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 // Error al guardar las plantas seleccionadas
-                                Toast.makeText(ListadoPlantas.this, "Error al guardar las plantas seleccionadas", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(CrearCultivo.this, "Error al guardar las plantas seleccionadas", Toast.LENGTH_SHORT).show();
                             }
                         });
             }
@@ -166,7 +169,7 @@ public class ListadoPlantas extends AppCompatActivity {
                             if (dc.getType() == DocumentChange.Type.ADDED){
                                 plantarrayList.add(dc.getDocument().toObject(ModelPlantas.class));
                             }
-                            plantaAdapter.notifyDataSetChanged();
+                            crearcultivoAdapter.notifyDataSetChanged();
                             if (progressDialog.isShowing())
                                 progressDialog.dismiss();
                         }

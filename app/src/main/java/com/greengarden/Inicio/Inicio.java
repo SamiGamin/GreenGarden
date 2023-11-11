@@ -17,7 +17,7 @@ import com.greengarden.Noticias.ComunidadEventos;
 import com.greengarden.Plantas.MyViewFlipper;
 import com.greengarden.R;
 import com.greengarden.Menu.MenuClickListener;
-import com.greengarden.Listadoplantas.ListadoPlantas;
+import com.greengarden.Listadoplantas.CrearCultivo;
 import com.greengarden.Listadoplantas.MiHuerto;
 
 public class Inicio extends AppCompatActivity {
@@ -59,7 +59,7 @@ public class Inicio extends AppCompatActivity {
         ircuidados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ListadoPlantas.class);
+                Intent intent = new Intent(getApplicationContext(), CrearCultivo.class);
                 startActivity(intent);
             }
         });

@@ -22,7 +22,7 @@
             android:name=".Listadoplantas.MiHuerto"
             android:exported="false" />
         <activity
-            android:name=".Listadoplantas.ListadoPlantas"
+            android:name=".Listadoplantas.CrearCultivo"
             android:exported="false" />
         <activity
             android:name=".Plantas.ajo"
