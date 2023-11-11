@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-public class Tituloplanta implements Parcelable {
+public class ModelPlantas implements Parcelable {
     private String titulo;
     private String riego;
     private String agua;
@@ -20,13 +20,13 @@ public class Tituloplanta implements Parcelable {
 
 
 
-    public Tituloplanta() {
+    public ModelPlantas() {
     }
 
 
 
-    public Tituloplanta(String titulo, String riego, String abono, String temperatura,
-                        String agua, String tipoplanta, String imagenResId, String ulr, String consejoabono, String consejoriego,Integer  cantidad) {
+    public ModelPlantas(String titulo, String riego, String abono, String temperatura,
+                        String agua, String tipoplanta, String imagenResId, String ulr, String consejoabono, String consejoriego, Integer  cantidad) {
         this.titulo = titulo;
         this.cantidad = cantidad;
         this.consejoabono = consejoabono;
@@ -88,7 +88,7 @@ public class Tituloplanta implements Parcelable {
         this.agua = agua;
     }
 
-    protected Tituloplanta(Parcel in) {
+    protected ModelPlantas(Parcel in) {
         titulo = in.readString();
         riego = in.readString();
         abono = in.readString();
@@ -100,15 +100,15 @@ public class Tituloplanta implements Parcelable {
 
     }
 
-    public static final Creator<Tituloplanta> CREATOR = new Creator<Tituloplanta>() {
+    public static final Creator<ModelPlantas> CREATOR = new Creator<ModelPlantas>() {
         @Override
-        public Tituloplanta createFromParcel(Parcel in) {
-            return new Tituloplanta(in);
+        public ModelPlantas createFromParcel(Parcel in) {
+            return new ModelPlantas(in);
         }
 
         @Override
-        public Tituloplanta[] newArray(int size) {
-            return new Tituloplanta[size];
+        public ModelPlantas[] newArray(int size) {
+            return new ModelPlantas[size];
         }
     };
 

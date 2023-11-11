@@ -37,7 +37,7 @@ public class MiHuerto extends AppCompatActivity {
     private FirebaseFirestore db;
     private RecyclerView recyclerView;
     private MiHuertoAdapter adapter; // Debes crear esta clase de adaptador
-    private ArrayList<Tituloplanta> MiHuertolist; // Lista para mantener las plantas seleccionadas
+    private ArrayList<ModelPlantas> MiHuertolist; // Lista para mantener las plantas seleccionadas
 
 
     @Override
@@ -72,9 +72,9 @@ public class MiHuerto extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
            if (task.isSuccessful()){
-               List<Tituloplanta> plantas = new ArrayList<>();
+               List<ModelPlantas> plantas = new ArrayList<>();
                for (QueryDocumentSnapshot document : task.getResult()){
-                   Tituloplanta planta = document.toObject(Tituloplanta.class);
+                   ModelPlantas planta = document.toObject(ModelPlantas.class);
                    plantas.add(planta);
                }
                adapter.setPlantas(plantas);

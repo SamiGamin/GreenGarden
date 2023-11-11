@@ -14,18 +14,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.greengarden.Listadoplantas.Tituloplanta;
+import com.greengarden.Listadoplantas.ModelPlantas;
 import com.greengarden.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHolder> {
-    private ArrayList<Tituloplanta> MiHuertoCreado;
+    private ArrayList<ModelPlantas> MiHuertoCreado;
 
     private Context context;
 
-    public MiHuertoAdapter(ArrayList<Tituloplanta> miHuertoCreado, Context context) {
+    public MiHuertoAdapter(ArrayList<ModelPlantas> miHuertoCreado, Context context) {
         MiHuertoCreado = miHuertoCreado;
         this.context = context;
     }
@@ -42,7 +42,7 @@ public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull MiHuertoAdapter.ViewHolder holder, int position) {
 
-        Tituloplanta plant = MiHuertoCreado.get(position);
+        ModelPlantas plant = MiHuertoCreado.get(position);
        // holder.bind(plant);
         holder.Titulo.setText(plant.getTitulo());
         holder.vtemperatura.setText(plant.getTemperatura());
@@ -71,7 +71,7 @@ public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHo
         return MiHuertoCreado.size();
     }
 
-    public void setPlantas(List<Tituloplanta> plantas) {
+    public void setPlantas(List<ModelPlantas> plantas) {
         MiHuertoCreado.clear();  // Borra la lista actual
         MiHuertoCreado.addAll(plantas);  // Agrega la nueva lista de plantas
         notifyDataSetChanged();
