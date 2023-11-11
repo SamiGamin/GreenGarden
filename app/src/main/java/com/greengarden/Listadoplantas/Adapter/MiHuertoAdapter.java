@@ -33,7 +33,7 @@ public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHo
     @NonNull
     @Override
     public MiHuertoAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.mihuerto, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_mi_huerto, parent, false);
         return new ViewHolder(view);
 
 

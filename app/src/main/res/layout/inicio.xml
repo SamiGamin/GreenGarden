@@ -90,14 +90,13 @@
 
                     <TextView
                         android:id="@+id/cultivos"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
                         android:background="@color/fondotexto"
-                        android:text="Agregar Cultivo"
+                        android:text="Crear Cultivo"
                         android:textColor="@color/white"
-                        android:textSize="30dp"
+                        android:textSize="30sp"
                         android:textStyle="bold" />
 
                 </RelativeLayout>
@@ -134,15 +133,13 @@
 
                 <TextView
                     android:id="@+id/cuidaos"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
                     android:background="@color/fondotexto"
-                    android:text="Cultivo"
+                    android:text="Mi Huerto"
                     android:textColor="@color/white"
-                    android:textSize="30dp"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
 
@@ -183,15 +180,13 @@
 
                 <TextView
                     android:id="@+id/consejos"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
                     android:background="@color/fondotexto"
                     android:text="Consejos"
                     android:textColor="@color/white"
-                    android:textSize="30dp"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
 
@@ -227,15 +222,13 @@
 
                 <TextView
                     android:id="@+id/estadisticas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
                     android:background="@color/fondotexto"
                     android:text="Estadisticas"
                     android:textColor="@color/white"
-                    android:textSize="30dp"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
 
@@ -270,15 +263,13 @@
 
                 <TextView
                     android:id="@+id/noticias"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
                     android:background="@color/fondotexto"
                     android:text="Noticias"
                     android:textColor="@color/white"
-                    android:textSize="30dp"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
 
@@ -312,16 +303,14 @@
                 </ViewFlipper>
 
                 <TextView
-                    android:id="@+id/noticias1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center"
+                    android:id="@+id/consumos"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
                     android:background="@color/fondotexto"
-                    android:text="uno mas"
+                    android:text="Consumos"
                     android:textColor="@color/white"
-                    android:textSize="30dp"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
 
@@ -355,16 +344,14 @@
                 </ViewFlipper>
 
                 <TextView
-                    android:id="@+id/noticias3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center"
+                    android:id="@+id/informacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
                     android:background="@color/fondotexto"
-                    android:text="dos mas"
+                    android:text="informacion"
                     android:textColor="@color/white"
-                    android:textSize="30dp"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
 

@@ -25,12 +25,12 @@ import com.greengarden.R;
 
 import java.util.ArrayList;
 
-public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.MiViewHolder> {
+public class CrearcultivoAdapter extends RecyclerView.Adapter<CrearcultivoAdapter.MiViewHolder> {
     private final Context context;
     private final ArrayList<ModelPlantas> modelPlantas;
     private final ArrayList<ModelPlantas> selectedTitles;
 
-    public PlantaAdapter(Context context, ArrayList<ModelPlantas> modelPlantas, ArrayList<ModelPlantas> selectedTitles) {
+    public CrearcultivoAdapter(Context context, ArrayList<ModelPlantas> modelPlantas, ArrayList<ModelPlantas> selectedTitles) {
         this.context = context;
         this.modelPlantas = modelPlantas;
         this.selectedTitles = selectedTitles;
@@ -45,8 +45,8 @@ public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.MiViewHold
 
     @NonNull
     @Override
-    public PlantaAdapter.MiViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.lista_plantas, parent, false);
+    public CrearcultivoAdapter.MiViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(context).inflate(R.layout.listado_crear_cultivo, parent, false);
         return new MiViewHolder(v);
     }
 
@@ -128,7 +128,7 @@ public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.MiViewHold
                 // Obtiene la cantidad ingresada por el usuario
                 String cantidadIngresada = editTextCantidad.getText().toString();
                 if (cantidadIngresada.isEmpty()){
-                    Toast.makeText(context, "Debes ingresar la cantidad", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Agrega la cantidad de sus plantas \n               Para continuar", Toast.LENGTH_SHORT).show();
                 }else {
                     planta.setCantidad(Integer.parseInt(cantidadIngresada));
 
