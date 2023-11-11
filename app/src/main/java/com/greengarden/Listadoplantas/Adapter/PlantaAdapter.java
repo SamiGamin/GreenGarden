@@ -2,11 +2,8 @@ package com.greengarden.Listadoplantas.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.text.InputType;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,24 +20,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.greengarden.Listadoplantas.Tituloplanta;
+import com.greengarden.Listadoplantas.ModelPlantas;
 import com.greengarden.R;
 
 import java.util.ArrayList;
 
 public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.MiViewHolder> {
     private final Context context;
-    private final ArrayList<Tituloplanta> tituloplanta;
-    private final ArrayList<Tituloplanta> selectedTitles;
+    private final ArrayList<ModelPlantas> modelPlantas;
+    private final ArrayList<ModelPlantas> selectedTitles;
 
-    public PlantaAdapter(Context context, ArrayList<Tituloplanta> tituloplanta, ArrayList<Tituloplanta> selectedTitles) {
+    public PlantaAdapter(Context context, ArrayList<ModelPlantas> modelPlantas, ArrayList<ModelPlantas> selectedTitles) {
         this.context = context;
-        this.tituloplanta = tituloplanta;
+        this.modelPlantas = modelPlantas;
         this.selectedTitles = selectedTitles;
     }
 
     public interface OnItemClickListener {
-        void onItemClick(Tituloplanta planta);
+        void onItemClick(ModelPlantas planta);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -55,10 +52,14 @@ public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.MiViewHold
 
     @Override
     public void onBindViewHolder(@NonNull MiViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        Tituloplanta planta = tituloplanta.get(position);
+        ModelPlantas planta = modelPlantas.get(position);
 
         holder.Titulo.setText(planta.getTitulo());
         holder.tipoplanta.setText(planta.getTipoplanta());
+
+        // Actualizar la cantidad en el TextView
+        int cantidad = planta.getCantidad() != null ? planta.getCantidad() : 0;
+        holder.cantidaplanta.setText(String.valueOf(cantidad));
 
         String imageUrl = planta.getUlr();
         Log.d("TAG", "URL de la imagen: " + imageUrl);
@@ -101,7 +102,7 @@ public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.MiViewHold
     }
 
     // Método para mostrar el cuadro de diálogo de cantidad
-    private void mostrarDialogoCantidad(Tituloplanta planta, int position) {
+    private void mostrarDialogoCantidad(ModelPlantas planta, int position) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View dialogView = inflater.inflate(R.layout.custom_dialog, null);
         // Configura el AlertDialog
@@ -142,7 +143,7 @@ public class PlantaAdapter extends RecyclerView.Adapter<PlantaAdapter.MiViewHold
     @Override
     public int getItemCount() {
         return
-                tituloplanta.size();
+                modelPlantas.size();
     }
 
     public class MiViewHolder extends RecyclerView.ViewHolder {

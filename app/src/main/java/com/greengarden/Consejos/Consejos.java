@@ -20,7 +20,7 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.greengarden.Menu.MenuClickListener;
 import com.greengarden.R;
-import com.greengarden.Listadoplantas.Tituloplanta;
+import com.greengarden.Listadoplantas.ModelPlantas;
 
 import java.util.ArrayList;
 
@@ -31,7 +31,7 @@ public class Consejos extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private RecyclerView recyclerView;
     private FirebaseFirestore db;
-    private ArrayList<Tituloplanta> consejoArrayList;
+    private ArrayList<ModelPlantas> consejoArrayList;
     private ConsejoAdapter consejoAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +61,7 @@ public class Consejos extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         db = FirebaseFirestore.getInstance();
-        consejoArrayList = new ArrayList<Tituloplanta>();
+        consejoArrayList = new ArrayList<ModelPlantas>();
         consejoAdapter = new ConsejoAdapter(this, consejoArrayList);
 
         recyclerView.setAdapter(consejoAdapter);
@@ -81,7 +81,7 @@ public class Consejos extends AppCompatActivity {
                         return;
                     }for (DocumentChange dc : value.getDocumentChanges()){
                         if (dc.getType() == DocumentChange.Type.ADDED){
-                            consejoArrayList.add(dc.getDocument().toObject(Tituloplanta.class));
+                            consejoArrayList.add(dc.getDocument().toObject(ModelPlantas.class));
                         }
                         consejoAdapter.notifyDataSetChanged();
                         if (progressDialog.isShowing())
@@ -89,7 +89,7 @@ public class Consejos extends AppCompatActivity {
                     }
                     // Accede al primer elemento de consejoArrayList
                     if (consejoArrayList.size() > 0) {
-                        Tituloplanta primerConsejo = consejoArrayList.get(0);
+                        ModelPlantas primerConsejo = consejoArrayList.get(0);
                         // Haz lo que necesites con el primer elemento
                     }
                 }

@@ -41,10 +41,10 @@ public class ListadoPlantas extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private RecyclerView recyclerView;
     private FirebaseFirestore db;
-    private ArrayList<Tituloplanta> plantarrayList;
-    private ArrayList<Tituloplanta> selectedTitles = new ArrayList<>();
+    private ArrayList<ModelPlantas> plantarrayList;
+    private ArrayList<ModelPlantas> selectedTitles = new ArrayList<>();
     private PlantaAdapter plantaAdapter;
-    private ArrayList<Tituloplanta> MiHuertoCreado; // Lista para mantener los datos guardados
+    private ArrayList<ModelPlantas> MiHuertoCreado; // Lista para mantener los datos guardados
 
     @Override    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +55,7 @@ public class ListadoPlantas extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         // Inicializa el adaptador y la lista de plantas seleccionadas
-        plantarrayList = new ArrayList<Tituloplanta>();
+        plantarrayList = new ArrayList<ModelPlantas>();
         selectedTitles = new ArrayList<>();
 
         // Inicializa y configura el RecyclerView
@@ -113,7 +113,7 @@ public class ListadoPlantas extends AppCompatActivity {
             CollectionReference plantasSeleccionadasRef = db.collection("Usuarios").document(userUid).collection("MiHuerto");
 
             // Itera a través de las plantas seleccionadas y agrégalas a Firestore
-            for (Tituloplanta planta : selectedTitles) {
+            for (ModelPlantas planta : selectedTitles) {
                 // Convierte el objeto Tituloplanta a un mapa (HashMap) o un objeto JavaBean
                 // y luego agrégalo a Firestore
                 Map<String, Object> plantaData = new HashMap<>();
@@ -164,7 +164,7 @@ public class ListadoPlantas extends AppCompatActivity {
                             return;
                         }for (DocumentChange dc : value.getDocumentChanges()){
                             if (dc.getType() == DocumentChange.Type.ADDED){
-                                plantarrayList.add(dc.getDocument().toObject(Tituloplanta.class));
+                                plantarrayList.add(dc.getDocument().toObject(ModelPlantas.class));
                             }
                             plantaAdapter.notifyDataSetChanged();
                             if (progressDialog.isShowing())
@@ -172,7 +172,7 @@ public class ListadoPlantas extends AppCompatActivity {
                         }
                         // Accede al primer elemento de consejoArrayList
                         if (plantarrayList.size() > 0) {
-                            Tituloplanta primerPlanta = plantarrayList.get(0);
+                            ModelPlantas primerPlanta = plantarrayList.get(0);
                             // Haz lo que necesites con el primer elemento
                         }
                     }

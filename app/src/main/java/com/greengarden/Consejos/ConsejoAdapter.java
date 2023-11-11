@@ -14,15 +14,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.greengarden.R;
-import com.greengarden.Listadoplantas.Tituloplanta;
+import com.greengarden.Listadoplantas.ModelPlantas;
 
 import java.util.ArrayList;
 
 public class ConsejoAdapter extends RecyclerView.Adapter<ConsejoAdapter.MiViewHolder> {
     Context context;
-    ArrayList<Tituloplanta> listaConsejos;
+    ArrayList<ModelPlantas> listaConsejos;
 
-    public ConsejoAdapter(Context context, ArrayList<Tituloplanta> listaConsejos) {
+    public ConsejoAdapter(Context context, ArrayList<ModelPlantas> listaConsejos) {
         this.context = context;
         this.listaConsejos = listaConsejos;
     }
@@ -36,7 +36,7 @@ public class ConsejoAdapter extends RecyclerView.Adapter<ConsejoAdapter.MiViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ConsejoAdapter.MiViewHolder holder, int position) {
-        Tituloplanta consejo = listaConsejos.get(position);
+        ModelPlantas consejo = listaConsejos.get(position);
 
         holder.titulo.setText(consejo.getTitulo());
         holder.ConsejoAbono.setText(consejo.getConsejoabono());
