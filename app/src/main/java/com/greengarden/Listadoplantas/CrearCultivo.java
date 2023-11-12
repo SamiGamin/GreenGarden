@@ -14,12 +14,16 @@ import android.widget.Button;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -34,19 +38,21 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 public class CrearCultivo extends AppCompatActivity {
-    Button menu, agregar ;
+    Button menu, agregar;
     //decaramos las variabler para ver la informacion de firebase estore
     private ProgressDialog progressDialog;
     private RecyclerView recyclerView;
     private FirebaseFirestore db;
     private ArrayList<ModelPlantas> plantarrayList;
-    private ArrayList<ModelPlantas> selectedTitles = new ArrayList<>();
+    private static ArrayList<ModelPlantas> selectedTitles = new ArrayList<>();
     private CrearcultivoAdapter crearcultivoAdapter;
     private ArrayList<ModelPlantas> MiHuertoCreado; // Lista para mantener los datos guardados
 
-    @Override    protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.crear_cultivo);
         agregar = findViewById(R.id.agregar_planta);
@@ -66,15 +72,14 @@ public class CrearCultivo extends AppCompatActivity {
         recyclerView.setAdapter(crearcultivoAdapter);
 
 
-
         // Configurar el botón "Agregar"
         agregar = findViewById(R.id.agregar_planta);
         agregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (selectedTitles.isEmpty()){
+                if (selectedTitles.isEmpty()) {
                     Toast.makeText(CrearCultivo.this, "Debes seleccionar al menos una planta para continuar", Toast.LENGTH_SHORT).show();
-                }else {
+                } else {
                     guardarPlantasSeleccionadasEnFirestore();
                     Intent mostrarDatosIntent = new Intent(CrearCultivo.this, MiHuerto.class);
                     mostrarDatosIntent.putParcelableArrayListExtra("MiHuertoCreado", MiHuertoCreado);
@@ -104,7 +109,58 @@ public class CrearCultivo extends AppCompatActivity {
         tituloplanta();
     }
 
-    private void guardarPlantasSeleccionadasEnFirestore() {
+    private void plantExistsInFirestore(ModelPlantas planta, CollectionReference plantasSeleccionadasRef) {
+        Query query = plantasSeleccionadasRef.whereEqualTo("titulo", planta.getTitulo());
+
+        query.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot querySnapshot) {
+                if (querySnapshot != null && !querySnapshot.isEmpty()) {
+                    // La planta ya existe en Firestore, puedes manejarlo según tus necesidades
+                    Toast.makeText(CrearCultivo.this, "La planta " + planta.getTitulo() + " ya está en tu huerto", Toast.LENGTH_SHORT).show();
+                } else {
+                    // La planta no existe, agrégala a Firestore
+                    Map<String, Object> plantaData = new HashMap<>();
+                    plantaData.put("titulo", planta.getTitulo());
+                    plantaData.put("tipoplanta", planta.getTipoplanta());
+                    plantaData.put("abono", planta.getAbono());
+                    plantaData.put("riego", planta.getRiego());
+                    plantaData.put("agua", planta.getAgua());
+                    plantaData.put("temperatura", planta.getTemperatura());
+                    plantaData.put("ulr", planta.getUlr());
+                    plantaData.put("cantidad", planta.getCantidad());
+                    // Agrega el documento a Firestore y obtén el ID asignado al documento recién creado
+
+                    plantasSeleccionadasRef.add(plantaData)
+                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    // Plantas seleccionadas guardadas exitosamente en Firestore
+                                    // Puedes obtener el ID asignado al documento recién creado
+                                    String plantaId = documentReference.getId();
+                                    // Guarda el ID en tu objeto ModelPlantas si es necesario
+                                    planta.setId(plantaId);
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    // Error al guardar las plantas seleccionadas
+                                    Toast.makeText(CrearCultivo.this, "Error al guardar las plantas seleccionadas", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                // Error al realizar la consulta en Firestore
+                Toast.makeText(CrearCultivo.this, "Error al verificar la existencia de la planta en Firestore", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void guardarPlantasSeleccionadasEnFirestore() {
         // Asegúrate de que el usuario esté autenticado
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -117,39 +173,12 @@ public class CrearCultivo extends AppCompatActivity {
 
             // Itera a través de las plantas seleccionadas y agrégalas a Firestore
             for (ModelPlantas planta : selectedTitles) {
-                // Convierte el objeto Tituloplanta a un mapa (HashMap) o un objeto JavaBean
-                // y luego agrégalo a Firestore
-                Map<String, Object> plantaData = new HashMap<>();
-                plantaData.put("titulo", planta.getTitulo());
-                plantaData.put("tipoplanta", planta.getTipoplanta());
-                plantaData.put("abono", planta.getAbono());
-                plantaData.put("riego", planta.getRiego());
-                plantaData.put("agua", planta.getAgua());
-                plantaData.put("temperatura", planta.getTemperatura());
-                plantaData.put("ulr", planta.getUlr());
-                plantaData.put("cantidad", planta.getCantidad());
-
-
-                // Agrega el documento a Firestore con un identificador único (por ejemplo, el título de la planta)
-                plantasSeleccionadasRef.document(planta.getTitulo())
-                        .set(plantaData)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                // Plantas seleccionadas guardadas exitosamente en Firestore
-                                //Toast.makeText(ListadoPlantas.this, "Plantas seleccionadas guardadas en Firestore", Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                // Error al guardar las plantas seleccionadas
-                                Toast.makeText(CrearCultivo.this, "Error al guardar las plantas seleccionadas", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                // Verifica si la planta ya está en Firestore antes de agregarla
+                plantExistsInFirestore(planta, plantasSeleccionadasRef);
             }
-        }else {
-            Toast.makeText(this, "Debes iniciar sesión para guardar las plantas seleccionadas", Toast.LENGTH_SHORT).show();
+        } else {
+            // Error al realizar la consulta en Firestore
+            Toast.makeText(CrearCultivo.this, "Error al verificar la existencia de la planta en Firestore", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -160,13 +189,14 @@ public class CrearCultivo extends AppCompatActivity {
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                        if (error != null){
+                        if (error != null) {
                             if (progressDialog.isShowing())
                                 progressDialog.dismiss();
                             Log.e("Error de Datos", error.getMessage());
                             return;
-                        }for (DocumentChange dc : value.getDocumentChanges()){
-                            if (dc.getType() == DocumentChange.Type.ADDED){
+                        }
+                        for (DocumentChange dc : value.getDocumentChanges()) {
+                            if (dc.getType() == DocumentChange.Type.ADDED) {
                                 plantarrayList.add(dc.getDocument().toObject(ModelPlantas.class));
                             }
                             crearcultivoAdapter.notifyDataSetChanged();
@@ -182,7 +212,6 @@ public class CrearCultivo extends AppCompatActivity {
 
                 });
     }
-
 
 
 }
