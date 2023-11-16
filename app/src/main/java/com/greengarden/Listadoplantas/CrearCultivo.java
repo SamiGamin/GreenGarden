@@ -81,9 +81,9 @@ public class CrearCultivo extends AppCompatActivity {
                     Toast.makeText(CrearCultivo.this, "Debes seleccionar al menos una planta para continuar", Toast.LENGTH_SHORT).show();
                 } else {
                     guardarPlantasSeleccionadasEnFirestore();
-                    Intent mostrarDatosIntent = new Intent(CrearCultivo.this, MiHuerto.class);
+                   /* Intent mostrarDatosIntent = new Intent(CrearCultivo.this, MiHuerto.class);
                     mostrarDatosIntent.putParcelableArrayListExtra("MiHuertoCreado", MiHuertoCreado);
-                    startActivity(mostrarDatosIntent);
+                    startActivity(mostrarDatosIntent);*/
                 }
             }
         });
@@ -110,6 +110,7 @@ public class CrearCultivo extends AppCompatActivity {
     }
 
     private void plantExistsInFirestore(ModelPlantas planta, CollectionReference plantasSeleccionadasRef) {
+        String plantaTitulo = planta.getTitulo();
         Query query = plantasSeleccionadasRef.whereEqualTo("titulo", planta.getTitulo());
 
         query.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -131,15 +132,12 @@ public class CrearCultivo extends AppCompatActivity {
                     plantaData.put("cantidad", planta.getCantidad());
                     // Agrega el documento a Firestore y obtén el ID asignado al documento recién creado
 
-                    plantasSeleccionadasRef.add(plantaData)
-                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    plantasSeleccionadasRef.document(plantaTitulo).set(plantaData)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
-                                public void onSuccess(DocumentReference documentReference) {
-                                    // Plantas seleccionadas guardadas exitosamente en Firestore
-                                    // Puedes obtener el ID asignado al documento recién creado
-                                    String plantaId = documentReference.getId();
-                                    // Guarda el ID en tu objeto ModelPlantas si es necesario
-                                    planta.setId(plantaId);
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(CrearCultivo.this, "Las planta  " + plantaTitulo + " agregada a tu huerto", Toast.LENGTH_SHORT).show();
+                                  
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
@@ -203,15 +201,8 @@ public class CrearCultivo extends AppCompatActivity {
                             if (progressDialog.isShowing())
                                 progressDialog.dismiss();
                         }
-                        // Accede al primer elemento de consejoArrayList
-                        if (plantarrayList.size() > 0) {
-                            ModelPlantas primerPlanta = plantarrayList.get(0);
-                            // Haz lo que necesites con el primer elemento
-                        }
                     }
 
                 });
     }
-
-
 }
