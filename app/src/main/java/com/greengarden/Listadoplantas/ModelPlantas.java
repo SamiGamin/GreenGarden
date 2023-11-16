@@ -17,8 +17,15 @@ public class ModelPlantas implements Parcelable {
     private String imagenResId;
     private String ulr;
     private  Integer  cantidad;
+    private String id;
 
+    public ModelPlantas(String id) {
+        this.id = id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public ModelPlantas() {
     }
@@ -38,6 +45,9 @@ public class ModelPlantas implements Parcelable {
         this.ulr = ulr;
         this.temperatura = temperatura;
         this.imagenResId = imagenResId;
+    }
+    public String getId() {
+        return id;
     }
 
     public Integer  getCantidad() {
@@ -153,10 +163,10 @@ public class ModelPlantas implements Parcelable {
 
     }
 
-    public boolean getId() {
+    /*public String getId() {
 
         return getId();
-    }
+    }*/
 
     @Override
     public int describeContents() {

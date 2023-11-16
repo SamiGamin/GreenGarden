@@ -78,11 +78,11 @@
                     android:textStyle="bold" />
 
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/MiHuertoCreado"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/sm" />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/MiHuertoCreado"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/sm" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
