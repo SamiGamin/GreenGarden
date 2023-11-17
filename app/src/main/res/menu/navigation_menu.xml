@@ -7,7 +7,7 @@
         android:title="Inicio" />
     <item
         android:id="@+id/consumo"
-        android:title="Crear Cultivo" />
+        android:title="Crear Huerto" />
     <item
         android:id="@+id/cultivos"
         android:title="Mi Huerto" />

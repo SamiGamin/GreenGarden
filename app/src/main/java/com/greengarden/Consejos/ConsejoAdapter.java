@@ -39,8 +39,9 @@ public class ConsejoAdapter extends RecyclerView.Adapter<ConsejoAdapter.MiViewHo
         ModelPlantas consejo = listaConsejos.get(position);
 
         holder.titulo.setText(consejo.getTitulo());
-        holder.ConsejoAbono.setText(consejo.getConsejoabono());
-        holder.ConsejoAgua.setText(consejo.getConsejoriego());
+        holder.ConsejoAbono.setText(consejo.getConsejoSiembra());
+        holder.ConsejoRiego.setText(consejo.getConsejoriego());
+        holder.ConsejoSiembra.setText(consejo.getConsejoabono());
 
         String imageUrl = consejo.getUlr();
         Log.d("TAG", "URL de la imagen: " + imageUrl);
@@ -53,7 +54,7 @@ public class ConsejoAdapter extends RecyclerView.Adapter<ConsejoAdapter.MiViewHo
                     .error(R.drawable.dangerous)
                     .into(holder.imageurl);
         }else {
-            // holder.plantaimagen.setUlr(R.drawable.bgp);
+
         }
 
     }
@@ -64,14 +65,15 @@ public class ConsejoAdapter extends RecyclerView.Adapter<ConsejoAdapter.MiViewHo
         return listaConsejos.size();
     }
     public class MiViewHolder extends RecyclerView.ViewHolder {
-        TextView titulo, ConsejoAbono, ConsejoAgua ;
+        TextView titulo, ConsejoAbono, ConsejoRiego, ConsejoSiembra;
         ImageView imageurl;
 
         public MiViewHolder(@NonNull View itemView) {
             super(itemView);
             titulo = itemView.findViewById(R.id.listtitulo);
-            ConsejoAbono = itemView.findViewById(R.id.consejoabono);
-            ConsejoAgua = itemView.findViewById(R.id.consejoagua);
+            ConsejoSiembra = itemView.findViewById(R.id.consejo_siembra);
+            ConsejoRiego = itemView.findViewById(R.id.consejo_Riego);
+            ConsejoAbono = itemView.findViewById(R.id.consejo_abono);
             imageurl = itemView.findViewById(R.id.imageurl);
 
         }

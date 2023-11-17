@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -29,7 +30,7 @@ import java.util.List;
 
 public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHolder> {
     private ArrayList<ModelPlantas> MiHuertoCreado;
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+
     private int currentPosition;
 
     private OnPlantDeleteListener listener;
@@ -82,18 +83,21 @@ public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHo
         notifyDataSetChanged();
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView Titulo,vriego,vabono,cantidad,vtemperatura;
+        private TextView Titulo, FrecuenciaRiego,FrecuensiAbono,cantidad,vtemperatura, cantidadAgua, cantidadAbono;
 
 
         private Button deleteButton;
         private ImageView plantaimagen;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            cantidadAgua = itemView.findViewById(R.id.Cantidad_agua);
+            cantidadAbono = itemView.findViewById(R.id.Cantidad_abono);
             Titulo = itemView.findViewById(R.id.titulomihuerto);
-            vriego = itemView.findViewById(R.id.riegomihuerto);
-            vabono = itemView.findViewById(R.id.abonomihuerto);
+            FrecuenciaRiego = itemView.findViewById(R.id.frecuencia_riego);
+            FrecuensiAbono = itemView.findViewById(R.id.frecuencia_abono);
             vtemperatura = itemView.findViewById(R.id.temperaturamihuerto);
             cantidad = itemView.findViewById(R.id.numeroplantas);
+
             plantaimagen = itemView.findViewById(R.id.imaulr);
 
 
@@ -102,7 +106,7 @@ public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHo
                 deleteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mostrarDialogoConfirmacion(getAdapterPosition());
+                   mostrarDialogoConfirmacion(getAdapterPosition());
                     }
             });
             }
@@ -110,10 +114,13 @@ public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHo
 
         public void bind(ModelPlantas plant) {
             Titulo.setText(plant.getTitulo());
-            vriego.setText("Agua cada " + plant.getRiego() + " días");
-            vabono.setText(" " + plant.getAbono() + " g");
+            cantidadAgua.setText(plant.getCantidadagua() + " milimitros");
+            FrecuenciaRiego.setText("Cada: " + plant.getRiego() + " días");
+            cantidadAbono.setText(plant.getCantidadabono() + " gramos");
+            FrecuensiAbono.setText("Cada: " + plant.getAbono() + " días");
+
             vtemperatura.setText(plant.getTemperatura());
-            cantidad.setText(String.valueOf(plant.getCantidad()));
+            cantidad.setText(String.valueOf(plant.getCantidad()) + "  Plantas");
 
             String imageUrl = plant.getUlr();
 
@@ -159,19 +166,13 @@ public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHo
                 }
             }
         });
-        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // No hacer nada, simplemente cerrar el cuadro de diálogo
-            }
-        });
         builder.show();
     }
 
     public void mostrarDialogoHuertoVacio() {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Huerto Vacío");
-        builder.setMessage("Tu huerto está vacío. ¿Quieres agregar más plantas?");
+        builder.setMessage("Tu huerto está vacío.\n¿Quieres agregar plantas?");
         builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -180,12 +181,7 @@ public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHo
                 context.startActivity(intent);
             }
         });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // No hacer nada,
-            }
-        });
+
         builder.show();
     }
 

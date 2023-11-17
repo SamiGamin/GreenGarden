@@ -41,14 +41,21 @@
                 android:src="@drawable/icono" />
 
             <TextView
-                android:id="@+id/consejoabono"
+                android:id="@+id/consejo_siembra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/sm"
                 android:text="   "
                 android:textSize="18sp" />
             <TextView
-                android:id="@+id/consejoagua"
+                android:id="@+id/consejo_Riego"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/sm"
+                android:text="   "
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/consejo_abono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/sm"

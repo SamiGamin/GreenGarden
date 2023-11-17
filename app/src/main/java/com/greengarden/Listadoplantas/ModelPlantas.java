@@ -8,9 +8,11 @@ import androidx.annotation.NonNull;
 public class ModelPlantas implements Parcelable {
     private String titulo;
     private String riego;
-    private String agua;
+    private String Cantidadagua;
     private String abono;
+    private String Cantidadabono;
     private String consejoabono;
+    private String consejoSiembra;
     private String consejoriego;
     private String temperatura;
     private String  tipoplanta;
@@ -33,19 +35,40 @@ public class ModelPlantas implements Parcelable {
 
 
     public ModelPlantas(String titulo, String riego, String abono, String temperatura,
-                        String agua, String tipoplanta, String imagenResId, String ulr, String consejoabono, String consejoriego, Integer  cantidad) {
+                        String Cantidadagua, String tipoplanta, String imagenResId,
+                        String ulr, String consejoabono, String consejoSiembra,
+                        String consejoriego, Integer  cantidad, String cantidadabono) {
         this.titulo = titulo;
         this.cantidad = cantidad;
+        this.consejoSiembra = consejoSiembra;
         this.consejoabono = consejoabono;
         this.consejoriego = consejoriego;
         this.riego = riego;
         this.abono = abono;
-        this.agua = agua;
+        this.Cantidadabono = cantidadabono;
+        this.Cantidadagua = Cantidadagua;
         this.tipoplanta = tipoplanta;
         this.ulr = ulr;
         this.temperatura = temperatura;
         this.imagenResId = imagenResId;
     }
+
+    public String getCantidadabono() {
+        return Cantidadabono;
+    }
+
+    public void setCantidadabono(String cantidadabono) {
+        Cantidadabono = cantidadabono;
+    }
+
+    public String getConsejoSiembra() {
+        return consejoSiembra;
+    }
+
+    public void setConsejoSiembra(String consejoSiembra) {
+        this.consejoSiembra = consejoSiembra;
+    }
+
     public String getId() {
         return id;
     }
@@ -90,23 +113,25 @@ public class ModelPlantas implements Parcelable {
         this.ulr = ulr;
     }
 
-    public String getAgua() {
-        return agua;
+    public String getCantidadagua() {
+        return Cantidadagua;
     }
 
-    public void setAgua(String agua) {
-        this.agua = agua;
+    public void setCantidadagua(String cantidadagua) {
+        this.Cantidadagua = cantidadagua;
     }
 
     protected ModelPlantas(Parcel in) {
         titulo = in.readString();
         riego = in.readString();
         abono = in.readString();
-        agua = in.readString();
+        Cantidadagua = in.readString();
         tipoplanta = in.readString();
         temperatura = in.readString();
         consejoriego = in.readString();
         consejoabono = in.readString();
+        consejoSiembra = in.readString();
+        Cantidadabono = in.readString();
 
     }
 
@@ -178,11 +203,13 @@ public class ModelPlantas implements Parcelable {
         dest.writeString(titulo);
         dest.writeString(riego);
         dest.writeString(abono);
-        dest.writeString(agua);
+        dest.writeString(Cantidadagua);
         dest.writeString(temperatura);
         dest.writeString(consejoriego);
         dest.writeString(consejoabono);
         dest.writeString(tipoplanta);
+        dest.writeString(consejoSiembra);
+        dest.writeString(Cantidadabono);
 
     }
 }

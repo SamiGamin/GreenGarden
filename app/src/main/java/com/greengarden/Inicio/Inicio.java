@@ -47,10 +47,7 @@ public class Inicio extends AppCompatActivity {
         ViewFlipper viewFlipper5 = findViewById(R.id.home_slider5);
         AnimicionesInicios animicionesInicios5 = new AnimicionesInicios(this, viewFlipper5);
 
-        ViewFlipper viewFlipper6 = findViewById(R.id.home_slider6);
-        AnimicionesInicios animicionesInicios6 = new AnimicionesInicios(this, viewFlipper6);
-        ViewFlipper viewFlipper7 = findViewById(R.id.home_slider7);
-        AnimicionesInicios animicionesInicios7 = new AnimicionesInicios(this, viewFlipper7);
+
 
 //fin animaciones
 

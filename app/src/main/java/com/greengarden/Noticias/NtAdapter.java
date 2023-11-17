@@ -50,7 +50,7 @@ public class NtAdapter extends RecyclerView.Adapter<NtAdapter.MiViewholder> {
             super(itemView);
             Titulo = itemView.findViewById(R.id.listtitulo);
             Fecha = itemView.findViewById(R.id.listfecha);
-            Noticia = itemView.findViewById(R.id.consejoabono);
+            Noticia = itemView.findViewById(R.id.consejo_siembra);
         }
     }
 }

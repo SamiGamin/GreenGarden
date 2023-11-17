@@ -14,16 +14,12 @@ import android.widget.Button;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -38,7 +34,6 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
 
 public class CrearCultivo extends AppCompatActivity {
     Button menu, agregar;
@@ -126,7 +121,8 @@ public class CrearCultivo extends AppCompatActivity {
                     plantaData.put("tipoplanta", planta.getTipoplanta());
                     plantaData.put("abono", planta.getAbono());
                     plantaData.put("riego", planta.getRiego());
-                    plantaData.put("agua", planta.getAgua());
+                    plantaData.put("Cantidadabono", planta.getCantidadabono());
+                    plantaData.put("Cantidadagua", planta.getCantidadagua());
                     plantaData.put("temperatura", planta.getTemperatura());
                     plantaData.put("ulr", planta.getUlr());
                     plantaData.put("cantidad", planta.getCantidad());

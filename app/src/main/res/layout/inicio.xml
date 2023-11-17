@@ -94,7 +94,7 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:background="@color/fondotexto"
-                        android:text="Crear Cultivo"
+                        android:text="Crear Huerto"
                         android:textColor="@color/white"
                         android:textSize="30sp"
                         android:textStyle="bold" />
@@ -273,87 +273,6 @@
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/uno6"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_margin="@dimen/md"
-                android:background="@color/black"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="30dp">
-
-                <ViewFlipper
-                    android:id="@+id/home_slider6"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:background="@drawable/view_radio"
-                    android:backgroundTint="@color/borderColor">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/noticias" />
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/noticias1" />
-                </ViewFlipper>
-
-                <TextView
-                    android:id="@+id/consumos"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:background="@color/fondotexto"
-                    android:text="Consumos"
-                    android:textColor="@color/white"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/uno7"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_margin="@dimen/md"
-                android:background="@color/black"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="30dp">
-
-                <ViewFlipper
-                    android:id="@+id/home_slider7"
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:background="@drawable/view_radio"
-                    android:backgroundTint="@color/borderColor">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/noticias" />
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/noticias1" />
-                </ViewFlipper>
-
-                <TextView
-                    android:id="@+id/informacion"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:background="@color/fondotexto"
-                    android:text="informacion"
-                    android:textColor="@color/white"
-                    android:textSize="30sp"
-                    android:textStyle="bold" />
-            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
     </ScrollView>

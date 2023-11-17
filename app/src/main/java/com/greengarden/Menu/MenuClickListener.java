@@ -7,16 +7,14 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.greengarden.Inicio.Login;
-import com.greengarden.Listadoplantas.CrearCultivo;
-import com.greengarden.Noticias.ComunidadEventos;
-
 import com.greengarden.Consejos.Consejos;
-import com.greengarden.Cuidados.Cuidados;
 import com.greengarden.Estadisticas.Estadisticas;
 import com.greengarden.Inicio.Inicio;
-import com.greengarden.R;
+import com.greengarden.Inicio.Login;
+import com.greengarden.Listadoplantas.CrearCultivo;
 import com.greengarden.Listadoplantas.MiHuerto;
+import com.greengarden.Noticias.ComunidadEventos;
+import com.greengarden.R;
 
 public class MenuClickListener implements PopupMenu.OnMenuItemClickListener {
     private Context context;

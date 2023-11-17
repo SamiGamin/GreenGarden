@@ -72,6 +72,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="@dimen/sm"
                     android:text="MI HUERTO"
+                    android:textColor="@color/green"
                     android:textSize="32sp"
                     android:textStyle="bold" />
 

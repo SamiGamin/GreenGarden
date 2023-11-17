@@ -42,7 +42,7 @@
                 android:textStyle="italic"/>
 
             <TextView
-                android:id="@+id/consejoabono"
+                android:id="@+id/consejo_siembra"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="La zanahoria silvestre o carrota es una especie de planta herbácea de la familia Apiaceae. Es la forma silvestre de la zanahoria."

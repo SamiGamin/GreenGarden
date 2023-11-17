@@ -67,15 +67,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="@dimen/sm"
-                    android:text="PLANTAS"
-                    android:textSize="32sp"
-                    android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="@dimen/sm"
+                        android:text="PLANTAS"
+                        android:textColor="@color/green"
+                        android:textSize="32sp"
+                        android:textStyle="bold" />
 
 
                     <androidx.recyclerview.widget.RecyclerView
