@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -118,12 +119,13 @@ public class MiHuerto extends AppCompatActivity implements MiHuertoAdapter.OnPla
 
     public void onPlantDelete(ModelPlantas plant) {
         String uid = obtenerUIDUsuarioActual();
+        String id= plant.getTitulo();
 
         // Suponiendo que plant.getId() siempre devuelve 0
         DocumentReference plantaRef = db.collection("Usuarios")
                 .document(uid)
                 .collection("MiHuerto")
-                .document();
+                .document(id);
 
         plantaRef.delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -138,7 +140,7 @@ public class MiHuerto extends AppCompatActivity implements MiHuertoAdapter.OnPla
                         Toast.makeText(getApplicationContext(), "Planta eliminada correctamente", Toast.LENGTH_SHORT).show();
 
                         if (MiHuertolist.isEmpty()) {
-                            // La lista está vacía, puedes mostrar un mensaje o realizar otras acciones si es necesario
+                            Toast.makeText(MiHuerto.this, "Tu huerto esta vacio", Toast.LENGTH_SHORT).show();
                         }
                     }
                 })
@@ -150,6 +152,8 @@ public class MiHuerto extends AppCompatActivity implements MiHuertoAdapter.OnPla
                     }
                 });
     }
+
+
 
     private String obtenerUIDUsuarioActual() {
         FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();

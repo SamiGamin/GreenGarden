@@ -104,15 +104,6 @@
 
         </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/btnborrar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-           android:padding="@dimen/md"
-            android:layout_weight="1"
-            android:background="#00FFFFFF"
-            android:src="@drawable/delete" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
