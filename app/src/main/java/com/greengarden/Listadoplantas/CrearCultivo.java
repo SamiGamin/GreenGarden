@@ -81,9 +81,9 @@ public class CrearCultivo extends AppCompatActivity {
                     Toast.makeText(CrearCultivo.this, "Debes seleccionar al menos una planta para continuar", Toast.LENGTH_SHORT).show();
                 } else {
                     guardarPlantasSeleccionadasEnFirestore();
-                   /* Intent mostrarDatosIntent = new Intent(CrearCultivo.this, MiHuerto.class);
+                    Intent mostrarDatosIntent = new Intent(CrearCultivo.this, MiHuerto.class);
                     mostrarDatosIntent.putParcelableArrayListExtra("MiHuertoCreado", MiHuertoCreado);
-                    startActivity(mostrarDatosIntent);*/
+                    startActivity(mostrarDatosIntent);
                 }
             }
         });

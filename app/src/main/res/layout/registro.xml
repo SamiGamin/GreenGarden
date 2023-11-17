@@ -147,6 +147,6 @@
             android:textSize="25sp"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:text="Ingresar" />
+            android:text="Registro" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
