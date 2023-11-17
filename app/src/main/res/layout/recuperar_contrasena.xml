@@ -90,7 +90,7 @@
                         android:textSize="25sp"
                         android:textColor="@color/white"
                         android:textStyle="bold"
-                        android:text="Ingresar" />
+                        android:text="Enviar" />
 
             </LinearLayout>
         </ScrollView>

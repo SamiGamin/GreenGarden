@@ -90,6 +90,13 @@
             android:layout_marginTop="32dp"
             android:text="¿Eres nuevo Registrate?"
             android:textAlignment="center" />
+        <TextView
+            android:id="@+id/lon_recuperarcontraseña"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="¿recuperar coraseña?"
+            android:textAlignment="center" />
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -4,27 +4,22 @@
 
     <item
         android:id="@+id/inicio"
-        android:title="INICIO" />
-    <item
-        android:id="@+id/cultivos"
-        android:title="CULTIVO" />
-
-
+        android:title="Inicio" />
     <item
         android:id="@+id/consumo"
-        android:title="CUIDADOS" />
+        android:title="Crear Cultivo" />
     <item
-        android:id="@+id/consejos"
-        android:title="CONSEJOS" />
-    <item
-        android:id="@+id/estadisticas"
-        android:title="ESTADISCTICAS" />
-
+        android:id="@+id/cultivos"
+        android:title="Mi Huerto" />
     <item
         android:id="@+id/comu_even"
-        android:title="NOTICIAS" />
-
-
+        android:title="Noticias" />
+    <item
+        android:id="@+id/consejos"
+        android:title="Consejos" />
+    <item
+        android:id="@+id/estadisticas"
+        android:title="Estadisticas" />
     <group android:id="@+id/personale">
     <item
         android:id="@+id/salir"

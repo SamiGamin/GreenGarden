@@ -1,14 +1,14 @@
-package com.greengarden.Plantas;
+package com.greengarden.datos;
 
 import android.content.Context;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ViewFlipper;
 
-public class MyViewFlipper {
+public class AnimicionesInicios {
     private ViewFlipper viewFlipper;
 
-    public MyViewFlipper(Context context, ViewFlipper viewFlipper) {
+    public AnimicionesInicios(Context context, ViewFlipper viewFlipper) {
         this.viewFlipper = viewFlipper;
 
         Animation fadeInAnimation = new AlphaAnimation(0f, 1f);

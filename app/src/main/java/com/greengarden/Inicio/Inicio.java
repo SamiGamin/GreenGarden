@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.greengarden.Consejos.Consejos;
 import com.greengarden.Estadisticas.Estadisticas;
 import com.greengarden.Noticias.ComunidadEventos;
-import com.greengarden.Plantas.MyViewFlipper;
+import com.greengarden.datos.AnimicionesInicios;
 import com.greengarden.R;
 import com.greengarden.Menu.MenuClickListener;
 import com.greengarden.Listadoplantas.CrearCultivo;
@@ -37,20 +37,20 @@ public class Inicio extends AppCompatActivity {
 
         // inicio animaciones
         ViewFlipper viewFlipper1 = findViewById(R.id.home_slider1);
-        MyViewFlipper myViewFlipper1 = new MyViewFlipper(this, viewFlipper1);
+        AnimicionesInicios animicionesInicios1 = new AnimicionesInicios(this, viewFlipper1);
         ViewFlipper viewFlipper2 = findViewById(R.id.home_slider2);
-        MyViewFlipper myViewFlipper2 = new MyViewFlipper(this, viewFlipper2);
+        AnimicionesInicios animicionesInicios2 = new AnimicionesInicios(this, viewFlipper2);
         ViewFlipper viewFlipper3 = findViewById(R.id.home_slider3);
-        MyViewFlipper myViewFlipper3 = new MyViewFlipper(this, viewFlipper3);
+        AnimicionesInicios animicionesInicios3 = new AnimicionesInicios(this, viewFlipper3);
         ViewFlipper viewFlipper4 = findViewById(R.id.home_slider4);
-        MyViewFlipper myViewFlipper4 = new MyViewFlipper(this, viewFlipper4);
+        AnimicionesInicios animicionesInicios4 = new AnimicionesInicios(this, viewFlipper4);
         ViewFlipper viewFlipper5 = findViewById(R.id.home_slider5);
-        MyViewFlipper myViewFlipper5 = new MyViewFlipper(this, viewFlipper5);
+        AnimicionesInicios animicionesInicios5 = new AnimicionesInicios(this, viewFlipper5);
 
         ViewFlipper viewFlipper6 = findViewById(R.id.home_slider6);
-        MyViewFlipper myViewFlipper6 = new MyViewFlipper(this, viewFlipper6);
+        AnimicionesInicios animicionesInicios6 = new AnimicionesInicios(this, viewFlipper6);
         ViewFlipper viewFlipper7 = findViewById(R.id.home_slider7);
-        MyViewFlipper myViewFlipper7 = new MyViewFlipper(this, viewFlipper7);
+        AnimicionesInicios animicionesInicios7 = new AnimicionesInicios(this, viewFlipper7);
 
 //fin animaciones
 

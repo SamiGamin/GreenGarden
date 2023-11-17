@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/sm"
     android:layout_marginTop="@dimen/sm"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="@dimen/sm"
     app:cardCornerRadius="5dp"
     app:cardElevation="5dp">
 
     <LinearLayout
-        android:layout_marginTop="@dimen/md"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/md"
         android:orientation="vertical">
 
 
@@ -29,13 +29,14 @@
 
             <TextView
                 android:id="@+id/titulomihuerto"
-                android:textAlignment="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
                 android:layout_weight="1"
-                android:textSize="@dimen/md"
-                android:text="Titulo" />
+                android:text="Titulo"
+                android:textColor="@color/green"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="wrap_content"
@@ -43,118 +44,135 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1" />
 
-            <TextView
-                android:id="@+id/numeroplantas"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:text="N" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="@dimen/md"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/md"
             android:orientation="horizontal">
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
 
             <ImageView
                 android:id="@+id/imaulr"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                 />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="@dimen/md">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textStyle="bold"
-                android:textSize="@dimen/md"
-                android:text="Temperatura" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Rigeo"
-                android:textStyle="bold"
-                android:textSize="@dimen/md"/>
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_weight="1" />
 
-            <TextView
-                android:id="@+id/textView4"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/sm"
                 android:layout_weight="1"
-                android:text="Abono"
-                android:textStyle="bold"
-                android:textSize="@dimen/md" />
-        </LinearLayout>
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/md">
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/sm">
 
-            <TextView
-                android:id="@+id/temperaturamihuerto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="temperatura" />
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="16dp">
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Clima"
+                            android:textSize="@dimen/md"
+                            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/riegomihuerto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="riego" />
+                        <TextView
+                            android:id="@+id/temperaturamihuerto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="calido"
+                            android:textAlignment="textEnd"
+                            android:textSize="@dimen/md"
+                            android:textStyle="italic" />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                    </TableRow>
 
-            <TextView
-                android:id="@+id/abonomihuerto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="abono" />
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Riego"
+                            android:textSize="@dimen/md"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/riegomihuerto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="12"
+                            android:textAlignment="textEnd"
+                            android:textSize="@dimen/md"
+                            android:textStyle="italic" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Abono"
+                            android:textSize="@dimen/md"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/abonomihuerto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="12"
+                            android:textAlignment="textEnd"
+                            android:textSize="@dimen/md"
+                            android:textStyle="italic" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Cantidad"
+                            android:textSize="@dimen/md"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/numeroplantas"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="12"
+                            android:textAlignment="textEnd"
+                            android:textSize="@dimen/md"
+                            android:textStyle="italic" />
+                    </TableRow>
+                </TableLayout>
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -177,8 +195,8 @@
                 android:layout_weight="1"
                 android:backgroundTint="#00FFFFFF"
                 android:text="eliminar"
-                android:textColor="#092E61"
-                android:textSize="10sp"
+                android:textColor="#F90303"
+                android:textSize="18sp"
                 android:textStyle="italic" />
 
             <Space

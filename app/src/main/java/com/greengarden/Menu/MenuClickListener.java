@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.greengarden.Inicio.Login;
+import com.greengarden.Listadoplantas.CrearCultivo;
 import com.greengarden.Noticias.ComunidadEventos;
 
 import com.greengarden.Consejos.Consejos;
@@ -36,7 +37,7 @@ public class MenuClickListener implements PopupMenu.OnMenuItemClickListener {
             return true;
         }
         if (id == R.id.consumo) {
-            Intent consumo = new Intent(context, Cuidados.class);
+            Intent consumo = new Intent(context, CrearCultivo.class);
             context.startActivity(consumo);
             return true;
         }

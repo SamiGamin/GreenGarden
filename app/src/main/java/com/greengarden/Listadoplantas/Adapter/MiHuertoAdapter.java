@@ -110,8 +110,8 @@ public class MiHuertoAdapter extends RecyclerView.Adapter<MiHuertoAdapter.ViewHo
 
         public void bind(ModelPlantas plant) {
             Titulo.setText(plant.getTitulo());
-            vriego.setText("Riego cada " + plant.getRiego() + " días");
-            vabono.setText("Abono " + plant.getAbono() + " gramos");
+            vriego.setText("Agua cada " + plant.getRiego() + " días");
+            vabono.setText(" " + plant.getAbono() + " g");
             vtemperatura.setText(plant.getTemperatura());
             cantidad.setText(String.valueOf(plant.getCantidad()));
 
