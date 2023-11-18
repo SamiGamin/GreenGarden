@@ -100,15 +100,9 @@ public class Estadisticas extends AppCompatActivity {
         // Notifica al adaptador que los datos han cambiado
         estadisticasAdapter.actualizarDatos();
 
-        // Muestra los totales en tu interfaz, por ejemplo, en un TextView o mediante un Toast
-        mostrarResultadosEnInterfaz(estadisticasAdapter.getTotalAgua(), estadisticasAdapter.getTotalAbono());
+
     }
-    private void mostrarResultadosEnInterfaz(double totalAgua, double totalAbono) {
-        // Aquí puedes mostrar los resultados en tu interfaz de usuario
-        // Por ejemplo, en un TextView o mediante un Toast
-        String mensaje = "Total de agua: " + totalAgua + "\nTotal de abono: " + totalAbono;
-        Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show();
-    }
+
 
 
 }

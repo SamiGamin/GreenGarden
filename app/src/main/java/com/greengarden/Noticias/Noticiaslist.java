@@ -11,7 +11,7 @@ public class Noticiaslist {
     public Noticiaslist(String titulo, String noticia, String fecha) {
         this.titulo = titulo;
         this.noticia = noticia;
-        this.fecha = noticia;
+        this.fecha = fecha;
     }
 
     public String getFecha() {
