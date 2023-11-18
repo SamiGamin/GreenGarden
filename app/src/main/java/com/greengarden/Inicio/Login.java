@@ -37,7 +37,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.login);
         Registro = findViewById(R.id.long_tex_reduistrate);
         ingreso = findViewById(R.id.long_btn_ingresar);
-       // recuperarcontrasena = findViewById(R.id.btn_recuperarcontrasena);
+        recuperarcontrasena = findViewById(R.id.lon_recuperarcontraseña);
         email = findViewById(R.id.long_editText_email);
         pass = findViewById(R.id.long_editText_contrasena);
         mAuth = FirebaseAuth.getInstance();
@@ -50,14 +50,14 @@ public class Login extends AppCompatActivity {
             }
         });
 
-       /* recuperarcontrasena.setOnClickListener(new View.OnClickListener() {
+        recuperarcontrasena.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent Registro = new Intent(Login.this, RecuperarContrasena.class);
                 startActivity(Registro);
 
             }
-        });*/
+        });
         ingreso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

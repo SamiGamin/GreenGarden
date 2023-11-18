@@ -25,6 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.greengarden.Inicio.Inicio;
 import com.greengarden.Listadoplantas.Adapter.CrearcultivoAdapter;
 import com.greengarden.Menu.MenuClickListener;
 import com.greengarden.R;
@@ -76,7 +77,7 @@ public class CrearCultivo extends AppCompatActivity {
                     Toast.makeText(CrearCultivo.this, "Debes seleccionar al menos una planta para continuar", Toast.LENGTH_SHORT).show();
                 } else {
                     guardarPlantasSeleccionadasEnFirestore();
-                    Intent mostrarDatosIntent = new Intent(CrearCultivo.this, MiHuerto.class);
+                    Intent mostrarDatosIntent = new Intent(CrearCultivo.this, Inicio.class);
                     mostrarDatosIntent.putParcelableArrayListExtra("MiHuertoCreado", MiHuertoCreado);
                     startActivity(mostrarDatosIntent);
                 }

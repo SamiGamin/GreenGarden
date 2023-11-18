@@ -32,7 +32,7 @@
                 android:paddingStart="@dimen/sm"
                 android:text="Titulo"
                 android:textColor="@color/green"
-                android:textSize="32sp"
+                android:textSize="26sp"
                 android:textStyle="bold" />
 
             <TextView
