@@ -130,11 +130,16 @@ public class CrearcultivoAdapter extends RecyclerView.Adapter<CrearcultivoAdapte
                 if (cantidadIngresada.isEmpty()){
                     Toast.makeText(context, "Agrega la cantidad de sus plantas \n               Para continuar", Toast.LENGTH_SHORT).show();
                 }else {
-                    planta.setCantidad(Integer.parseInt(cantidadIngresada));
+                    int cantidad = Integer.parseInt(cantidadIngresada);
+                    if (cantidad == 0) {
+                        Toast.makeText(context, "La cantidad no puede ser cero", Toast.LENGTH_SHORT).show();
+                    } else {
+                        planta.setCantidad(Integer.parseInt(cantidadIngresada));
 
-                    // Cierra el AlertDialog
-                    alertDialog.dismiss();
-                    notifyItemChanged(position);
+                        // Cierra el AlertDialog
+                        alertDialog.dismiss();
+                        notifyItemChanged(position);
+                    }
                 }
             }
         });
