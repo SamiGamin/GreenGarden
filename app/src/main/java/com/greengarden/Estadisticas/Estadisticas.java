@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,7 @@ import com.greengarden.Menu.MenuClickListener;
 import com.greengarden.R;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Estadisticas extends AppCompatActivity {
     Button menu;
@@ -85,10 +87,27 @@ public class Estadisticas extends AppCompatActivity {
                                     estadisticaslist.add(dc.getDocument().toObject(ModelPlantas.class));
                                 }
                             }
-                            estadisticasAdapter.notifyDataSetChanged();
+                            mostrarTotales();
+//                            estadisticasAdapter.notifyDataSetChanged();
                         }
                     });
         }
+    }
+    private void mostrarTotales() {
+        // Calcula los totales de agua y abono en el adaptador
+        estadisticasAdapter.calcularTotalAguaYAbono();
+
+        // Notifica al adaptador que los datos han cambiado
+        estadisticasAdapter.actualizarDatos();
+
+        // Muestra los totales en tu interfaz, por ejemplo, en un TextView o mediante un Toast
+        mostrarResultadosEnInterfaz(estadisticasAdapter.getTotalAgua(), estadisticasAdapter.getTotalAbono());
+    }
+    private void mostrarResultadosEnInterfaz(double totalAgua, double totalAbono) {
+        // Aquí puedes mostrar los resultados en tu interfaz de usuario
+        // Por ejemplo, en un TextView o mediante un Toast
+        String mensaje = "Total de agua: " + totalAgua + "\nTotal de abono: " + totalAbono;
+        Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show();
     }
 
 

@@ -13,16 +13,55 @@ import com.greengarden.Listadoplantas.ModelPlantas;
 import com.greengarden.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AdapterEstadisticas extends RecyclerView.Adapter<AdapterEstadisticas.EstaViewHolder> {
     private final Context context;
     private final ArrayList<ModelPlantas> estadisticaslist;
 
+    private double totalAgua;
+    private double totalAbono;
 
+    public double getTotalAgua() {
+        return totalAgua;
+    }
+
+    public void setTotalAgua(double totalAgua) {
+        this.totalAgua = totalAgua;
+    }
+
+    public double getTotalAbono() {
+        return totalAbono;
+    }
+
+    public void setTotalAbono(double totalAbono) {
+        this.totalAbono = totalAbono;
+    }
 
     public AdapterEstadisticas(Context context, ArrayList<ModelPlantas> estadisticaslist) {
         this.context = context;
         this.estadisticaslist = estadisticaslist;
+    }
+
+    public void calcularTotalAguaYAbono() {
+        double totalAgua = 0;
+        double totalAbono = 0;
+
+        for (ModelPlantas planta : estadisticaslist) {
+            int cantidad = planta.getCantidad();
+            double cantidadAgua = Double.parseDouble(planta.getCantidadagua());
+            double cantidadAbono = Double.parseDouble(planta.getCantidadabono());
+
+            totalAgua += cantidad * cantidadAgua;
+            totalAbono += cantidad * cantidadAbono;
+        }
+
+        this.totalAgua = totalAgua;
+        this.totalAbono = totalAbono;
+    }
+    public void actualizarDatos() {
+        notifyDataSetChanged();
     }
 
 
@@ -36,12 +75,18 @@ public class AdapterEstadisticas extends RecyclerView.Adapter<AdapterEstadistica
     @Override
     public void onBindViewHolder(@NonNull AdapterEstadisticas.EstaViewHolder holder, int position) {
         ModelPlantas planta = estadisticaslist.get(position);
-        holder.Titulo.setText(planta.getTitulo());
-        holder.Cantidad.setText(String.valueOf(planta.getCantidad()));
-        holder.Agua.setText(planta.getRiego());
-        holder.Abono.setText(planta.getAbono());
+
+        holder.Cantidad.setText(String.valueOf(planta.getCantidad()) + "      " + planta.getTitulo());
+
+        // Calcula los totales de agua y abono para la planta actual
+        int cantidadAgua = (int) Math.round(planta.getCantidad() * Double.parseDouble(planta.getCantidadagua()));
+        int cantidadAbono = (int) Math.round(planta.getCantidad() * Double.parseDouble(planta.getCantidadabono()));
+        // Muestra los totales de agua y abono
+        holder.Agua.setText("Cada ves que riaegas gastas: " + cantidadAgua + " mililitros");
+        holder.Abono.setText("Cada ves que abonas gastas: " + cantidadAbono + " gramos");
 
     }
+
 
 
     @Override
@@ -51,12 +96,10 @@ public class AdapterEstadisticas extends RecyclerView.Adapter<AdapterEstadistica
 
 
     public class EstaViewHolder extends RecyclerView.ViewHolder {
-
-
-        TextView Titulo, Cantidad, Agua, Abono;
+        TextView  Cantidad, Agua, Abono;
         public EstaViewHolder(@NonNull View itemView) {
             super(itemView);
-            Titulo = itemView.findViewById(R.id.estaTitulo);
+
             Cantidad = itemView.findViewById(R.id.estaCantidad);
             Agua = itemView.findViewById(R.id.estaagua);
             Abono = itemView.findViewById(R.id.estaabono);
