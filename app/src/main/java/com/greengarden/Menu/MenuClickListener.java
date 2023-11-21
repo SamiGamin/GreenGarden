@@ -14,6 +14,7 @@ import com.greengarden.Inicio.Login;
 import com.greengarden.Listadoplantas.CrearCultivo;
 import com.greengarden.Listadoplantas.MiHuerto;
 import com.greengarden.Noticias.ComunidadEventos;
+import com.greengarden.Perfil.Perfil;
 import com.greengarden.R;
 
 public class MenuClickListener implements PopupMenu.OnMenuItemClickListener {
@@ -57,6 +58,11 @@ public class MenuClickListener implements PopupMenu.OnMenuItemClickListener {
         if (id == R.id.comu_even) {
             Intent eventos = new Intent(context, ComunidadEventos.class);
             context.startActivity(eventos);
+            return true;
+        }
+        if (id == R.id.perfil) {
+            Intent perfil = new Intent(context, Perfil.class);
+            context.startActivity(perfil);
             return true;
         }
         if (id == R.id.salir) {

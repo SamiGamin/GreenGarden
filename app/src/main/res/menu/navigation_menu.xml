@@ -20,12 +20,19 @@
     <item
         android:id="@+id/estadisticas"
         android:title="Estadisticas" />
-    <group android:id="@+id/personale">
-    <item
-        android:id="@+id/salir"
-        android:title="Cerrar sesion"
-        android:icon="@drawable/logout"
-       />
+    <item android:visible="true"
+        android:title=" " />
+    <group android:id="@+id/personale"
+        android:menuCategory="secondary"
+        >
+        <item
+            android:id="@+id/perfil"
+            android:icon="@drawable/logout"
+            android:title="Perfil" />
+        <item
+            android:id="@+id/salir"
+            android:icon="@drawable/logout"
+            android:title="Cerrar sesion" />
     </group>
 
 </menu>
