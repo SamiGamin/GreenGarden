@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -37,7 +38,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CrearCultivo extends AppCompatActivity {
-    Button menu, agregar;
+    Button menu;
+    FloatingActionButton agregar;
     //decaramos las variabler para ver la informacion de firebase estore
     private ProgressDialog progressDialog;
     private RecyclerView recyclerView;

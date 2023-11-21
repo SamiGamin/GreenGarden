@@ -90,44 +90,20 @@
                         android:layout_margin="@dimen/sm" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/linearLayout7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0"
-                    android:elevation="@dimen/md"
-                    android:orientation="horizontal">
-
-                    <Space
-
-                        android:layout_width="wrap_content"
-
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <Button
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/agregar_planta"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0"
-                        android:background="@drawable/btn"
-                        android:text="Agregar planta" />
-
-                    <Space
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <com.google.android.material.floatingactionbutton.FloatingActionButton
-                        android:id="@+id/agregar_planta1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0"
                         android:layout_marginEnd="@dimen/md"
                         android:layout_marginBottom="@dimen/sm"
                         android:clickable="true"
-                        app:srcCompat="@drawable/mas" />
-                </LinearLayout>
+                        android:layout_gravity="end"
+                        android:foreground="@drawable/mas"
+                        android:foregroundTint="#F3F5F2"
+                        app:backgroundTint="@color/borderColor"
+                        app:elevation="8dp"
+                        app:fabCustomSize="46sp" />
+
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
