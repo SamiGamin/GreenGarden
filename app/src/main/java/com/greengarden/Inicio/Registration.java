@@ -102,8 +102,8 @@ public class Registration extends AppCompatActivity {
                                     databaseReference.child("User").child(id).setValue(map, new DatabaseReference.CompletionListener(){
                                         public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference){
                                             if (databaseError == null){
-                                                //irinicio();
-                                                irPerfil();
+                                                irinicio();
+                                                //irPerfil();
                                                 finish();
                                                 Toast.makeText(Registration.this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
                                             }else {
