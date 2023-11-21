@@ -100,13 +100,13 @@ public class Login extends AppCompatActivity {
     //verificar que el usuario tenga un secion abierta
 
     @Override
-    /*protected void onStart() {
+    protected void onStart() {
         super.onStart();
         FirebaseUser usuario = mAuth.getCurrentUser();
         if (usuario != null) {
             irinicio();
         }
-    }*/
+    }
 
     private void irinicio() {
         Intent irinicio = new Intent(Login.this, Inicio.class);
