@@ -7,7 +7,7 @@
     tools:context=".Inicio.RecuperarContrasena">
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
         android:src="@drawable/top_background"
@@ -55,9 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="240dp" />
 
-
-
-                    <TextView
+                <TextView
                         android:id="@+id/text_email2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
