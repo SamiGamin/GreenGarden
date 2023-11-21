@@ -45,8 +45,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Perfil extends AppCompatActivity {
 
-    private TextView Nombre, Apellidos, Email, vNombre, vApellidos;
-    private EditText EdiNombre, EdiApellidos;
+    private TextView Nombre, Apellidos, Email, vNombre, vApellidos, TextBiografia, vbiografia;
+    private EditText EdiNombre, EdiApellidos, EditBiografia;
     private Button Editardatos, Guardardatos, EditarImagen;
     private CircleImageView ImagePerfil;
     private FirebaseAuth mAuth;
@@ -71,6 +71,9 @@ public class Perfil extends AppCompatActivity {
         EditarImagen = findViewById(R.id.editarimagen);
         EdiNombre = findViewById(R.id.editnombre);
         EdiApellidos = findViewById(R.id.editapellidos);
+        EditBiografia = findViewById(R.id.editbiografia);
+        TextBiografia = findViewById(R.id.textbiografia);
+        vbiografia = findViewById(R.id.vbiografia);
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -93,10 +96,11 @@ public class Perfil extends AppCompatActivity {
                         Nombre.setText(userData.getName());
                         Apellidos.setText(userData.getApellidos());
                         Email.setText(userData.getEmail());
+                        TextBiografia.setText(userData.getBiografia());
 
                         String imagenperfilUrl = userData.getProfileImage();
                         if (imagenperfilUrl != null && !imagenperfilUrl.isEmpty()){
-//                            Picasso.get().load(imagenperfilUrl).into(ImagePerfil);
+
                             RequestOptions requestOptions = new RequestOptions()
                                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                                     .transform(new CenterCrop());
@@ -184,11 +188,13 @@ public class Perfil extends AppCompatActivity {
     private void modificardatos() {
         String nuevoName = EdiNombre.getText().toString().trim();
         String nuevoapellido = EdiApellidos.getText().toString().trim();
+        String Biografia = EditBiografia.getText().toString().trim();
 
         DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("User").child(userId);
         Map<String, Object> updates = new HashMap<>();
         updates.put("name", nuevoName);
         updates.put("apellidos", nuevoapellido);
+        updates.put("Biografia", Biografia);
         
         userRef.updateChildren(updates).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -209,10 +215,12 @@ public class Perfil extends AppCompatActivity {
         vNombre.setVisibility(View.VISIBLE);
         Apellidos.setVisibility(View.VISIBLE);
         vApellidos.setVisibility(View.VISIBLE);
+        vbiografia.setVisibility(View.VISIBLE);
         EditarImagen.setVisibility(View.GONE);
         Guardardatos.setVisibility(View.GONE);
         EdiNombre.setVisibility(View.GONE);
         EdiApellidos.setVisibility(View.GONE);
+        EditBiografia.setVisibility(View.GONE);
 
         EdiNombre.setText(Nombre.getText().toString());
         EdiApellidos.setText(Apellidos.getText().toString());
@@ -224,10 +232,12 @@ public class Perfil extends AppCompatActivity {
         vNombre.setVisibility(View.GONE);
         Apellidos.setVisibility(View.GONE);
         vApellidos.setVisibility(View.GONE);
+        vbiografia.setVisibility(View.GONE);
         EditarImagen.setVisibility(View.VISIBLE);
         Guardardatos.setVisibility(View.VISIBLE);
         EdiNombre.setVisibility(View.VISIBLE);
         EdiApellidos.setVisibility(View.VISIBLE);
+        EditBiografia.setVisibility(View.VISIBLE);
 
         EdiNombre.setText(Nombre.getText().toString());
         EdiApellidos.setText(Apellidos.getText().toString());

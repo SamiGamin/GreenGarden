@@ -5,9 +5,14 @@ public class UserData {
     private String email;
 
     private String apellidos;
+    private String Biografia;
     private String profileImage;
 
     public UserData() {
+    }
+
+    public UserData(String biografia) {
+        Biografia = biografia;
     }
 
     public UserData(String name, String email, String apellidos, String profileImage) {
@@ -15,6 +20,14 @@ public class UserData {
         this.email = email;
         this.apellidos = apellidos;
         this.profileImage = profileImage;
+    }
+
+    public String getBiografia() {
+        return Biografia;
+    }
+
+    public void setBiografia(String biografia) {
+        Biografia = biografia;
     }
 
     public String getName() {
