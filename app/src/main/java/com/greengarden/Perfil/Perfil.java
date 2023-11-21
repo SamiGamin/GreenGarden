@@ -16,6 +16,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -92,7 +96,14 @@ public class Perfil extends AppCompatActivity {
 
                         String imagenperfilUrl = userData.getProfileImage();
                         if (imagenperfilUrl != null && !imagenperfilUrl.isEmpty()){
-                            Picasso.get().load(imagenperfilUrl).into(ImagePerfil);
+//                            Picasso.get().load(imagenperfilUrl).into(ImagePerfil);
+                            RequestOptions requestOptions = new RequestOptions()
+                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                    .transform(new CenterCrop());
+                            Glide.with(Perfil.this)
+                                    .load(imagenperfilUrl)
+                                    .apply(requestOptions)
+                                    .into(ImagePerfil);
                         }
                     }
                 }

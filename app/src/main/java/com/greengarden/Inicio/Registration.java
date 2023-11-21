@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.greengarden.Perfil.Perfil;
 import com.greengarden.R;
 
 import java.security.MessageDigest;
@@ -102,8 +103,8 @@ public class Registration extends AppCompatActivity {
                                     databaseReference.child("User").child(id).setValue(map, new DatabaseReference.CompletionListener(){
                                         public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference){
                                             if (databaseError == null){
-                                                irinicio();
-                                                //irPerfil();
+                                                //irinicio();
+                                                irPerfil();
                                                 finish();
                                                 Toast.makeText(Registration.this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
                                             }else {
@@ -139,8 +140,8 @@ public class Registration extends AppCompatActivity {
     }
 
     private void irPerfil() {
-        irinicio();
-
+        Intent login = new Intent(Registration.this, Perfil.class);
+        startActivity(login);
         finish();
     }
 
