@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,6 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.greengarden.Perfil.Perfil;
 import com.greengarden.R;
 
 import java.security.MessageDigest;
@@ -110,6 +112,19 @@ public class Registration extends AppCompatActivity {
                                             }
                                         }
                                     });
+                                  FirebaseUser user = mAuth.getCurrentUser();
+                                  if (user != null){
+                                      user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                          @Override
+                                          public void onComplete(@NonNull Task<Void> task) {
+                                         if (task.isSuccessful()){
+                                             Toast.makeText(Registration.this, "Se ha enviado un correo de verificación. Por favor, verifica tu correo electrónico.", Toast.LENGTH_SHORT).show();
+                                         }else{
+                                             Toast.makeText(Registration.this, "Error al enviar el correo de verificación: ", Toast.LENGTH_SHORT).show();
+                                         }
+                                          }
+                                      });
+                                  }
 
 
                                 } else {
@@ -125,8 +140,8 @@ public class Registration extends AppCompatActivity {
     }
 
     private void irPerfil() {
-        irinicio();
-
+        Intent login = new Intent(Registration.this, Perfil.class);
+        startActivity(login);
         finish();
     }
 

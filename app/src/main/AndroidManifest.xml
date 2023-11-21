@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -19,34 +18,22 @@
         android:theme="@style/Theme.GreenGarden"
         tools:targetApi="31">
         <activity
+            android:name=".Perfil.EditarPerfil"
+            android:exported="false" />
+        <activity
+            android:name=".Perfil.Perfil"
+            android:exported="false" />
+        <activity
             android:name=".Listadoplantas.MiHuerto"
             android:exported="false" />
         <activity
             android:name=".Listadoplantas.CrearCultivo"
             android:exported="false" />
         <activity
-            android:name=".Plantas.ajo"
-            android:exported="false" />
-        <activity
-            android:name=".Plantas.zanahoria"
-            android:exported="false" />
-        <activity
-            android:name=".Plantas.huerto"
-            android:exported="false" />
-        <activity
             android:name=".Inicio.RecuperarContrasena"
             android:exported="false" />
         <activity
             android:name=".Noticias.ComunidadEventos"
-            android:exported="false" />
-        <activity
-            android:name=".Inicio.Perfil"
-            android:exported="false" />
-        <activity
-            android:name=".Plantas.Agregar_Cultivos"
-            android:exported="false" />
-        <activity
-            android:name=".Cuidados.Cuidados"
             android:exported="false" />
         <activity
             android:name=".Consejos.Consejos"
