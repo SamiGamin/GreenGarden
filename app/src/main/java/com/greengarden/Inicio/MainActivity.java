@@ -3,7 +3,7 @@ package com.greengarden.Inicio;
   @Autor: @Salomon Martinez Barrera
   @Autor: @Tobias Martinez Barrera
   @Autor: @Leydi Peña
-  @Autor: @Jonatha David Moreno Molina
+
   @Autor: @Maria Fernanda Alemam Ovalle
   @Creacion: 24/10/2023
   @Modificacion:
