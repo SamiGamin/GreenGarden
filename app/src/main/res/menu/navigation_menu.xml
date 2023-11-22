@@ -12,16 +12,14 @@
         android:id="@+id/cultivos"
         android:title="Mi Huerto" />
     <item
-        android:id="@+id/comu_even"
-        android:title="Noticias" />
-    <item
         android:id="@+id/consejos"
         android:title="Consejos" />
     <item
         android:id="@+id/estadisticas"
         android:title="Estadisticas" />
-    <item android:visible="true"
-        android:title=" " />
+    <item
+        android:id="@+id/comu_even"
+        android:title="Noticias" />
     <group android:id="@+id/personale"
         android:menuCategory="secondary"
         >
