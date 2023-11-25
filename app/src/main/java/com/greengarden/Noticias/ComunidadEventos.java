@@ -35,7 +35,7 @@ public class ComunidadEventos extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.comunidad_eventos);
+        setContentView(R.layout.noticias);
         //inicio menu
         menu = findViewById(R.id.btn_menu);
         menu.setOnClickListener(new View.OnClickListener() {
