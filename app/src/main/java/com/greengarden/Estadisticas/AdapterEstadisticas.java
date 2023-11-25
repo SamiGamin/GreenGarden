@@ -82,8 +82,8 @@ public class AdapterEstadisticas extends RecyclerView.Adapter<AdapterEstadistica
         int cantidadAgua = (int) Math.round(planta.getCantidad() * Double.parseDouble(planta.getCantidadagua()));
         int cantidadAbono = (int) Math.round(planta.getCantidad() * Double.parseDouble(planta.getCantidadabono()));
         // Muestra los totales de agua y abono
-        holder.Agua.setText("Cada ves que riaegas gastas: " + cantidadAgua + " mililitros");
-        holder.Abono.setText("Cada ves que abonas gastas: " + cantidadAbono + " gramos");
+        holder.Agua.setText("Cada vez que riegas gastas: " + cantidadAgua + " mililitros");
+        holder.Abono.setText("Cada vez que abonas gastas: " + cantidadAbono + " gramos");
 
     }
 
