@@ -17,9 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GreenGarden"
         tools:targetApi="31">
-        <activity
-            android:name=".Perfil.EditarPerfil"
-            android:exported="false" />
+        <meta-data
+            android:name="com.example.developer.name"
+            android:value="@string/desarolladores" />
+        <meta-data
+            android:name="com.example.developer.email"
+            android:value="GreenGarden@email.com" />
+
         <activity
             android:name=".Perfil.Perfil"
             android:exported="false" />
@@ -33,7 +37,7 @@
             android:name=".Inicio.RecuperarContrasena"
             android:exported="false" />
         <activity
-            android:name=".Noticias.ComunidadEventos"
+            android:name=".Noticias.Noticias"
             android:exported="false" />
         <activity
             android:name=".Consejos.Consejos"

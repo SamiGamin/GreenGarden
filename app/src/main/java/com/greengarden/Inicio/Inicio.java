@@ -13,7 +13,7 @@ import android.widget.ViewFlipper;
 import com.google.firebase.auth.FirebaseAuth;
 import com.greengarden.Consejos.Consejos;
 import com.greengarden.Estadisticas.Estadisticas;
-import com.greengarden.Noticias.ComunidadEventos;
+import com.greengarden.Noticias.Noticias;
 import com.greengarden.datos.AnimicionesInicios;
 import com.greengarden.R;
 import com.greengarden.Menu.MenuClickListener;
@@ -84,7 +84,7 @@ public class Inicio extends AppCompatActivity {
         ireventos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ComunidadEventos.class);
+                Intent intent = new Intent(getApplicationContext(), Noticias.class);
                 startActivity(intent);
             }
         });

@@ -23,7 +23,7 @@ import com.greengarden.Menu.MenuClickListener;
 
 import java.util.ArrayList;
 
-public class ComunidadEventos extends AppCompatActivity {
+public class Noticias extends AppCompatActivity {
     Button menu;
 
     private ProgressDialog progressDialog;
@@ -41,10 +41,10 @@ public class ComunidadEventos extends AppCompatActivity {
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(ComunidadEventos.this, v);
+                PopupMenu popupMenu = new PopupMenu(Noticias.this, v);
                 popupMenu.getMenuInflater().inflate(R.menu.navigation_menu, popupMenu.getMenu());
 
-                MenuClickListener menuClickListener = new MenuClickListener(ComunidadEventos.this);
+                MenuClickListener menuClickListener = new MenuClickListener(Noticias.this);
                 popupMenu.setOnMenuItemClickListener(menuClickListener);
 
                 popupMenu.show();

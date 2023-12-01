@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,7 +46,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Perfil extends AppCompatActivity {
 
-    private TextView Nombre, Apellidos, Email, vNombre, vApellidos, TextBiografia, vbiografia;
+    private TextView Nombre, Apellidos, Email, vNombre, vApellidos, TextBiografia, vbiografia, texEmail;
+    private LinearLayout Informacion, sobrenosotros;
     private EditText EdiNombre, EdiApellidos, EditBiografia;
     private Button Editardatos, Guardardatos, EditarImagen;
     private CircleImageView ImagePerfil;
@@ -74,6 +76,10 @@ public class Perfil extends AppCompatActivity {
         EditBiografia = findViewById(R.id.editbiografia);
         TextBiografia = findViewById(R.id.textbiografia);
         vbiografia = findViewById(R.id.vbiografia);
+        Informacion = findViewById(R.id.informacion);
+        sobrenosotros = findViewById(R.id.sobrenosotros);
+        texEmail=findViewById(R.id.textView15);
+
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -125,6 +131,12 @@ public class Perfil extends AppCompatActivity {
                modoedicion(); 
             }
         });
+        Informacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                verInformacio();
+            }
+        });
         Guardardatos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,6 +150,28 @@ public class Perfil extends AppCompatActivity {
                 cargarimagen();
             }
         });
+    }
+
+    private void verInformacio() {
+        Editardatos.setVisibility(View.GONE);
+        Nombre.setVisibility(View.GONE);
+        vNombre.setVisibility(View.GONE);
+        Apellidos.setVisibility(View.GONE);
+        vApellidos.setVisibility(View.GONE);
+        vbiografia.setVisibility(View.GONE);
+        EditarImagen.setVisibility(View.GONE);
+        Guardardatos.setVisibility(View.GONE);
+        EdiNombre.setVisibility(View.GONE);
+        EdiApellidos.setVisibility(View.GONE);
+        EditBiografia.setVisibility(View.GONE);
+        Email.setVisibility(View.GONE);
+        Informacion.setVisibility(View.GONE);
+        TextBiografia.setVisibility(View.GONE);
+        texEmail.setVisibility(View.GONE);
+
+        sobrenosotros.setVisibility(View.VISIBLE);
+
+
     }
 
     private void cargarimagen() {
@@ -238,6 +272,7 @@ public class Perfil extends AppCompatActivity {
         EdiNombre.setVisibility(View.VISIBLE);
         EdiApellidos.setVisibility(View.VISIBLE);
         EditBiografia.setVisibility(View.VISIBLE);
+        sobrenosotros.setVisibility(View.GONE);
 
         EdiNombre.setText(Nombre.getText().toString());
         EdiApellidos.setText(Apellidos.getText().toString());

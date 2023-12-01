@@ -4,7 +4,13 @@
     <string name="btningreso">Ingresar</string>
     <string name="registro">Registro</string>
     <string name="bienvenido">Bienvenido</string>
-    <string name="desarolladores">Salomon Martinez Barrera\nTobias Martinez Barrera\nLeydi Peña\nMaria Fernanda Alemam Ovalle\nWhastApp\n3028667672</string>
+    <string name="desarolladores">Salomon Martinez Barrera\nTobias Martinez Barrera\nLeydi Peña\nWhastApp\n3028667672</string>
+    <string name="desarrollado_y_dise_ado_por">Desarrollado y Diseñado por:</string>
+    <string name="guardar">guardar</string>
+    <string name="editar_datos">editar datos</string>
+    <string name="informaci_n">Información</string>
+    <string name="email">email</string>
+    <string name="email_">Email:</string>
     <string-array name="opciones">
         <item>Género</item>
         <item>Masculino</item>

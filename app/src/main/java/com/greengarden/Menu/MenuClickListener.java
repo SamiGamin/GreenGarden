@@ -13,7 +13,7 @@ import com.greengarden.Inicio.Inicio;
 import com.greengarden.Inicio.Login;
 import com.greengarden.Listadoplantas.CrearCultivo;
 import com.greengarden.Listadoplantas.MiHuerto;
-import com.greengarden.Noticias.ComunidadEventos;
+import com.greengarden.Noticias.Noticias;
 import com.greengarden.Perfil.Perfil;
 import com.greengarden.R;
 
@@ -56,7 +56,7 @@ public class MenuClickListener implements PopupMenu.OnMenuItemClickListener {
             return true;
         }
         if (id == R.id.comu_even) {
-            Intent eventos = new Intent(context, ComunidadEventos.class);
+            Intent eventos = new Intent(context, Noticias.class);
             context.startActivity(eventos);
             return true;
         }
