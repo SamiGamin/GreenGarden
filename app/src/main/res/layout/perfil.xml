@@ -251,9 +251,11 @@
 
         <LinearLayout
             android:id="@+id/informacion"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-           android:layout_marginTop="@dimen/md_lg"
+            android:layout_gravity="center"
+           android:layout_marginTop="@dimen/x_lg"
             android:orientation="horizontal">
 
             <TextView
@@ -262,9 +264,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/informaci_n"
-                android:textColor="#000000"
+                android:textColor="#282D75"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="italic" />
         </LinearLayout>
 
 
