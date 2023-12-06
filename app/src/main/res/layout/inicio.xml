@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="@string/app_name"
+            android:fontFamily="@font/chunk_five_print"
             android:textColor="@color/white"
             android:textSize="32sp"
             android:textStyle="bold" />
@@ -48,7 +49,9 @@
         app:layout_constraintTop_toBottomOf="@+id/barraprincipal">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/lg"
+            android:layout_marginBottom="@dimen/lg"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
@@ -77,13 +80,15 @@
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/agregarcultivo" />
+                            android:src="@drawable/agregarcultivo"
+                            android:importantForAccessibility="no" />
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/agregarcultivo2" />
+                            android:src="@drawable/agregarcultivo2"
+                            android:importantForAccessibility="no" />
 
 
                     </ViewFlipper>
@@ -92,12 +97,13 @@
                         android:id="@+id/cultivos"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
                         android:background="@color/fondotexto"
-                        android:text="Crear Huerto"
+                        android:fontFamily="@font/chunkfive_regular"
+                        android:gravity="center"
+                        android:text="@string/crear_huerto"
                         android:textColor="@color/white"
                         android:textSize="30sp"
-                        android:textStyle="bold" />
+                        android:textStyle="normal" />
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -122,25 +128,28 @@
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/cultivo" />
+                        android:src="@drawable/cultivo"
+                        android:importantForAccessibility="no" />
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/cultivo1" />
+                        android:src="@drawable/cultivo1"
+                        android:importantForAccessibility="no" />
                 </ViewFlipper>
 
                 <TextView
                     android:id="@+id/cuidaos"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
                     android:background="@color/fondotexto"
-                    android:text="Mi Huerto"
+                    android:fontFamily="@font/chunk_five_print"
+                    android:gravity="center"
+                    android:text="@string/mi_huerto"
                     android:textColor="@color/white"
                     android:textSize="30sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -163,13 +172,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/consejos" />
+                        android:src="@drawable/consejos"
+                        android:importantForAccessibility="no" />
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/consejos1" />
+                        android:src="@drawable/consejos1"
+                        android:importantForAccessibility="no" />
 
 
                 </ViewFlipper>
@@ -178,12 +189,13 @@
                     android:id="@+id/consejos"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
                     android:background="@color/fondotexto"
-                    android:text="Consejos"
+                    android:fontFamily="@font/chunk_five_print"
+                    android:gravity="center"
+                    android:text="@string/consejos"
                     android:textColor="@color/white"
                     android:textSize="30sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -206,13 +218,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/estadisticas" />
+                        android:src="@drawable/estadisticas"
+                        android:importantForAccessibility="no" />
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/estadisticas1" />
+                        android:src="@drawable/estadisticas1"
+                        android:importantForAccessibility="no" />
 
                 </ViewFlipper>
 
@@ -220,12 +234,13 @@
                     android:id="@+id/estadisticas"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
                     android:background="@color/fondotexto"
-                    android:text="Estadisticas"
+                    android:fontFamily="@font/chunk_five_print"
+                    android:gravity="center"
+                    android:text="@string/estadisticas"
                     android:textColor="@color/white"
                     android:textSize="30sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -248,25 +263,28 @@
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/noticias" />
+                        android:src="@drawable/noticias"
+                        android:importantForAccessibility="no" />
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/noticias1" />
+                        android:src="@drawable/noticias1"
+                        android:importantForAccessibility="no" />
                 </ViewFlipper>
 
                 <TextView
                     android:id="@+id/noticias"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
                     android:background="@color/fondotexto"
-                    android:text="Noticias"
+                    android:fontFamily="@font/chunk_five_print"
+                    android:gravity="center"
+                    android:text="@string/noticias"
                     android:textColor="@color/white"
                     android:textSize="30sp"
-                    android:textStyle="bold" />
+                    android:textStyle="normal" />
             </androidx.cardview.widget.CardView>
 
 
@@ -288,7 +306,8 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/banerpublicidad" />
+            android:src="@drawable/banerpublicidad"
+            android:importantForAccessibility="no" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
