@@ -11,6 +11,11 @@
     <string name="informaci_n">¡Información¡</string>
     <string name="email">email</string>
     <string name="email_">Email:</string>
+    <string name="crear_huerto">Crear Huerto</string>
+    <string name="mi_huerto">Mi Huerto</string>
+    <string name="estadisticas">Estadisticas</string>
+    <string name="noticias">Noticias</string>
+    <string name="consejos">Consejos</string>
     <string-array name="opciones">
         <item>Género</item>
         <item>Masculino</item>
